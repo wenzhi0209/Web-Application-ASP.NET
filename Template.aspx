@@ -9,6 +9,7 @@
     <script src="Layout.js"></script>
 </head>
 <body>
+     <!-- Top Bar -->
     <div id="topBar">
         <img href="#" src="logo-social.png" id="logo_Img" onclick="clear()" />
         <div id='back' onclick="navM()">
@@ -26,12 +27,18 @@
         </div>
     </div>
 
+    <!-- Contain -->
+
     <form id="form1" runat="server">
         <div>
             <div id="sample"></div>
         </div>
     </form>
 
+    <!-- Contain -->
+
+
+    <!-- Bottom Bar-->
     <div id="bottomBar">
         <p id="copy">Copyright © 2019. Something PTE. LTD. (201834583-Z). All Rights Reserved.</p>
     </div>
