@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="customer_Loged.Master.cs" Inherits="Assignment_Template.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="Layout.css" />
+    <script src="/Master_Page/Layout.js"></script>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <!-- Top Bar -->
+            <div id="topBar">
+                <img src="/Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
+                <div id='back' onclick="navM()">
+                    <nav id="topNav">
+                        <a>Profile</a>
+                        <a href="Customer_gallery_view.aspx">Gallery</a>
+                        <a href="ShopingCart.aspx">Shoping Cart</a>
+                    </nav>
+                </div>
+                <div id='icon' onclick="navM()">
+                    <div id='line1'></div>
+                    <div id='line2'></div>
+                    <div id='line3'></div>
+                </div>
+            </div>
+            
+            <!--Contain-->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+       
+
+            <!-- Bottom Bar-->
+            <div id="bottomBar">
+                <p id="copy">Copyright © 2019. Something PTE. LTD. (201834583-Z). All Rights Reserved.</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

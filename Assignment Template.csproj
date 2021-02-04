@@ -67,23 +67,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Art_detail.aspx" />
     <Content Include="Customer_gallery_view.aspx" />
-    <Content Include="Homepage res\A-TEST.jpg" />
-    <Content Include="Homepage res\add_shopping_cart-24px.svg" />
-    <Content Include="Homepage res\B-TEST.jpg" />
-    <Content Include="Homepage res\C-TEST.jpg" />
-    <Content Include="Homepage res\favorite_border-24px.svg" />
-    <Content Include="Homepage res\homepage.css" />
-    <Content Include="Homepage res\D-TEST.jpg" />
-    <Content Include="Homepage res\E-TEST.jpg" />
-    <Content Include="Template.html" />
-    <Content Include="Layout.js" />
-    <Content Include="logo-social.png" />
-    <Content Include="Layout.css" />
+    <Content Include="Customer_gallery_view res\A-TEST.jpg" />
+    <Content Include="Customer_gallery_view res\add_shopping_cart-24px.svg" />
+    <Content Include="Customer_gallery_view res\B-TEST.jpg" />
+    <Content Include="Customer_gallery_view res\C-TEST.jpg" />
+    <Content Include="Customer_gallery_view res\favorite_border-24px.svg" />
+    <Content Include="Customer_gallery_view res\homepage.css" />
+    <Content Include="Customer_gallery_view res\D-TEST.jpg" />
+    <Content Include="Customer_gallery_view res\E-TEST.jpg" />
+    <Content Include="ShopingCart.aspx" />
+    <Content Include="Master_Page\Layout.js" />
+    <Content Include="Master_Page\logo-social.png" />
+    <Content Include="Master_Page\Layout.css" />
     <Content Include="Web.config" />
     <Content Include="Template.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Art_detail.aspx.cs">
+      <DependentUpon>Art_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Art_detail.aspx.designer.cs">
+      <DependentUpon>Art_detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer_gallery_view.aspx.cs">
       <DependentUpon>Customer_gallery_view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -92,6 +100,20 @@
       <DependentUpon>Customer_gallery_view.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopingCart.aspx.cs">
+      <DependentUpon>ShopingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShopingCart.aspx.designer.cs">
+      <DependentUpon>ShopingCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Page\customer_Loged.Master.cs">
+      <DependentUpon>customer_Loged.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Page\customer_Loged.Master.designer.cs">
+      <DependentUpon>customer_Loged.Master</DependentUpon>
+    </Compile>
     <Compile Include="Template.aspx.cs">
       <DependentUpon>Template.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -102,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Master_Page\customer_Loged.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -109,7 +132,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Art_detail res\" />
+    <Folder Include="ShopingCart res\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

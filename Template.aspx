@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link rel="stylesheet" href="Layout.css" />
-    <script src="Layout.js"></script>
+    <link rel="stylesheet" href="Master_Page/Layout.css" />
+    <script src="Master_Page/Layout.js"></script>
 </head>
 <body>
      <!-- Top Bar -->
     <div id="topBar">
-        <img href="#" src="logo-social.png" id="logo_Img" onclick="clear()" />
+        <img href="#" src="Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
         <div id='back' onclick="navM()">
             <nav id="topNav">
                 <a>Home</a>

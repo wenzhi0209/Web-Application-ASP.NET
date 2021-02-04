@@ -11,7 +11,7 @@ namespace Assignment_Template
 {
 
 
-    public partial class Customer_gallery_view
+    public partial class Art_detail
     {
     }
 }
