@@ -1,0 +1,59 @@
+﻿#art_Gallery {
+    width: 84%;
+    margin: 0 auto;
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    align-content: flex-start;
+}
+
+.artBox{
+    position:relative;
+    margin:8px 8px;
+}
+
+.artBox img {
+    width:auto;
+    height:280px;
+}
+
+.buttonCon {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.ctrlBtn {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: lightgray;
+    box-sizing: border-box;
+}
+.ctrlBtn img{
+    width:80%;
+    height:80%;
+    
+}
+
+.artTitle{
+    margin:0;
+    font-size:13px;
+    font-weight:bold;
+}
+.artist {
+    margin: 0;
+    font-size: 13px;
+}
+.price {
+    margin: 0;
+    font-size: 13px;
+}
+
+

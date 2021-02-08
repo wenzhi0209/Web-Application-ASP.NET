@@ -67,16 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
     <Content Include="Art_detail.aspx" />
     <Content Include="Customer_gallery_view.aspx" />
-    <Content Include="Customer_gallery_view res\A-TEST.jpg" />
-    <Content Include="Customer_gallery_view res\add_shopping_cart-24px.svg" />
-    <Content Include="Customer_gallery_view res\B-TEST.jpg" />
-    <Content Include="Customer_gallery_view res\C-TEST.jpg" />
-    <Content Include="Customer_gallery_view res\favorite_border-24px.svg" />
-    <Content Include="Customer_gallery_view res\homepage.css" />
-    <Content Include="Customer_gallery_view res\D-TEST.jpg" />
-    <Content Include="Customer_gallery_view res\E-TEST.jpg" />
+    <Content Include="Img\Customer_gallery_view res\A-TEST.jpg" />
+    <Content Include="Img\Customer_gallery_view res\add_shopping_cart-24px.svg" />
+    <Content Include="Img\Customer_gallery_view res\B-TEST.jpg" />
+    <Content Include="Img\Customer_gallery_view res\C-TEST.jpg" />
+    <Content Include="Img\Customer_gallery_view res\favorite_border-24px.svg" />
+    <Content Include="Img\Customer_gallery_view res\homepage.css" />
+    <Content Include="Img\Customer_gallery_view res\D-TEST.jpg" />
+    <Content Include="Img\Customer_gallery_view res\E-TEST.jpg" />
     <Content Include="ShopingCart.aspx" />
     <Content Include="Master_Page\Layout.js" />
     <Content Include="Master_Page\logo-social.png" />
@@ -132,10 +136,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Art_detail res\" />
-    <Folder Include="ShopingCart res\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
