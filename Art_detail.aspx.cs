@@ -10,6 +10,7 @@ namespace Assignment_Template
 {
     public partial class Art_detail : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             DataSourceSelectArguments args = new DataSourceSelectArguments();
@@ -21,5 +22,10 @@ namespace Assignment_Template
             Image_Desc.Text= dt.Rows[0][3].ToString();
             Image_Price.Text= dt.Rows[0][4].ToString();
         }
+
+       
+
+
+        
     }
 }

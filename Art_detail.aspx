@@ -55,13 +55,13 @@
                     <asp:ImageButton ID="Add_to_FL" runat="server" ImageUrl="~/Img/Customer_gallery_view res/favorite_border-24px.svg" />
                 </div>
             </div>
-            
         </div>
+       
     
     
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Art] WHERE ([art_Id] = @art_Id)">
         <SelectParameters>
-            <asp:Parameter DefaultValue="1" Name="art_Id" Type="Int32" />
+            <asp:QueryStringParameter Name="art_Id" QueryStringField="para" Type="Int32" />
         </SelectParameters>
         </asp:SqlDataSource>
 
