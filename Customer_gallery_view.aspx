@@ -2,7 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Gallery View</title>
-    <link rel="stylesheet" href="Img/Customer_gallery_view res/homepage.css" />
+    <link rel="stylesheet" href="StyleSheet/gallery_view.css" />
 
     <style type="text/css">
         .auto-style1 {
@@ -17,30 +17,52 @@
        
 
     <div id="art_Gallery">
+        
+        <asp:PlaceHolder ID="PlaceHolder1" runat="server">
+            <div class="artBox">
+                <a href="Art_detail.aspx?para=3">
+                <img src="Img/Customer_gallery_view res/B-TEST.jpg"/>
+                </a>
+                <div class="buttonCon">
+                    <div class="ctrlBtn"><img src="Img/Customer_gallery_view res/favorite_border-24px.svg" /></div>
+                    <div class="ctrlBtn"><img src="Img/Customer_gallery_view res/add_shopping_cart-24px.svg" /></div>
+                </div>
+                <p class="artTitle">No title for this ark</p>
+                <p class="artist">Unknown</p>
+                <p class="price">RM 18</p>
+            </div>
+            
 
-        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="art_Id" DataSourceID="SqlDataSource1" PageSize="2">
-            <Columns>
-                <asp:BoundField DataField="art_Title" HeaderText="art_Title" SortExpression="art_Title" />
-                <asp:TemplateField HeaderText="art_Img" SortExpression="art_Img">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("art_Img") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <a href='Art_detail.aspx?para=<%# Eval("art_Id")%>'>
-                        <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("art_Img") %>' Width="200px"></asp:Image>
-                        </a>                 
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="art_Price" HeaderText="art_Price" SortExpression="art_Price" />
-                <asp:BoundField DataField="art_Author" HeaderText="art_Author" SortExpression="art_Author" />
+
+        </asp:PlaceHolder>
+
+        
+        
+        <!--
+            <div class="artBox">
+                <img src="Img/Customer_gallery_view res/B-TEST.jpg"/>
                 
-            </Columns>
-        </asp:GridView>
+                <div class="buttonCon">
+                    <div class="ctrlBtn"><img src="Img/Customer_gallery_view res/favorite_border-24px.svg" /></div>
+                    <div class="ctrlBtn"><img src="Img/Customer_gallery_view res/add_shopping_cart-24px.svg" /></div>
+                </div>
+                <p class="artTitle">No title for this ark</p>
+                <p class="artist">Unknown</p>
+                <p class="price">RM 18</p>
+            </div>
+            <asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="Img/Customer_gallery_view res/A-TEST.jpg" NavigateUrl="~/Art_detail.aspx"></asp:HyperLink>
+        <div class="artBox"><img src="Img/Customer_gallery_view res/B-TEST.jpg"/></div>
+        <div class="artBox"><img src="Img/Customer_gallery_view res/C-TEST.jpg"/></div>
+        <div class="artBox"><img src="Img/Customer_gallery_view res/B-TEST.jpg"/></div>
+        <div class="artBox"><img src="Img/Customer_gallery_view res/A-TEST.jpg"/></div>
+        <div class="artBox"><img src="Img/Customer_gallery_view res/C-TEST.jpg"/></div>
+        <div class="artBox"><img src="Img/Customer_gallery_view res/A-TEST.jpg"/></div>
+        <div class="artBox"><img src="Img/Customer_gallery_view res/D-TEST.jpg"/></div>
+        <div class="artBox"><img src="Img/Customer_gallery_view res/E-TEST.jpg"/></div>
+        -->
         
     </div>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Art]"></asp:SqlDataSource>
-
-   
+  
 
 </asp:Content>
 

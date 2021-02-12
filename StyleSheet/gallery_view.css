@@ -16,6 +16,7 @@
 }
 
 .artBox img {
+    display:block;
     width:auto;
     height:280px;
 }
