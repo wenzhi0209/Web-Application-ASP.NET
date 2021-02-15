@@ -23,30 +23,36 @@ namespace Assignment_Template
             string imgPath;
             string artTitle;
             string price;
-            string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+            string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString+";integrated security = true; MultipleActiveResultSets = true";
             connDb = new SqlConnection(strConn);
             connDb.Open();
 
             string strSelect = "Select * from Art";
             SqlCommand cmdSelect = new SqlCommand(strSelect,connDb);
             SqlDataReader artList = cmdSelect.ExecuteReader();
+            
 
             if(artList.HasRows)
             {
                 while(artList.Read())
                 {
+                    string strAutName = "Select author_Name from Author where author_Id =@id";
+                    SqlCommand cmdSelect2 = new SqlCommand(strAutName, connDb);
+                    cmdSelect2.Parameters.AddWithValue("@id", artList["author_Id"]);
+                    string authorName = (string)cmdSelect2.ExecuteScalar();
+
                     imgPath = artList["art_Img"].ToString();
                     artTitle= artList["art_Title"].ToString();
                     price= artList["art_Price"].ToString();
-                    generateContainer(imgPath,artTitle,price);
+                    generateContainer(imgPath,artTitle,price,authorName);
                 }
             }
-           
+            connDb.Close();
         }
 
 
 
-        protected void generateContainer(string imgPath, string artTitle, string price)
+        protected void generateContainer(string imgPath, string artTitle, string price,string author)
         {
             string testdiv =
                "<img src=\""+imgPath+"\"/>" +
@@ -55,7 +61,7 @@ namespace Assignment_Template
                "<div class=\"ctrlBtn\"><img src = \"Img/Icon/add_shopping_cart-24px.svg\" /></div >" +
                "</div>" +
                "<p class=\"artTitle\">" + artTitle + "</p>" +
-               "<p class=\"artist\">Unknown</p>" +
+               "<p class=\"artist\">" + author + "</p>" +
                "<p class=\"price\">RM 18</p>";
 
             HtmlGenericControl newdiv = new HtmlGenericControl("div");
