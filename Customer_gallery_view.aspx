@@ -19,32 +19,20 @@
     <div id="art_Gallery">
         
         <asp:PlaceHolder ID="PlaceHolder1" runat="server">
-            <div class="artBox">
-                <a href="Art_detail.aspx?para=3">
-                <img src="Img/Customer_gallery_view res/B-TEST.jpg"/>
-                </a>
-                <div class="buttonCon">
-                    <div class="ctrlBtn"><img src="Img/Customer_gallery_view res/favorite_border-24px.svg" /></div>
-                    <div class="ctrlBtn"><img src="Img/Customer_gallery_view res/add_shopping_cart-24px.svg" /></div>
-                </div>
-                <p class="artTitle">No title for this ark</p>
-                <p class="artist">Unknown</p>
-                <p class="price">RM 18</p>
-            </div>
             
-
-
+            
         </asp:PlaceHolder>
 
         
         
         <!--
-            <div class="artBox">
+           <div class="artBox">
+                <a href="Art_detail.aspx?para=1">
                 <img src="Img/Customer_gallery_view res/B-TEST.jpg"/>
-                
+                </a>
                 <div class="buttonCon">
-                    <div class="ctrlBtn"><img src="Img/Customer_gallery_view res/favorite_border-24px.svg" /></div>
-                    <div class="ctrlBtn"><img src="Img/Customer_gallery_view res/add_shopping_cart-24px.svg" /></div>
+                    <div class="ctrlBtn"><img src="Img/Icon/favorite_border-24px.svg" /></div>
+                    <div class="ctrlBtn"><img src="Img/Icon/add_shopping_cart-24px.svg" /></div>
                 </div>
                 <p class="artTitle">No title for this ark</p>
                 <p class="artist">Unknown</p>

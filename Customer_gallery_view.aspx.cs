@@ -14,51 +14,72 @@ namespace Assignment_Template
 {
     public partial class Customer_gallery_view : System.Web.UI.Page
     {
+        int page_size = 2;
         
-       
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Create sql connection
             SqlConnection connDb;
+            string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
+            connDb = new SqlConnection(strConn);
+
+            int RecordCount = countRec("Art",connDb); 
+            int PageCount = 0;   
+            int CurrentPage = 1;
+            PageCount = RecordCount / page_size; //计算总共有多少页 取整
+            if (RecordCount % page_size > 0)
+            {
+                PageCount = PageCount + 1;    //如果不整除则加一页来显示除后剩余记录
+            }
+
+            getData(connDb);
+
+        }
+
+
+        protected void getData(SqlConnection connDb)
+        {
+            //where (art_Id not in select top 0 art_Id from Art ORDER BY art_Id) ORDER BY art_Id
+            //Create sql connection
+           
+            string id;
             string imgPath;
             string artTitle;
             string price;
-            string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString+";integrated security = true; MultipleActiveResultSets = true";
-            connDb = new SqlConnection(strConn);
             connDb.Open();
 
-            string strSelect = "Select * from Art";
-            SqlCommand cmdSelect = new SqlCommand(strSelect,connDb);
+            string strSelect = "Select TOP " +page_size+ " * from Art" +
+                " where art_Id not in (select top 0 art_Id from Art ORDER BY art_Id)" +
+                " ORDER BY art_Id";
+            SqlCommand cmdSelect = new SqlCommand(strSelect, connDb);
             SqlDataReader artList = cmdSelect.ExecuteReader();
-            
 
-            if(artList.HasRows)
+            if (artList.HasRows)
             {
-                while(artList.Read())
+                while (artList.Read())
                 {
                     string strAutName = "Select author_Name from Author where author_Id =@id";
                     SqlCommand cmdSelect2 = new SqlCommand(strAutName, connDb);
                     cmdSelect2.Parameters.AddWithValue("@id", artList["author_Id"]);
                     string authorName = (string)cmdSelect2.ExecuteScalar();
 
+                    id = artList["art_Id"].ToString();
                     imgPath = artList["art_Img"].ToString();
-                    artTitle= artList["art_Title"].ToString();
-                    price= artList["art_Price"].ToString();
-                    generateContainer(imgPath,artTitle,price,authorName);
+                    artTitle = artList["art_Title"].ToString();
+                    price = artList["art_Price"].ToString();
+                    generateContainer(id, imgPath, artTitle, price, authorName);
                 }
             }
             connDb.Close();
         }
 
-
-
-        protected void generateContainer(string imgPath, string artTitle, string price,string author)
+        protected void generateContainer(string id,string imgPath, string artTitle, string price,string author)
         {
             string testdiv =
-               "<img src=\""+imgPath+"\"/>" +
+               "<a href=\"Art_detail.aspx?para="+ id +"\">" +
+               "<img src=\"" +imgPath+ "\"/></a>" +
                "<div class=\"buttonCon\">" +
-               "<div class=\"ctrlBtn\"><img src = \"Img/Icon/favorite_border-24px.svg\"/></div >" +
-               "<div class=\"ctrlBtn\"><img src = \"Img/Icon/add_shopping_cart-24px.svg\" /></div >" +
+               "<div class=\"ctrlBtn\"><img src = \"Img/Icon/favorite_border-24px.svg\"/></div>" +
+               "<div class=\"ctrlBtn\"><img src = \"Img/Icon/add_shopping_cart-24px.svg\" /></div>" +
                "</div>" +
                "<p class=\"artTitle\">" + artTitle + "</p>" +
                "<p class=\"artist\">" + author + "</p>" +
@@ -70,10 +91,20 @@ namespace Assignment_Template
             PlaceHolder1.Controls.Add(newdiv);
         }
 
-        protected void Button1_Click1(object sender, EventArgs e)
+        protected int countRec(string table,SqlConnection connDb)
         {
-           
-        }
+            connDb.Open();
 
+            int intCount = 0;
+            string sql = "select count(*) from " + table;
+            SqlCommand cmd = new SqlCommand(sql, connDb);
+            SqlDataReader countRead = cmd.ExecuteReader();
+            if (countRead.Read())
+            {
+                intCount = Int32.Parse(countRead[0].ToString());
+            }
+            connDb.Close();
+            return intCount;
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Assignment_Template
             Image_Disp.ImageUrl = dt.Rows[0][2].ToString();
             Image_Title.Text = dt.Rows[0][1].ToString();
             Image_Desc.Text= dt.Rows[0][3].ToString();
-            Image_Price.Text= dt.Rows[0][4].ToString();
+            Image_Price.Text= "RM "+dt.Rows[0][4].ToString();
         }
 
        
