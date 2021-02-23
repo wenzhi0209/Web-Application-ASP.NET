@@ -10,10 +10,33 @@ using System.Configuration;
 
 namespace Assignment_Template
 {
+
     public partial class ShopingCart : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "update")//如果点击的是被标记为CommandName="update"的按钮，也就是修改按钮
+            {
+                int id = int.Parse(e.CommandArgument.ToString().Split(',')[0]);//这里还真必须用单引号来表示字符，而不是""的字符串~，C#的Split就一个以字符，而不是字符串参数的代码
+                int itemIndex = int.Parse(e.CommandArgument.ToString().Split(',')[1]);//藏在CommandArgument='<%#Eval("id")+","+(Container as RepeaterItem).ItemIndex%>'逗号后面的参数就是该行行号
+                TextBox TextBox1 = Repeater1.Items[itemIndex].FindControl("TextBox1") as TextBox;//获得改行的TextBox1
+                Label2.Text = TextBox1.Text.ToString();
+                SqlDataSource1.UpdateParameters["qty"].DefaultValue="2";
+                SqlDataSource1.UpdateParameters["cItem_Id"].DefaultValue =id.ToString();
+                SqlDataSource1.Update();
+            }
+        }
+    }
+    }
+
+
+/*
+ 
             SqlConnection connDb;
             string art_id;
             string qty;
@@ -40,14 +63,8 @@ namespace Assignment_Template
                 }
             }
             connDb.Close();
+ */
 
-
-
-
-            //string strSelect = "Select * from Art where art_Id =@id";
-            //SqlCommand cmdSelect = new SqlCommand(strSelect, connDb);
-            //cmdSelect.Parameters.AddWithValue("@id", art_id);
-
-        }
-    }
-}
+/*
+     
+ */   

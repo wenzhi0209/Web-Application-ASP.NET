@@ -25,10 +25,10 @@ namespace Assignment_Template
             int RecordCount = countRec("Art",connDb); 
             int PageCount = 0;   
             int CurrentPage = 1;
-            PageCount = RecordCount / page_size; //计算总共有多少页 取整
+            PageCount = RecordCount / page_size; 
             if (RecordCount % page_size > 0)
             {
-                PageCount = PageCount + 1;    //如果不整除则加一页来显示除后剩余记录
+                PageCount = PageCount + 1;    
             }
 
             getData(connDb);
