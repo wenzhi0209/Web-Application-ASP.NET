@@ -24,13 +24,13 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.Repeater Repeater1;
 
         /// <summary>
-        /// Label2 control.
+        /// PlaceOBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Button PlaceOBtn;
 
         /// <summary>
         /// SqlDataSource1 control.

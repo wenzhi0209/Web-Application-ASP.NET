@@ -14,33 +14,35 @@ namespace Assignment_Template
 {
     public partial class Customer_gallery_view : System.Web.UI.Page
     {
-        int page_size = 2;
-        
+        public static int page_size =4 ;
+        public static int PageCount;
+        public static int CurrentPage = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection connDb;
-            string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
-            connDb = new SqlConnection(strConn);
-
-            int RecordCount = countRec("Art",connDb); 
-            int PageCount = 0;   
-            int CurrentPage = 1;
-            PageCount = RecordCount / page_size; 
-            if (RecordCount % page_size > 0)
+            if(!IsPostBack)
             {
-                PageCount = PageCount + 1;    
+                SqlConnection connDb;
+                string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
+                connDb = new SqlConnection(strConn);
+                int RecordCount = countRec("Art", connDb);
+                PageCount = RecordCount / page_size;
+                if (RecordCount % page_size > 0)
+                {
+                    PageCount = PageCount + 1;
+                }
+                getData();
             }
-
-            getData(connDb);
+           
 
         }
 
 
-        protected void getData(SqlConnection connDb)
+        protected void getData()
         {
-            //where (art_Id not in select top 0 art_Id from Art ORDER BY art_Id) ORDER BY art_Id
-            //Create sql connection
-           
+            SqlConnection connDb;
+            string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
+            connDb = new SqlConnection(strConn);
+            int currentItem=(CurrentPage-1)*page_size;
             string id;
             string imgPath;
             string artTitle;
@@ -48,7 +50,7 @@ namespace Assignment_Template
             connDb.Open();
 
             string strSelect = "Select TOP " +page_size+ " * from Art" +
-                " where art_Id not in (select top 0 art_Id from Art ORDER BY art_Id)" +
+                " where art_Id not in (select top "+currentItem +" art_Id from Art ORDER BY art_Id)" +
                 " ORDER BY art_Id";
             SqlCommand cmdSelect = new SqlCommand(strSelect, connDb);
             SqlDataReader artList = cmdSelect.ExecuteReader();
@@ -70,20 +72,22 @@ namespace Assignment_Template
                 }
             }
             connDb.Close();
+            
+           
         }
 
         protected void generateContainer(string id,string imgPath, string artTitle, string price,string author)
         {
             string testdiv =
-               "<a href=\"Art_detail.aspx?para="+ id +"\">" +
-               "<img src=\"" +imgPath+ "\"/></a>" +
+               "<a href=\"Art_detail.aspx?para=" + id + "\">" +
+               "<img src=\"" + imgPath + "\"/></a>" +
                "<div class=\"buttonCon\">" +
                "<div class=\"ctrlBtn\"><img src = \"Img/Icon/favorite_border-24px.svg\"/></div>" +
                "<div class=\"ctrlBtn\"><img src = \"Img/Icon/add_shopping_cart-24px.svg\" /></div>" +
                "</div>" +
                "<p class=\"artTitle\">" + artTitle + "</p>" +
                "<p class=\"artist\">" + author + "</p>" +
-               "<p class=\"price\">RM 18</p>";
+               "<p class=\"price\">" + price + "</p>";
 
             HtmlGenericControl newdiv = new HtmlGenericControl("div");
             newdiv.Attributes.Add("Class", "artBox");
@@ -105,6 +109,32 @@ namespace Assignment_Template
             }
             connDb.Close();
             return intCount;
+        }
+
+        protected void NextBtn_Click(object sender, ImageClickEventArgs e)
+        {
+            if (CurrentPage < PageCount)
+            {
+                CurrentPage++;
+                if (CurrentPage == PageCount)
+                    NextBtn.Visible = false;
+                getData();
+                PreviousBtn.Visible = true;
+            }
+           
+        }
+
+        protected void PreviousBtn_Click(object sender, ImageClickEventArgs e)
+        {
+            if (CurrentPage != 1)
+            {
+                CurrentPage--;
+                if (CurrentPage == 1)
+                    PreviousBtn.Visible = false;
+                getData();
+                NextBtn.Visible = true;
+            }
+           
         }
     }
 }

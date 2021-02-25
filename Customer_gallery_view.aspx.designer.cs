@@ -15,6 +15,15 @@ namespace Assignment_Template
     {
 
         /// <summary>
+        /// PreviousBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton PreviousBtn;
+
+        /// <summary>
         /// PlaceHolder1 control.
         /// </summary>
         /// <remarks>
@@ -24,12 +33,12 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
 
         /// <summary>
-        /// HyperLink1 control.
+        /// NextBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.ImageButton NextBtn;
     }
 }

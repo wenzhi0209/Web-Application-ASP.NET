@@ -56,17 +56,18 @@
                 </HeaderTemplate>
                 <ItemTemplate>
                      <tr>
-                        <td class="select_con"><asp:CheckBox ID="CheckBox2" runat="server" /></td>
+                        <td class="select_con">
+                            <asp:CheckBox ID="CheckBox2" runat="server" Checked='<%#Convert.ToBoolean(Eval("check_Sta"))%>' /></td>
                         <td class="art_con">
                             <%#Eval("art_Title")%>
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Bind("art_Img") %>' Width="100px"></asp:Image>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("art_Img") %>' Width="100px"></asp:Image>
                         </td>
                         <td class="price_con">
                             <%#Eval("art_Price")%>
                         </td>
 
                         <td class="qty_con">
-                            <asp:TextBox ID="TextBox1" runat="server" TextMode="Number" Text='<%#Bind("qty") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" runat="server" TextMode="Number" Text='<%#Bind("qty") %>' OnTextChanged="TextBox1_TextChanged" AutoPostBack="True"></asp:TextBox>
                         </td>
                         <td class="total_con">
                             <asp:Label ID="Label1" runat="server" Text="19.99"></asp:Label>
@@ -79,12 +80,12 @@
                     </table>
                 </FooterTemplate>
             </asp:Repeater>
-
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            
+            <asp:Button ID="PlaceOBtn" runat="server" Text="CheckOut" PostBackUrl="~/Checkout.aspx" />
         </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-        SelectCommand="SELECT Cart_Item.cItem_Id, Cart_Item.art_Id, Cart_Item.qty, Art.art_Title, Art.art_Img, Art.art_Price FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id" 
+        SelectCommand="SELECT Cart_Item.cItem_Id, Cart_Item.art_Id, Cart_Item.qty, Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS subtotal, Cart_Item.check_Sta FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id" 
         UpdateCommand="UPDATE Cart_Item SET qty = @qty where cItem_Id=@cItem_Id">
         <UpdateParameters>
             <asp:Parameter Name="qty" />

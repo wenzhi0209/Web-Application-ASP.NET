@@ -1,0 +1,16 @@
+<svg width="320" height="90" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <filter id="svg_1_blur" x="-50%" y="-50%" width="200%" height="200%">
+   <feGaussianBlur stdDeviation="0"/>
+  </filter>
+ </defs>
+ <g stroke="null">
+  <title>background</title>
+  <rect x="-1" y="-1" width="322" height="92" id="canvas_background" fill="none" stroke="null"/>
+ </g>
+ <g stroke="null">
+  <title>Layer 1</title>
+  <path stroke="#000" fill="#2baee2" stroke-opacity="null" opacity="undefined" d="m155.24767,45.00002l47.06013,-95.40061l-84.61561,95.40061l84.61561,95.40056l-47.06013,-95.40056z" id="svg_1" transform="rotate(90 160.00000000000003,45.000000000000014) " filter="url(#svg_1_blur)" stroke-width="0"/>
+ </g>
+</svg>

@@ -3,54 +3,42 @@
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Gallery View</title>
     <link rel="stylesheet" href="StyleSheet/gallery_view.css" />
-
     <style type="text/css">
-        .auto-style1 {
-            margin-bottom: 0px;
+        .arrowDown{
+            display:block;
+            margin:10px auto;
+            width:250px;
+            height:30px;
         }
-    </style>
 
-</asp:Content>
+        .arrowUp{
+            display:block;
+            margin:10px auto;
+            width:250px;
+            height:30px;
+        }
+
+    </style>
+    </asp:Content>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
        
+    <div id="gallery_Container">
+        <asp:ImageButton ID="PreviousBtn" runat="server" ImageUrl="~/Img/Icon/arrow_up.svg" OnClick="PreviousBtn_Click" CssClass="arrowUp" Visible="False" ImageAlign="Middle" />
 
-    <div id="art_Gallery">
+            <div id="art_Gallery">
         
-        <asp:PlaceHolder ID="PlaceHolder1" runat="server">
+                <asp:PlaceHolder ID="PlaceHolder1" runat="server">
             
             
-        </asp:PlaceHolder>
-
+                </asp:PlaceHolder>
         
-        
-        <!--
-           <div class="artBox">
-                <a href="Art_detail.aspx?para=1">
-                <img src="Img/Customer_gallery_view res/B-TEST.jpg"/>
-                </a>
-                <div class="buttonCon">
-                    <div class="ctrlBtn"><img src="Img/Icon/favorite_border-24px.svg" /></div>
-                    <div class="ctrlBtn"><img src="Img/Icon/add_shopping_cart-24px.svg" /></div>
-                </div>
-                <p class="artTitle">No title for this ark</p>
-                <p class="artist">Unknown</p>
-                <p class="price">RM 18</p>
+       
             </div>
-            <asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="Img/Customer_gallery_view res/A-TEST.jpg" NavigateUrl="~/Art_detail.aspx"></asp:HyperLink>
-        <div class="artBox"><img src="Img/Customer_gallery_view res/B-TEST.jpg"/></div>
-        <div class="artBox"><img src="Img/Customer_gallery_view res/C-TEST.jpg"/></div>
-        <div class="artBox"><img src="Img/Customer_gallery_view res/B-TEST.jpg"/></div>
-        <div class="artBox"><img src="Img/Customer_gallery_view res/A-TEST.jpg"/></div>
-        <div class="artBox"><img src="Img/Customer_gallery_view res/C-TEST.jpg"/></div>
-        <div class="artBox"><img src="Img/Customer_gallery_view res/A-TEST.jpg"/></div>
-        <div class="artBox"><img src="Img/Customer_gallery_view res/D-TEST.jpg"/></div>
-        <div class="artBox"><img src="Img/Customer_gallery_view res/E-TEST.jpg"/></div>
-        -->
-        
+
+        <asp:ImageButton ID="NextBtn" runat="server" ImageUrl="~/Img/Icon/arrow_down.svg" OnClick="NextBtn_Click" CssClass="arrowDown" ImageAlign="Middle" />
     </div>
-  
 
 </asp:Content>
 

@@ -86,7 +86,7 @@
     margin: 4px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
     #topNav a {
         width: 100%;
         padding-left: 0;
