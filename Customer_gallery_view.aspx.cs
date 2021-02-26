@@ -78,13 +78,17 @@ namespace Assignment_Template
 
         protected void generateContainer(string id,string imgPath, string artTitle, string price,string author)
         {
-            string testdiv =
-               "<a href=\"Art_detail.aspx?para=" + id + "\">" +
-               "<img src=\"" + imgPath + "\"/></a>" +
-               "<div class=\"buttonCon\">" +
+            //removed
+            /*
+             * "<div class=\"buttonCon\">" +
                "<div class=\"ctrlBtn\"><img src = \"Img/Icon/favorite_border-24px.svg\"/></div>" +
                "<div class=\"ctrlBtn\"><img src = \"Img/Icon/add_shopping_cart-24px.svg\" /></div>" +
                "</div>" +
+             */
+
+            string testdiv =
+               "<a href=\"Art_detail.aspx?para=" + id + "\">" +
+               "<img src=\"" + imgPath + "\"/></a>" +
                "<p class=\"artTitle\">" + artTitle + "</p>" +
                "<p class=\"artist\">" + author + "</p>" +
                "<p class=\"price\">" + price + "</p>";

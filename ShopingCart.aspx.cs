@@ -24,15 +24,46 @@ namespace Assignment_Template
             {
                 int id = int.Parse(e.CommandArgument.ToString().Split(',')[0]);
                 int itemIndex = int.Parse(e.CommandArgument.ToString().Split(',')[1]);
-                TextBox TextBox1 = Repeater1.Items[itemIndex].FindControl("TextBox1") as TextBox;
-                int qty = int.Parse(TextBox1.Text.ToString());
-                SqlDataSource1.UpdateParameters["qty"].DefaultValue=qty.ToString();
+                CheckBox staBox = Repeater1.Items[itemIndex].FindControl("selectCheckBox") as CheckBox;
+                string status = staBox.Checked.ToString();
+                SqlDataSource1.UpdateParameters["check_Sta"].DefaultValue = status;
                 SqlDataSource1.UpdateParameters["cItem_Id"].DefaultValue =id.ToString();
                 SqlDataSource1.Update();
             }
+
+            if (e.CommandName == "delete")
+            {
+                int id = int.Parse(e.CommandArgument.ToString().Split(',')[0]);
+                SqlDataSource1.DeleteParameters["cItem_Id"].DefaultValue = id.ToString();
+                SqlDataSource1.Delete();
+            }
         }
 
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        protected void CheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            string cmdarg = "";
+            CheckBox cbox = sender as CheckBox;
+            if (cbox != null)
+            {
+                var item = (RepeaterItem)cbox.NamingContainer;
+                if (item != null)
+                {
+                    Button Button = (Button)item.FindControl("Button1");
+                    if (Button != null)
+                    {
+                        cmdarg = Button.CommandArgument.ToString();
+                    }
+                }
+                RepeaterCommandEventArgs e1 = new RepeaterCommandEventArgs(((CheckBox)sender).NamingContainer as RepeaterItem, sender, new CommandEventArgs("update", cmdarg));
+                Repeater1_ItemCommand(Repeater1, e1);
+            }
+        }
+
+        /*
+         * Real time quantity update to database
+         * If want to use need to change the update sql command and paramenter
+         * 
+        protected void qtyBox_TextChanged(object sender, EventArgs e)
         {
             string cmdarg="";
             TextBox textBox = sender as TextBox;
@@ -52,6 +83,8 @@ namespace Assignment_Template
             Repeater1_ItemCommand(Repeater1, e1);
 
         }
+        */
+
     }
     }
 

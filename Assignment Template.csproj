@@ -113,6 +113,13 @@
     <Compile Include="Customer_gallery_view.aspx.designer.cs">
       <DependentUpon>Customer_gallery_view.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Master_Page\author_Loged.Master.cs">
+      <DependentUpon>author_Loged.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Page\author_Loged.Master.designer.cs">
+      <DependentUpon>author_Loged.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShopingCart.aspx.cs">
       <DependentUpon>ShopingCart.aspx</DependentUpon>
@@ -137,6 +144,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Master_Page\author_Loged.Master" />
     <None Include="packages.config" />
     <Content Include="Master_Page\customer_Loged.Master" />
     <None Include="Web.Debug.config">

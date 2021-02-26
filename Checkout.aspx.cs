@@ -11,14 +11,21 @@ namespace Assignment_Template
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
            
+        }
 
-            if (PreviousPage != null && PreviousPage.IsCrossPagePostBack)
+        protected void Repeater1_ItemCreated(object sender, RepeaterItemEventArgs e)
+        {
+            totalLbl.Text = Repeater1.Items.Count.ToString();
+            double totalprice = 0;
+            for (int i = 0; i < Repeater1.Items.Count; i++)
             {
-
-
-                
+                Label lblText = Repeater1.Items[i].FindControl("subTotalLabel") as Label;
+                totalprice = totalprice + double.Parse(lblText.Text.ToString());
             }
+            totalLbl.Text = totalprice.ToString();
         }
     }
 }
