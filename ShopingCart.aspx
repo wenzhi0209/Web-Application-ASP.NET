@@ -15,14 +15,12 @@
             border:solid 1px black;
             margin:50px auto;
             text-align:center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(43, 174, 226, 0.19);
         }
         .table_style tr{
              border:solid 1px black;
         }
-        .select_con
-        {
-            width:6%;
-        }
+        
         .art_con
         {
             display: flex;
@@ -32,22 +30,32 @@
 	        align-items: center;
 	        align-content: center;
         }
+
+        .select_con
+        {
+            width:6%;
+            min-width:40px;
+        }
         
         .price_con
         {
             width:11%;
+            min-width:90px;
         }
         .qty_con
         {
             width:11%;
+            min-width:90px;
         }
         .total_con
         {
             width:11%;
+            min-width:90px;
         }
         .opr_con
         {
             width:11%;
+            min-width:90px;
         }
 
         .art_con_Label{
@@ -73,18 +81,18 @@
                 <HeaderTemplate>
                     <table class="table_style">
                         <tr>
-                            <th class="select_con"><asp:CheckBox ID="CheckBox1" runat="server" /></th>
-                            <th class="art_con">Art</th>
-                            <th class="price_con">Unit Price</th>
-                            <th class="qty_con">Quantity</th>
-                            <th class="total_con">Sub-Total</th>
-                            <th class="opr_con">Operation</th>
+                            <th class="select_con"></th>
+                            <th class="art_con"><p>Art</p></th>
+                            <th class="price_con"><p>Unit Price</p></th>
+                            <th class="qty_con"><p>Quantity</p></th>
+                            <th class="total_con"><p>Sub-Total</p></th>
+                            <th class="opr_con"><p>Operation</p></th>
                         </tr>
                 </HeaderTemplate>
                 <ItemTemplate>
                      <tr>
                         <td class="select_con">
-                            <asp:CheckBox ID="selectCheckBox" runat="server" Checked='<%#Convert.ToBoolean(Eval("check_Sta"))%>' OnCheckedChanged="CheckBox2_CheckedChanged" AutoPostBack="True" /></td>
+                            <asp:CheckBox ID="selectCheckBox" runat="server" Checked='<%#Convert.ToBoolean(Eval("check_Sta"))%>' OnCheckedChanged="CheckBox2_CheckedChanged" /></td>
                         <td class="art_con">
                             <asp:Label ID="art_Title" runat="server" Text='<%#Eval("art_Title")%>' CssClass="art_con_Label"></asp:Label>
                             <asp:Image ID="art_Img" runat="server" ImageUrl='<%# Eval("art_Img") %>' CssClass="art_con_Img"></asp:Image>
@@ -102,17 +110,19 @@
                         <td class="opr_con">
                             <asp:Button ID="Button1" runat="server" Text="Remove" CommandName="delete" CommandArgument='<%#Eval("cItem_Id")+","+(Container as RepeaterItem).ItemIndex%>'/></td>
                     </tr>
+
+                    <asp:HiddenField ID="art_Id" Value='<%#Eval("art_Id")%>' runat="server" />
                 </ItemTemplate>
                 <FooterTemplate>
                     </table>
                 </FooterTemplate>
             </asp:Repeater>
             
-            <asp:Button ID="PlaceOBtn" runat="server" Text="CheckOut" PostBackUrl="~/Checkout.aspx" />
+            <asp:Button ID="PlaceOBtn" runat="server" Text="CheckOut" OnClick="PlaceOBtn_Click" PostBackUrl="~/Checkout.aspx" />
         </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-        SelectCommand="SELECT Cart_Item.cItem_Id, Cart_Item.art_Id, Cart_Item.qty, Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS subtotal, Cart_Item.check_Sta FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id" 
+        SelectCommand="DELETE Cart_Item FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id WHERE Art.available_Qty=0 SELECT Cart_Item.cItem_Id, Cart_Item.art_Id, Cart_Item.qty, Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS subtotal, Cart_Item.check_Sta, Art.available_Qty FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id" 
         UpdateCommand="UPDATE Cart_Item SET check_Sta = @check_Sta where cItem_Id=@cItem_Id"
         DeleteCommand="DELETE FROM Cart_Item where cItem_Id=@cItem_Id">
 

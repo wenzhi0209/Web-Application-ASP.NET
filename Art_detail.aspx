@@ -67,5 +67,5 @@
             <asp:QueryStringParameter Name="art_Id" QueryStringField="para" Type="Int32" />
         </SelectParameters>
         </asp:SqlDataSource>
-    </asp:Content>
+</asp:Content>
 

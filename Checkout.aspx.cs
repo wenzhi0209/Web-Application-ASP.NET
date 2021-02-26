@@ -69,6 +69,8 @@ namespace Assignment_Template
                 
             }
             connDb.Close();
+
+            Response.Redirect("~/orderDetails.aspx?para="+recordIn);
         }
     }
 }

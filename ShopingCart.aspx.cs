@@ -59,6 +59,11 @@ namespace Assignment_Template
             }
         }
 
+        protected void PlaceOBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         /*
          * Real time quantity update to database
          * If want to use need to change the update sql command and paramenter

@@ -35,22 +35,36 @@ namespace Assignment_Template
             string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
             connDb = new SqlConnection(strConn);
             connDb.Open();
-
             string id = Request.QueryString["para"].ToString();
-            string sql = "select art_id from Cart_Item where art_id=@id";
-            SqlCommand cmd = new SqlCommand(sql, connDb);
+
+            string checkAvailability = "SELECT [available_Qty] FROM [Art] where art_id=@id";
+            SqlCommand cmd = new SqlCommand(checkAvailability, connDb);
             cmd.Parameters.AddWithValue("@id", id);
-            if(cmd.ExecuteScalar()!=null)
+            int avaiQty = int.Parse(cmd.ExecuteScalar().ToString());
+
+            if(avaiQty>0)
             {
-                Response.Write("<script type=\"text/javascript\">alert(\"This art already in your shoping cart\");</script>");
+                string checkCart = "select art_id from Cart_Item where art_id=@id";
+                cmd = new SqlCommand(checkCart, connDb);
+                cmd.Parameters.AddWithValue("@id", id);
+                if (cmd.ExecuteScalar() != null)
+                {
+                    Response.Write("<script type=\"text/javascript\">alert(\"This art already in your shoping cart\");</script>");
+                }
+                else
+                {
+                    string inSql = "INSERT INTO Cart_Item(art_Id, qty) VALUES (@id,1)";
+                    cmd = new SqlCommand(inSql, connDb);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                    Response.Write("<script type=\"text/javascript\">alert(\"This art added to your shoping cart\");</script>");
+                }
             }
             else
             {
-                string inSql = "INSERT INTO Cart_Item(art_Id, qty) VALUES (@id,1)";
-                SqlCommand cmdIN = new SqlCommand(inSql, connDb);
-                cmdIN.Parameters.AddWithValue("@id", id);
-                cmdIN.ExecuteNonQuery();
+                Response.Write("<script type=\"text/javascript\">alert(\"This art no longer available\");</script>");
             }
+            
 
             connDb.Close();
         }

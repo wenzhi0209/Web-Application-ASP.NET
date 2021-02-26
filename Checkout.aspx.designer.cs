@@ -24,13 +24,13 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.Label addLabel;
 
         /// <summary>
-        /// TextBox1 control.
+        /// addBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox addBox;
 
         /// <summary>
         /// phoneNoLabel control.
@@ -42,13 +42,13 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.Label phoneNoLabel;
 
         /// <summary>
-        /// TextBox2 control.
+        /// phoneBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox phoneBox;
 
         /// <summary>
         /// Repeater1 control.
@@ -85,14 +85,5 @@ namespace Assignment_Template
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
-        /// <summary>
-        /// SqlDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
     }
 }

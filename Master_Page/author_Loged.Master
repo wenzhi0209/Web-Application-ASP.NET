@@ -21,6 +21,7 @@
                     <nav id="topNav">
                         <a>Profile</a>
                         <a href="Customer_gallery_view.aspx">Gallery</a>
+
                     </nav>
                 </div>
                 <div id='icon' onclick="navM()">

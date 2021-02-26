@@ -4,12 +4,22 @@
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Gallery View</title>
     <link rel="stylesheet" href="StyleSheet/gallery_view.css" />
-    
+    <style type="text/css">
+        #addItemForm
+        {
+            width:80%;
+            margin:0 auto;
+        }
+        #addItemForm table
+        {
+            width:80%;
+            margin:0 auto;
+        }
+    </style>
 
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-       <div>
             <div id="addItemForm">
                 <table id="addItemTable">
                     <tr>
@@ -68,5 +78,4 @@
                     </tr>
                 </table>
             </div>
-        </div>
 </asp:Content>
