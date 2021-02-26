@@ -19,13 +19,13 @@
 
 .artBox{
     position:relative;
-    margin:10px 10px;
+    margin:40px 20px;
 }
 
 .artBox img {
     display:block;
     width:auto;
-    height:280px;
+    height:300px;
 }
 
 .buttonCon {
@@ -59,13 +59,13 @@
 
 .artist {
     margin: 0;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
 }
 
 .price {
     margin: 0;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
 }
 
