@@ -89,18 +89,19 @@
                                 </td>
 
                                 <td class="qty_con">
-                                    <%#Eval("qty") %>
+                                    <asp:Label ID="qtyLbl" runat="server" Text='<%#Eval("qty") %>'></asp:Label>
                                 </td>
                                 <td class="total_con">
                                     <asp:Label ID="subTotalLabel" runat="server" Text='<%#Eval("sub_total")%>'></asp:Label>
                             
                                 </td>
                             </tr>
+                            <asp:HiddenField ID="art_ID" Value='<%#Eval("art_Id")%>' runat="server" />
                         </ItemTemplate>
                         <FooterTemplate>
                             </table>
                         </FooterTemplate>
-                
+                   
                 </asp:Repeater>
                  Total:<asp:Label ID="totalLbl" runat="server" Text=""></asp:Label>
                  <asp:Button ID="PayBtn" runat="server" Text="Pay" OnClientClick="javascript:alert('Order Placed Succesfully')" OnClick="PayBtn_Click" />
@@ -114,6 +115,8 @@
                 where Cart_Item.check_Sta like 'true'">
 
             </asp:SqlDataSource>
+
+           <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
 
            <br />
 

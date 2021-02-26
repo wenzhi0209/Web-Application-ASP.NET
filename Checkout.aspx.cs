@@ -43,11 +43,31 @@ namespace Assignment_Template
            
             connDb.Open();
 
-            string sqlInArtOrder = "";
-            SqlCommand cmdSelect = new SqlCommand(sqlInArtOrder, connDb);
-            SqlDataReader artList = cmdSelect.ExecuteReader();
-
-           
+            string sqlInArtOrder = "INSERT INTO Art_Order(order_status, cust_Id) VALUES ('Paid',1) SELECT IDENT_CURRENT('Art_Order')";
+            SqlCommand cmdSql = new SqlCommand(sqlInArtOrder, connDb);
+            int recordIn = int.Parse(cmdSql.ExecuteScalar().ToString());
+            if(recordIn>0)
+            {
+                for (int i = 0; i < Repeater1.Items.Count; i++)
+                {
+                    string artIdValue="";
+                    string qtyValue="";
+                    Label lblText = Repeater1.Items[i].FindControl("qtyLbl") as Label;
+                    HiddenField art_Id= Repeater1.Items[i].FindControl("art_ID") as HiddenField;
+                    if (lblText.Text != "")
+                    {
+                        qtyValue = lblText.Text.ToString();
+                    }
+                    if(art_Id.Value != "")
+                    {
+                        artIdValue = art_Id.Value.ToString();
+                    }
+                    string sqlInOrderD = "INSERT INTO Order_Details(art_Order_Id, art_Id, order_Qty) VALUES (" + recordIn + "," + artIdValue +","+ qtyValue+")";
+                    cmdSql = new SqlCommand(sqlInOrderD, connDb);
+                    cmdSql.ExecuteNonQuery();
+                }
+                
+            }
             connDb.Close();
         }
     }
