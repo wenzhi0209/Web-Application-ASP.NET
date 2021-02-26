@@ -122,6 +122,13 @@
     <Compile Include="Customer_gallery_view.aspx.designer.cs">
       <DependentUpon>Customer_gallery_view.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Master_Page\anonymous.Master.cs">
+      <DependentUpon>anonymous.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Page\anonymous.Master.designer.cs">
+      <DependentUpon>anonymous.Master</DependentUpon>
+    </Compile>
     <Compile Include="Master_Page\author_Loged.Master.cs">
       <DependentUpon>author_Loged.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master_Page\author_Loged.Master" />
+    <Content Include="Master_Page\anonymous.Master" />
     <None Include="packages.config" />
     <Content Include="Master_Page\customer_Loged.Master" />
     <None Include="Web.Debug.config">
