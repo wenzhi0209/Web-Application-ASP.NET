@@ -50,17 +50,22 @@
     
 }
 
-.artTitle{
-    margin:0;
-    font-size:13px;
-    font-weight:bold;
+.artTitle {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
 }
+
 .artist {
     margin: 0;
-    font-size: 13px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
+
 .price {
     margin: 0;
-    font-size: 13px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
