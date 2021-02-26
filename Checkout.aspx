@@ -103,7 +103,7 @@
                 
                 </asp:Repeater>
                  Total:<asp:Label ID="totalLbl" runat="server" Text=""></asp:Label>
-                 <asp:Button ID="PayBtn" runat="server" Text="Pay" />
+                 <asp:Button ID="PayBtn" runat="server" Text="Pay" OnClientClick="javascript:alert('Order Placed Succesfully')" OnClick="PayBtn_Click" />
             </div> 
     
 
@@ -114,5 +114,7 @@
                 where Cart_Item.check_Sta like 'true'">
 
             </asp:SqlDataSource>
+
+           <br />
 
 </asp:Content>
