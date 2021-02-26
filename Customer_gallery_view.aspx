@@ -17,6 +17,11 @@
             width:250px;
             height:30px;
         }
+  
+        .artBox:hover{
+            outline: 3px solid rgb(43, 174, 226);
+            
+        }
 
     </style>
     </asp:Content>
