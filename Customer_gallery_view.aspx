@@ -29,7 +29,8 @@
         }
 
     </style>
-    </asp:Content>
+
+</asp:Content>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">

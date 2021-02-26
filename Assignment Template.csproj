@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addArtDetail.aspx" />
     <Content Include="App_Data\Assignment.mdf" />
     <Content Include="App_Data\Assignment_log.ldf">
       <DependentUpon>Assignment.mdf</DependentUpon>
@@ -92,6 +93,13 @@
     <Content Include="Template.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addArtDetail.aspx.cs">
+      <DependentUpon>addArtDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addArtDetail.aspx.designer.cs">
+      <DependentUpon>addArtDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Art_detail.aspx.cs">
       <DependentUpon>Art_detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
