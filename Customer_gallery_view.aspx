@@ -20,10 +20,7 @@
   
         .artBox:hover{
             outline: 3px solid rgb(43, 174, 226);
-            background-color: #ddd;
-            transform-style: preserve-3d;
-            transform: scale(1.2);
-            transition: all ease 0.3s;            
+            
         }
 
     </style>
