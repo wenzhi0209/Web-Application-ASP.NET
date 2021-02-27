@@ -15,7 +15,9 @@
         <div>
             <!-- Top Bar -->
             <div id="topBar">
+                <a href="LoginControl.aspx">
                 <img src="/Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
+                </a>
             </div>
             
             <!--Contain-->

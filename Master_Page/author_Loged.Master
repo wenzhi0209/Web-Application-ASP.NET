@@ -16,11 +16,14 @@
         <div>
             <!-- Top Bar -->
             <div id="topBar">
+                <a href="LoginControl.aspx">
                 <img src="/Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
+                </a>
                 <div id='back' onclick="navM()">
                     <nav id="topNav">
-                        <a>Profile</a>
+                        <a href="artistProfileInfo.aspx">Profile</a>
                         <a href="Customer_gallery_view.aspx">Gallery</a>
+                        <a href="LoginControl.aspx">Login Control</a>
 
                     </nav>
                 </div>
