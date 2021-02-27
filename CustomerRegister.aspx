@@ -85,7 +85,7 @@
             </p>
         </div>
 
-     <asp:Label ID="Label3" runat="server" Text="这里是自动生成的，拉放而已要而外数据自己添加，好像addresslbl一样，后台可以传值放入database, 你会ajax用ajax也行"></asp:Label>
+
 
      <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/CustomerLogin.aspx" OnCreatedUser="CreateUserWizard1_CreatedUser">
          <WizardSteps>
