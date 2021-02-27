@@ -59,7 +59,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="lBtn" runat="server" Text="Login" CssClass="lBtn" PostBackUrl="~/artistProfileInfo.aspx" />
+                            <asp:Button ID="lBtn" runat="server" Text="Login" CssClass="lBtn" PostBackUrl="~/Author_Logged/artistProfileInfo.aspx" />
                         </td>
                     </tr>
                 </table>
