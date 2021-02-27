@@ -11,7 +11,9 @@
         </style>
     </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-        <div><h1>
+        <div>
+            <asp:Label ID="Label1" runat="server" Text="开连接进行传值，具体可以参考shoping cart 先获取userId 然后找到custId 再开数据库连接就可以输出数据了"></asp:Label>
+            <h1>
             Customer Profile</h1>
             <p>
                 <table style="width:100%;">

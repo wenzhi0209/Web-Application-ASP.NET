@@ -57,6 +57,7 @@
                 </table>
          </div>
     <div id="ContentBox2">
+        login 用这个比较好，要不然你需要作自定义登录处理
         <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Customer_gallery_view.aspx"></asp:Login>
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Customer_gallery_view.aspx">Continue as a Anynomous</asp:HyperLink>
     </div>

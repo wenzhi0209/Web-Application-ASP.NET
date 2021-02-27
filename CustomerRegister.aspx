@@ -85,13 +85,21 @@
             </p>
         </div>
 
+     <asp:Label ID="Label3" runat="server" Text="这里是自动生成的，拉放而已要而外数据自己添加，好像addresslbl一样，后台可以传值放入database, 你会ajax用ajax也行"></asp:Label>
 
-
-     <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/CustomerLogin.aspx">
+     <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/CustomerLogin.aspx" OnCreatedUser="CreateUserWizard1_CreatedUser">
          <WizardSteps>
              <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                  <CustomNavigationTemplate>
                      <table border="0" cellspacing="5" style="width:100%;height:100%;">
+                         <tr>
+                             <td>
+                                 <asp:Label ID="AddressLbl" runat="server" Text="Address"></asp:Label>
+                             </td>
+                             <td>
+                                 <asp:TextBox ID="AddressBox" runat="server"></asp:TextBox>
+                             </td>
+                         </tr>
                          <tr align="right">
                              <td align="right" colspan="0">
                                  <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Create User" ValidationGroup="CreateUserWizard1" />
@@ -104,6 +112,7 @@
              </asp:CompleteWizardStep>
          </WizardSteps>
      </asp:CreateUserWizard>
+     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+     </asp:Content>
 
-
-</asp:Content>
