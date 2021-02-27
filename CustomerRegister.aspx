@@ -67,7 +67,7 @@
                     <tr>
                         <td>Password : </td>
                         <td>
-                            <asp:TextBox ID="Password" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="Password" runat="server" OnTextChanged="Password_TextChanged"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -78,7 +78,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="Submit" runat="server" Text="Submit" />
+                            <asp:Button ID="Submit" runat="server" OnClick="Submit_Click" Text="Submit" />
                         </td>
                     </tr>
                 </table>
