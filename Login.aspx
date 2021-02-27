@@ -4,9 +4,9 @@
        
     Author
     <br />
-    <a href="Login.aspx">Author login</a>
+    <a href="AuthorLogin.aspx">Author login</a>
     <br />
-    <a href="InfoReg.aspx">Author Register</a>
+    <a href="AuthorInfoReg.aspx">Author Register</a>
 
      <br />
      <br />
