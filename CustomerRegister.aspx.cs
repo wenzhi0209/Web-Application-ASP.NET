@@ -13,5 +13,15 @@ namespace Assignment_Template
         {
 
         }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CustomerLogin.aspx");
+        }
+
+        protected void Password_TextChanged(object sender, EventArgs e)
+        {
+            Console.Write("*");
+        }
     }
 }
