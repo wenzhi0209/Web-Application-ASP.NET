@@ -1,8 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/author_Loged.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Assignment_Template.Login" %>
 
-
-
-
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Gallery View</title>
     <link href="StyleSheet/Login.css" rel="stylesheet" />
@@ -43,7 +40,7 @@
                     <tr>
                         <td class="auto-style2">Password:</td>
                         <td>
-                            <asp:TextBox ID="Password" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>

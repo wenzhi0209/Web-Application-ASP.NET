@@ -48,7 +48,7 @@ function closeNav() {
 </div>
                 <table class="artistBox">
                     <tr>
-                        <td class="auto-style2">UserName</td>
+                        <td class="auto-style2">Username:</td>
                         <td class="auto-style3">
                             <asp:TextBox ID="pUser" runat="server" ReadOnly="True"></asp:TextBox>
                         </td>
@@ -58,7 +58,7 @@ function closeNav() {
                         <td class="auto-style3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Password</td>
+                        <td class="auto-style2">Password:</td>
                         <td class="auto-style3">
                             <asp:TextBox ID="pPass" runat="server" TextMode="Password" ReadOnly="True"></asp:TextBox>
                             <asp:HyperLink ID="Edit" runat="server" NavigateUrl="~/ChangePasswordaspx.aspx">Edit</asp:HyperLink>
@@ -70,10 +70,9 @@ function closeNav() {
                             &nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Profile picture</td>
+                        <td class="auto-style2">Profile Picture:</td>
                         <td class="auto-style3">
-                            <asp:ImageButton ID="ImageButton1" runat="server" Height="95px" Width="98px" />
-                            <asp:Button ID="Button1" runat="server" Text="Upload" />
+                            <asp:FileUpload ID="PPupload" runat="server" />
                         </td>
                     </tr>
                     <tr>
@@ -81,7 +80,7 @@ function closeNav() {
                         <td class="auto-style3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Name</td>
+                        <td class="auto-style2">Name:</td>
                         <td class="auto-style3">
                             <asp:TextBox ID="pName" runat="server"></asp:TextBox>
                         </td>
@@ -91,7 +90,7 @@ function closeNav() {
                         <td class="auto-style3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">DOB</td>
+                        <td class="auto-style2">Date of Birth:</td>
                         <td class="auto-style3">
                             <asp:TextBox ID="pDOB" runat="server" TextMode="Date" CssClass="pHover"></asp:TextBox>
                         </td>
@@ -101,7 +100,7 @@ function closeNav() {
                         <td class="auto-style3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Type Of Art</td>
+                        <td class="auto-style2">Type of Art:</td>
                       <td class="auto-style6">
                           <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                     </td>
@@ -111,7 +110,7 @@ function closeNav() {
                         <td class="auto-style3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Phone Number</td>
+                        <td class="auto-style2">Phone Number:</td>
                         <td class="auto-style3">
                             <asp:TextBox ID="pPhone" runat="server" TextMode="Phone"></asp:TextBox>
                         </td>
@@ -121,7 +120,7 @@ function closeNav() {
                         <td class="auto-style3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">Address</td>
+                        <td class="auto-style2">Address:</td>
                         <td class="auto-style3">
                             <asp:TextBox ID="pAddress" runat="server"></asp:TextBox>
                         </td>
@@ -131,7 +130,7 @@ function closeNav() {
                         <td class="auto-style3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">City</td>
+                        <td class="auto-style2">City:</td>
                         <td class="auto-style3">
                             <asp:TextBox ID="pCity" runat="server"></asp:TextBox>
                         </td>
@@ -141,7 +140,7 @@ function closeNav() {
                         <td class="auto-style3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style4">Postal Code</td>
+                        <td class="auto-style4">Postal Code:</td>
                         <td class="auto-style5">
                             <asp:TextBox ID="pPostal" runat="server" TextMode="Number"></asp:TextBox>
                         </td>
@@ -151,11 +150,12 @@ function closeNav() {
                         <td class="auto-style3">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">State</td>
+                        <td class="auto-style2">State:</td>
                      <td class="auto-style3">
                          <asp:TextBox ID="ApState" runat="server"></asp:TextBox>
                     </td>
                         <td>&nbsp;</td>
+                        
                     </tr>
                     <tr>
                         <td class="auto-style2">&nbsp;</td>
@@ -164,11 +164,13 @@ function closeNav() {
                     <tr>
                         <td class="auto-style2">&nbsp;</td>
                         <td class="auto-style3">
-                            <asp:Button ID="updateBtn" runat="server" Text="Update" CssClass="pBtn" />
+                            <asp:Button ID="updateBtn" runat="server" Text="Update" CssClass="pBtn" OnClick="updateBtn_Click" />
                         </td>
                     </tr>
                 </table>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Author]"></asp:SqlDataSource>
             </div>
+            
         </div>
     
 
