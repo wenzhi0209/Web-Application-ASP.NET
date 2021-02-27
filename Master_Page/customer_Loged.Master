@@ -24,7 +24,7 @@
                         <a href="../Customer_Logged/CustomerProfile.aspx">Profile</a>
                         <a href="../Customer_gallery_view.aspx">Gallery</a>
                         <a href="../Customer_Logged/ShopingCart.aspx">Shoping Cart</a>
-                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/LoginControl.aspx" />
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Login.aspx" />
                     </nav>
                 </div>
                 <div id='icon' onclick="navM()">

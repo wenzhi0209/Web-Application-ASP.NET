@@ -243,6 +243,7 @@
     <Content Include="Master_Page\author_Loged.Master" />
     <Content Include="Master_Page\Customer_Loged.Master" />
     <Content Include="Master_Page\Anonymous.Master" />
+    <Content Include="Customer_Logged\Web.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
