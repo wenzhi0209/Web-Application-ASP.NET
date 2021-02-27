@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Assignment_Template.Master_Page
 {
-    public partial class anonymous : System.Web.UI.MasterPage
+    public partial class Anonymous : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

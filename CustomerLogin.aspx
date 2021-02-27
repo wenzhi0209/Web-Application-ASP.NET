@@ -1,20 +1,32 @@
-﻿<%@ Page Language="C#" MasterPageFile ="~/Master_Page/anonymous.Master" AutoEventWireup="true" CodeBehind="CustomerLogin.aspx.cs" Inherits="Assignment_Template.CustomerLogin" %>
+﻿<%@ Page Language="C#" MasterPageFile ="~/Master_Page/Anonymous.Master" AutoEventWireup="true" CodeBehind="CustomerLogin.aspx.cs" Inherits="Assignment_Template.CustomerLogin" %>
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title></title>
-    <style>
-        h1 {text-align: center;}
+    <style type="text/css">
+        h1{
+            text-align: center;
+
+        }
         .auto-style1 {
             height: 28px;
         }
-        </style>
 
-    </asp:Content>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+        #ContentBox{
+            width:80%;
+            margin:0 auto;
+        }
 
-        <div><h1>
-            Customer Login</h1>
-            <p>
+        #ContentBox2{
+            width:80%;
+            margin:0 auto;
+        }
+     </style>
+
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+        <div id="ContentBox">
+            <h1>Customer Login</h1>
                 <table style="width:100%;">
                     <tr>
                         <td>Email / Username :</td>
@@ -39,9 +51,14 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="Login" runat="server" Text="Login" OnClick="Login_Click" />
+                            <asp:Button ID="Login" runat="server" Text="Login" />
                         </td>
                     </tr>
                 </table>
-            </p></div>
-    </asp:Content>
+         </div>
+    <div id="ContentBox2">
+        <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Customer_gallery_view.aspx"></asp:Login>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Customer_gallery_view.aspx">Continue as a Anynomous</asp:HyperLink>
+    </div>
+
+</asp:Content>

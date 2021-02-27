@@ -39,6 +39,7 @@ namespace Assignment_Template
 
         protected void getData()
         {
+            //Real Pagination data on request
             SqlConnection connDb;
             string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
             connDb = new SqlConnection(strConn);
@@ -88,7 +89,7 @@ namespace Assignment_Template
 
             string testdiv =
                "<a href=\"Art_detail.aspx?para=" + id + "\">" +
-               "<img src=\"" + imgPath + "\"/></a>" +
+               "<img src=\"..\\" + imgPath + "\"/></a>" +
                "<p class=\"artTitle\">" + artTitle + "</p>" +
                "<p class=\"artist\">" + author + "</p>" +
                "<p class=\"price\">" + price + "</p>";
