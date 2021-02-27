@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="customer_Loged.Master.cs" Inherits="Assignment_Template.Site1" %>
-
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Author_Logged.master.cs" Inherits="Assignment_Template.Master_Page.Author_Logged" %>
 <!DOCTYPE html>
 
 <html>
@@ -45,3 +44,4 @@
     </form>
 </body>
 </html>
+

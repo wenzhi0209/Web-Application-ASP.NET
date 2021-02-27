@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AuthorLogin.aspx" />
     <Content Include="Author_Logged\addArtDetail.aspx" />
     <Content Include="App_Data\Assignment.mdf" />
     <Content Include="App_Data\Assignment_log.ldf">
@@ -93,7 +94,6 @@
     <Content Include="Img\Icon\arrow_up.svg" />
     <Content Include="Img\Icon\favorite_border-24px.svg" />
     <Content Include="AuthorInfoReg.aspx" />
-    <Content Include="AuthorLogin.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Customer_Logged\orderDetails.aspx" />
     <Content Include="StyleSheet\gallery_view.css" />
@@ -104,6 +104,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorLogin.aspx.cs">
+      <DependentUpon>AuthorLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthorLogin.aspx.designer.cs">
+      <DependentUpon>AuthorLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Author_Logged\addArtDetail.aspx.cs">
       <DependentUpon>addArtDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -188,13 +195,6 @@
     <Compile Include="AuthorInfoReg.aspx.designer.cs">
       <DependentUpon>AuthorInfoReg.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AuthorLogin.aspx.cs">
-      <DependentUpon>AuthorLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AuthorLogin.aspx.designer.cs">
-      <DependentUpon>AuthorLogin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -209,19 +209,19 @@
     <Compile Include="Master_Page\Anonymous.Master.designer.cs">
       <DependentUpon>Anonymous.Master</DependentUpon>
     </Compile>
-    <Compile Include="Master_Page\author_Loged.Master.cs">
-      <DependentUpon>author_Loged.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master_Page\author_Loged.Master.designer.cs">
-      <DependentUpon>author_Loged.Master</DependentUpon>
-    </Compile>
     <Compile Include="Customer_Logged\orderDetails.aspx.cs">
       <DependentUpon>orderDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Customer_Logged\orderDetails.aspx.designer.cs">
       <DependentUpon>orderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Page\Author_Logged.Master.cs">
+      <DependentUpon>Author_Logged.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Page\Author_Logged.Master.designer.cs">
+      <DependentUpon>Author_Logged.Master</DependentUpon>
     </Compile>
     <Compile Include="Master_Page\Customer_Loged.Master.cs">
       <DependentUpon>Customer_Loged.Master</DependentUpon>
@@ -240,10 +240,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Master_Page\author_Loged.Master" />
     <Content Include="Master_Page\Customer_Loged.Master" />
     <Content Include="Master_Page\Anonymous.Master" />
     <Content Include="Customer_Logged\Web.config" />
+    <Content Include="Master_Page\Author_Logged.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

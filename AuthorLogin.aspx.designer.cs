@@ -11,7 +11,7 @@ namespace Assignment_Template
 {
 
 
-    public partial class Login
+    public partial class AuthorLogin
     {
 
         /// <summary>

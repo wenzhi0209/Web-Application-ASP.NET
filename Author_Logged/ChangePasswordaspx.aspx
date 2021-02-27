@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/author_Loged.Master" AutoEventWireup="true" CodeBehind="ChangePasswordaspx.aspx.cs" Inherits="Assignment_Template.ChangePasswordaspx" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/Author_Logged.Master" AutoEventWireup="true" CodeBehind="ChangePasswordaspx.aspx.cs" Inherits="Assignment_Template.ChangePasswordaspx" %>
 
 
 

@@ -1,6 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/author_Loged.Master" AutoEventWireup="true" CodeBehind="AuthorLogin.aspx.cs" Inherits="Assignment_Template.Login" %>
-
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/Author_Logged.Master" AutoEventWireup="true" CodeBehind="AuthorLogin.aspx.cs" Inherits="Assignment_Template.AuthorLogin" %>
 
 
 <asp:Content ContentPlaceHolderID="head" runat="server">

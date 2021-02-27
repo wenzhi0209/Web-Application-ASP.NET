@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/author_Loged.Master" AutoEventWireup="true" CodeBehind="editArt.aspx.cs" Inherits="Assignment_Template.editArt" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/Author_Logged.Master" AutoEventWireup="true" CodeBehind="editArt.aspx.cs" Inherits="Assignment_Template.editArt" %>
 
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
