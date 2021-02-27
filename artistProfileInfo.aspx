@@ -40,10 +40,11 @@ function closeNav() {
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
                 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Profile</a>
-  <a href="#">Sold Art</a>
-  <a href="#">Current Gallery</a>
-  <a href="#">Logout</a>
+  <a href="artistProfileInfo.aspx">Profile</a>
+  <a href="addArtDetail.aspx">Add Art</a>
+  <a href="editArt.aspx">Edit Art</a>
+  <a href="deleteArt.aspx">Delete Art</a>
+
 </div>
                 <table class="artistBox">
                     <tr>

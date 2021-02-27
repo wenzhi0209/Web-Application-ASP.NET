@@ -115,7 +115,6 @@ C:\Users\WenZhi\Source\Repos\wenzhi0209\Assignment-Template\obj\Debug\Assignment
 C:\Users\WenZhi\Source\Repos\wenzhi0209\Assignment-Template\obj\Debug\Assignment Template.csproj.CopyComplete
 C:\Users\WenZhi\Source\Repos\wenzhi0209\Assignment-Template\obj\Debug\Assignment Template.dll
 C:\Users\WenZhi\Source\Repos\wenzhi0209\Assignment-Template\obj\Debug\Assignment Template.pdb
-C:\Users\WenZhi\source\repos\wenzhi0209\Assignment-Template\obj\Debug\Assignment Template.csprojAssemblyReference.cache
 C:\Users\Yee Ruu\OneDrive\Desktop\Assignment-Template-efce0e38b4547234ec82725c82ebdef5e7ba207a\bin\Assignment Template.dll.config
 C:\Users\Yee Ruu\OneDrive\Desktop\Assignment-Template-efce0e38b4547234ec82725c82ebdef5e7ba207a\bin\Assignment Template.dll
 C:\Users\Yee Ruu\OneDrive\Desktop\Assignment-Template-efce0e38b4547234ec82725c82ebdef5e7ba207a\bin\Assignment Template.pdb

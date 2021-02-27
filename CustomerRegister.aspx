@@ -12,8 +12,8 @@
             height: 29px;
         }
     </style>
-    </asp:Content>
-    <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+ </asp:Content>
+ <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
         <div><h1>
             Customer Register</h1>
             <p>

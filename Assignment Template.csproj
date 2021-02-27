@@ -72,29 +72,36 @@
     <Content Include="App_Data\Assignment_log.ldf">
       <DependentUpon>Assignment.mdf</DependentUpon>
     </Content>
+    <Content Include="artistProfileInfo.aspx" />
     <Content Include="Art_detail.aspx" />
+    <Content Include="ChangePasswordaspx.aspx" />
     <Content Include="Checkout.aspx" />
     <Content Include="CustomerLogin.aspx" />
     <Content Include="CustomerProfile.aspx" />
     <Content Include="CustomerRegister.aspx" />
     <Content Include="Customer_gallery_view.aspx" />
+    <Content Include="deleteArt.aspx" />
+    <Content Include="editArt.aspx" />
+    <Content Include="Img\androidparty.png" />
     <Content Include="Img\Art\A-TEST.jpg" />
-    <Content Include="Img\Icon\add_shopping_cart-24px.svg" />
     <Content Include="Img\Art\B-TEST.jpg" />
     <Content Include="Img\Art\C-TEST.jpg" />
-    <Content Include="Img\Icon\favorite_border-24px.svg" />
-    <Content Include="Img\Icon\arrow_up.svg" />
-    <Content Include="Img\Icon\arrow_down.svg" />
-    <Content Include="orderDetails.aspx" />
-    <Content Include="StyleSheet\gallery_view.css" />
     <Content Include="Img\Art\D-TEST.jpg" />
     <Content Include="Img\Art\E-TEST.jpg" />
+    <Content Include="Img\Icon\add_shopping_cart-24px.svg" />
+    <Content Include="Img\Icon\arrow_down.svg" />
+    <Content Include="Img\Icon\arrow_up.svg" />
+    <Content Include="Img\Icon\favorite_border-24px.svg" />
+    <Content Include="InfoReg.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="LoginControl.aspx" />
+    <Content Include="orderDetails.aspx" />
+    <Content Include="StyleSheet\gallery_view.css" />
     <Content Include="ShopingCart.aspx" />
     <Content Include="Master_Page\Layout.js" />
     <Content Include="Master_Page\logo-social.png" />
     <Content Include="Master_Page\Layout.css" />
     <Content Include="Web.config" />
-    <Content Include="Template.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="addArtDetail.aspx.cs">
@@ -104,12 +111,26 @@
     <Compile Include="addArtDetail.aspx.designer.cs">
       <DependentUpon>addArtDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="artistProfileInfo.aspx.cs">
+      <DependentUpon>artistProfileInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="artistProfileInfo.aspx.designer.cs">
+      <DependentUpon>artistProfileInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Art_detail.aspx.cs">
       <DependentUpon>Art_detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Art_detail.aspx.designer.cs">
       <DependentUpon>Art_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePasswordaspx.aspx.cs">
+      <DependentUpon>ChangePasswordaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePasswordaspx.aspx.designer.cs">
+      <DependentUpon>ChangePasswordaspx.aspx</DependentUpon>
     </Compile>
     <Compile Include="Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
@@ -146,6 +167,41 @@
     <Compile Include="Customer_gallery_view.aspx.designer.cs">
       <DependentUpon>Customer_gallery_view.aspx</DependentUpon>
     </Compile>
+    <Compile Include="deleteArt.aspx.cs">
+      <DependentUpon>deleteArt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="deleteArt.aspx.designer.cs">
+      <DependentUpon>deleteArt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editArt.aspx.cs">
+      <DependentUpon>editArt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editArt.aspx.designer.cs">
+      <DependentUpon>editArt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InfoReg.aspx.cs">
+      <DependentUpon>InfoReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InfoReg.aspx.designer.cs">
+      <DependentUpon>InfoReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginControl.aspx.cs">
+      <DependentUpon>LoginControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginControl.aspx.designer.cs">
+      <DependentUpon>LoginControl.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master_Page\anonymous.Master.cs">
       <DependentUpon>anonymous.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -181,13 +237,6 @@
     </Compile>
     <Compile Include="Master_Page\customer_Loged.Master.designer.cs">
       <DependentUpon>customer_Loged.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Template.aspx.cs">
-      <DependentUpon>Template.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Template.aspx.designer.cs">
-      <DependentUpon>Template.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
