@@ -11,11 +11,45 @@ namespace Assignment_Template
 {
     public partial class Checkout : System.Web.UI.Page
     {
+        static string userName = "";
+        static string userId = "";
+        static string custId = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                //Get Customer ID can consider store at seesion
+                //For easier understanding do it simple
+                userName = User.Identity.Name.ToString();
+                SqlConnection connDb;
+                string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
+                connDb = new SqlConnection(strConn);
 
-           
+                connDb.Open();
+
+                string getUserId = "SELECT [UserId] FROM [vw_aspnet_Users] WHERE ([UserName] = @UserName)";
+                SqlCommand cmd = new SqlCommand(getUserId, connDb);
+                cmd.Parameters.AddWithValue("@UserName", userName);
+                userId = cmd.ExecuteScalar().ToString();
+
+                string getCustId = "SELECT [cust_Id],[cust_Address],[cust_PhoneNo] FROM [Customer] WHERE ([UserId] = @UserId)";
+                cmd = new SqlCommand(getCustId, connDb);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                SqlDataReader custDetails = cmd.ExecuteReader();
+                if (custDetails.HasRows)
+                {
+                    while (custDetails.Read())
+                    {
+                        custId = custDetails["cust_Id"].ToString();
+                        addBox.Text = custDetails["cust_Address"].ToString();
+                        phoneBox.Text = custDetails["cust_PhoneNo"].ToString();
+                    }
+                }
+                connDb.Close();
+                HDcustId.Value = custId;
+
+            }
+
         }
 
         protected void Repeater1_ItemCreated(object sender, RepeaterItemEventArgs e)
@@ -43,7 +77,9 @@ namespace Assignment_Template
            
             connDb.Open();
 
-            string sqlInArtOrder = "INSERT INTO Art_Order(order_status, cust_Id) VALUES ('Paid',1) SELECT IDENT_CURRENT('Art_Order')";
+            //Temporaly put the order status =paid if future posible allow customer create their and pay it within 3 days
+            //but is no hope already
+            string sqlInArtOrder = "INSERT INTO Art_Order(order_status, cust_Id, address, phoneNo) VALUES ('Paid',"+custId+",'"+addBox.Text.ToString()+ "','"+phoneBox.Text.ToString()+"') SELECT IDENT_CURRENT('Art_Order')";
             SqlCommand cmdSql = new SqlCommand(sqlInArtOrder, connDb);
             int recordIn = int.Parse(cmdSql.ExecuteScalar().ToString());
             if(recordIn>0)
@@ -64,6 +100,10 @@ namespace Assignment_Template
                     }
                     string sqlInOrderD = "INSERT INTO Order_Details(art_Order_Id, art_Id, order_Qty) VALUES (" + recordIn + "," + artIdValue +","+ qtyValue+")";
                     cmdSql = new SqlCommand(sqlInOrderD, connDb);
+                    cmdSql.ExecuteNonQuery();
+                    string sqlUpdateArtQty = "UPDATE Art SET available_Qty =(available_Qty -1) where art_Id=@art_Id";
+                    cmdSql = new SqlCommand(sqlUpdateArtQty, connDb);
+                    cmdSql.Parameters.AddWithValue("art_Id", artIdValue);
                     cmdSql.ExecuteNonQuery();
                 }
                 

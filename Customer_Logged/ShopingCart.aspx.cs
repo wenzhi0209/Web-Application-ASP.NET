@@ -14,9 +14,37 @@ namespace Assignment_Template
 
     public partial class ShopingCart : System.Web.UI.Page
     {
+        static string userName="";
+        static string userId = "";
+        static string custId = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label2.Text = User.Identity.Name.ToString();
+            if(!IsPostBack)
+            {
+                //Get Customer ID can consider store at seesion
+                //For easier understanding do it simple
+                userName= User.Identity.Name.ToString();
+                SqlConnection connDb;
+                string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
+                connDb = new SqlConnection(strConn);
+
+                connDb.Open();
+
+                string getUserId = "SELECT [UserId] FROM [vw_aspnet_Users] WHERE ([UserName] = @UserName)";
+                SqlCommand cmd = new SqlCommand(getUserId, connDb);
+                cmd.Parameters.AddWithValue("@UserName", userName);
+                userId = cmd.ExecuteScalar().ToString();
+
+                string getCustId = "SELECT [cust_Id] FROM [Customer] WHERE ([UserId] = @UserId)";
+                cmd = new SqlCommand(getCustId, connDb);
+                cmd.Parameters.AddWithValue("@UserId", userId);
+                custId = cmd.ExecuteScalar().ToString();
+
+                connDb.Close();
+                HDcustId.Value = custId;
+
+            }
+
         }
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)

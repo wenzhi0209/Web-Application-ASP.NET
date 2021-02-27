@@ -77,7 +77,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
         <div id="ContentCon">
-            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+            <asp:HiddenField ID="HDcustId" runat="server"/>
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="Repeater1_ItemCommand">
                 <HeaderTemplate>
                     <table class="table_style">
@@ -123,13 +123,19 @@
         </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-        SelectCommand="DELETE Cart_Item FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id WHERE Art.available_Qty=0 SELECT Cart_Item.cItem_Id, Cart_Item.art_Id, Cart_Item.qty, Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS subtotal, Cart_Item.check_Sta, Art.available_Qty FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id" 
+        SelectCommand="DELETE Cart_Item FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id WHERE Art.available_Qty=0 
+
+SELECT Cart_Item.cItem_Id, Cart_Item.art_Id, Cart_Item.qty, Cart_Item.cust_Id, Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS subtotal, Cart_Item.check_Sta, Art.available_Qty FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id where Cart_Item.cust_Id=@cust_Id" 
         UpdateCommand="UPDATE Cart_Item SET check_Sta = @check_Sta where cItem_Id=@cItem_Id"
         DeleteCommand="DELETE FROM Cart_Item where cItem_Id=@cItem_Id">
 
         <DeleteParameters>
             <asp:Parameter Name="cItem_Id" />
         </DeleteParameters>
+        
+        <SelectParameters>
+            <asp:ControlParameter ControlID="HDcustId" Name="cust_Id" PropertyName="Value" />
+        </SelectParameters>
         
         <UpdateParameters>
             <asp:Parameter Name="check_Sta" />

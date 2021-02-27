@@ -39,6 +39,7 @@ namespace Assignment_Template
 
         protected void getData()
         {
+            //Real Pagination data on request
             SqlConnection connDb;
             string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
             connDb = new SqlConnection(strConn);

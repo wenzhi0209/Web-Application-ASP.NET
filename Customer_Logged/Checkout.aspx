@@ -62,6 +62,8 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <asp:HiddenField ID="HDcustId" runat="server" />
+
            <div id="ContentCon">
 
                <table>
@@ -120,9 +122,12 @@
 
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
                 ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                SelectCommand="SELECT Cart_Item.art_Id, Cart_Item.cItem_Id, Cart_Item.qty, Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS sub_total 
+                SelectCommand="SELECT Cart_Item.art_Id, Cart_Item.cItem_Id, Cart_Item.qty, Cart_Item.cust_Id,Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS sub_total 
                 FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id 
-                where Cart_Item.check_Sta like 'true'">
+                where Cart_Item.check_Sta like 'true' AND Cart_Item.cust_Id=@cust_Id">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="HDcustId" Name="cust_Id" PropertyName="Value" />
+                </SelectParameters>
 
             </asp:SqlDataSource>
 
