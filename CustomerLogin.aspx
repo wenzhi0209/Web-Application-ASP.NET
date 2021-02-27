@@ -4,6 +4,9 @@
     <title></title>
     <style>
         h1 {text-align: center;}
+        .auto-style1 {
+            height: 28px;
+        }
         </style>
 
     </asp:Content>
@@ -24,6 +27,15 @@
                         <td>
                             <asp:TextBox ID="Password" runat="server"></asp:TextBox>
                         </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:LinkButton ID="LinkButton1" runat="server">Forgot Password</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style1" colspan="2">
+                            <input id="Checkbox1" type="checkbox" />Remember Me</td>
                     </tr>
                     <tr>
                         <td colspan="2">

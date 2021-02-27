@@ -76,6 +76,11 @@
                             <asp:TextBox ID="CPassword" runat="server"></asp:TextBox>
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:Button ID="Submit" runat="server" Text="Submit" />
+                        </td>
+                    </tr>
                 </table>
             </p>
         </div>
