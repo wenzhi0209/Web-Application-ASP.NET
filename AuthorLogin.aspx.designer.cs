@@ -11,17 +11,17 @@ namespace Assignment_Template
 {
 
 
-    public partial class AuthorLogin
+    public partial class Login
     {
 
         /// <summary>
-        /// EorU control.
+        /// UserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox EorU;
+        protected global::System.Web.UI.WebControls.TextBox UserName;
 
         /// <summary>
         /// Password control.
@@ -33,33 +33,6 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox Password;
 
         /// <summary>
-        /// LinkButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
-
-        /// <summary>
-        /// aLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button aLogin;
-
-        /// <summary>
-        /// Login1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login1;
-
-        /// <summary>
         /// HyperLink1 control.
         /// </summary>
         /// <remarks>
@@ -67,5 +40,14 @@ namespace Assignment_Template
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+
+        /// <summary>
+        /// lBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button lBtn;
     }
 }

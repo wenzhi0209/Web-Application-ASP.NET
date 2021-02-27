@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/author_Loged.Master" AutoEventWireup="true" CodeBehind="AuthorLogin.aspx.cs" Inherits="Assignment_Template.AuthorLogin" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/author_Loged.Master" AutoEventWireup="true" CodeBehind="AuthorLogin.aspx.cs" Inherits="Assignment_Template.Login" %>
 
 
 
@@ -8,66 +8,65 @@
     <link href="StyleSheet/Login.css" rel="stylesheet" />
     <link rel="stylesheet" href="StyleSheet/gallery_view.css" />
     <style type="text/css">
-        h1{
-            text-align: center;
-
-        }
-        .auto-style1 {
-            height: 28px;
-        }
-
-        #ContentBox{
+        #addItemForm
+        {
             width:80%;
             margin:0 auto;
         }
-
-        #ContentBox2{
+        #addItemForm table
+        {
             width:80%;
             margin:0 auto;
         }
-     </style>
+    </style>
+
 
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <!-- Contain -->
+ <!-- Contain -->
 
-
-        <div id="ContentBox">
-            <h1>Author Login</h1>
-                <table style="width:100%;">
+  
+        <div>
+            <div id="sample">
+                <table Class="loginBox">
                     <tr>
-                        <td>Email / Username :</td>
+                        <td class="auto-style2">Username:</td>
                         <td>
-                            <asp:TextBox ID="EorU" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td>Password :</td>
+                        <td class="auto-style2">&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style2">Password:</td>
                         <td>
                             <asp:TextBox ID="Password" runat="server"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
+                        <td class="auto-style2">&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
                         <td colspan="2">
-                            <asp:LinkButton ID="LinkButton1" runat="server">Forgot Password</asp:LinkButton>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/InfoReg.aspx">Not A User? Create Account Now!</asp:HyperLink>
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style1" colspan="2">
-                            <input id="Checkbox1" type="checkbox" />Remember Me</td>
+                        <td class="auto-style2">&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="aLogin" runat="server" Text="Login" OnClick="aLogin_Click" />
+                            <asp:Button ID="lBtn" runat="server" Text="Login" CssClass="lBtn" PostBackUrl="~/artistProfileInfo.aspx" />
                         </td>
                     </tr>
                 </table>
-         </div>
-    <div id="ContentBox2">
-        <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Customer_gallery_view.aspx"></asp:Login>
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Customer_gallery_view.aspx">Continue as a Anynomous</asp:HyperLink>
-    </div>
+            </div>
+        </div>
 
     <!-- Contain -->
 </asp:Content>

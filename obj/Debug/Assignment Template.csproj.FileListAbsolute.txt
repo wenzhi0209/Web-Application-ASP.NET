@@ -243,5 +243,4 @@ C:\Users\User\Desktop\Assignment-Template\obj\Debug\Assignment Template.csproj.C
 C:\Users\User\Desktop\Assignment-Template\obj\Debug\Assignment Template.csproj.CopyComplete
 C:\Users\User\Desktop\Assignment-Template\obj\Debug\Assignment Template.dll
 C:\Users\User\Desktop\Assignment-Template\obj\Debug\Assignment Template.pdb
-C:\Users\kee\Documents\GitHub\Assignment-Template\obj\Debug\Assignment Template.csproj.CoreCompileInputs.cache
 C:\Users\WenZhi\source\repos\wenzhi0209\Assignment-Template\obj\Debug\Assignment Template.csprojAssemblyReference.cache
