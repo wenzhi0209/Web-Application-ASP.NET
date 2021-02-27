@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AuthorProfile.aspx" />
+    <Content Include="AuthorResetPassword.aspx" />
     <Content Include="Author_Logged\addArtDetail.aspx" />
     <Content Include="App_Data\Assignment.mdf" />
     <Content Include="App_Data\Assignment_log.ldf">
@@ -74,6 +76,10 @@
     </Content>
     <Content Include="Author_Logged\artistProfileInfo.aspx" />
     <Content Include="Art_detail.aspx" />
+    <Content Include="Author_Logged\AuthorInfoReg.aspx" />
+    <Content Include="Author_Logged\AuthorLogin.aspx" />
+    <Content Include="Author_Logged\AuthorProfile.aspx" />
+    <Content Include="Author_Logged\AuthorResetPassword.aspx" />
     <Content Include="Author_Logged\ChangePasswordaspx.aspx" />
     <Content Include="Customer_Logged\Checkout.aspx" />
     <Content Include="CustomerLogin.aspx" />
@@ -94,16 +100,29 @@
     <Content Include="Img\Icon\favorite_border-24px.svg" />
     <Content Include="AuthorInfoReg.aspx" />
     <Content Include="AuthorLogin.aspx" />
-    <Content Include="Login.aspx" />
     <Content Include="Customer_Logged\orderDetails.aspx" />
     <Content Include="StyleSheet\gallery_view.css" />
     <Content Include="Customer_Logged\ShopingCart.aspx" />
     <Content Include="Master_Page\Layout.js" />
     <Content Include="Master_Page\logo-social.png" />
     <Content Include="Master_Page\Layout.css" />
+    <Content Include="StyleSheet\Login.css" />
+    <Content Include="StyleSheet\Profile1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorProfile.aspx.cs">
+      <DependentUpon>AuthorProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorProfile.aspx.designer.cs">
+      <DependentUpon>AuthorProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorResetPassword.aspx.cs">
+      <DependentUpon>AuthorResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorResetPassword.aspx.designer.cs">
+      <DependentUpon>AuthorResetPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Author_Logged\addArtDetail.aspx.cs">
       <DependentUpon>addArtDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -113,7 +132,6 @@
     </Compile>
     <Compile Include="Author_Logged\artistProfileInfo.aspx.cs">
       <DependentUpon>artistProfileInfo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Author_Logged\artistProfileInfo.aspx.designer.cs">
       <DependentUpon>artistProfileInfo.aspx</DependentUpon>
@@ -125,9 +143,36 @@
     <Compile Include="Art_detail.aspx.designer.cs">
       <DependentUpon>Art_detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Author_Logged\AuthorInfoReg.aspx.cs">
+      <DependentUpon>AuthorInfoReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Author_Logged\AuthorInfoReg.aspx.designer.cs">
+      <DependentUpon>AuthorInfoReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Author_Logged\AuthorLogin.aspx.cs">
+      <DependentUpon>AuthorLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Author_Logged\AuthorLogin.aspx.designer.cs">
+      <DependentUpon>AuthorLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Author_Logged\AuthorProfile.aspx.cs">
+      <DependentUpon>AuthorProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Author_Logged\AuthorProfile.aspx.designer.cs">
+      <DependentUpon>AuthorProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Author_Logged\AuthorResetPassword.aspx.cs">
+      <DependentUpon>AuthorResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Author_Logged\AuthorResetPassword.aspx.designer.cs">
+      <DependentUpon>AuthorResetPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Author_Logged\ChangePasswordaspx.aspx.cs">
       <DependentUpon>ChangePasswordaspx.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Author_Logged\ChangePasswordaspx.aspx.designer.cs">
       <DependentUpon>ChangePasswordaspx.aspx</DependentUpon>
@@ -183,24 +228,15 @@
     </Compile>
     <Compile Include="AuthorInfoReg.aspx.cs">
       <DependentUpon>AuthorInfoReg.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AuthorInfoReg.aspx.designer.cs">
       <DependentUpon>AuthorInfoReg.aspx</DependentUpon>
     </Compile>
     <Compile Include="AuthorLogin.aspx.cs">
       <DependentUpon>AuthorLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AuthorLogin.aspx.designer.cs">
       <DependentUpon>AuthorLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master_Page\Anonymous.Master.cs">
       <DependentUpon>Anonymous.Master</DependentUpon>
