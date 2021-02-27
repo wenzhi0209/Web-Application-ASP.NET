@@ -38,8 +38,7 @@ function closeNav() {
         <div>
             <div >
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-                <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div id="mySidenav" class="sidenav" style="width:250px;">
   <a href="#">Profile</a>
   <a href="#">Sold Art</a>
   <a href="#">Current Gallery</a>
