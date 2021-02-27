@@ -11,12 +11,12 @@ namespace Assignment_Template
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
         }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CustomerLogin.aspx");
+
         }
 
         protected void Password_TextChanged(object sender, EventArgs e)

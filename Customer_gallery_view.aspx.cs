@@ -88,7 +88,7 @@ namespace Assignment_Template
 
             string testdiv =
                "<a href=\"Art_detail.aspx?para=" + id + "\">" +
-               "<img src=\"" + imgPath + "\"/></a>" +
+               "<img src=\"..\\" + imgPath + "\"/></a>" +
                "<p class=\"artTitle\">" + artTitle + "</p>" +
                "<p class=\"artist\">" + author + "</p>" +
                "<p class=\"price\">" + price + "</p>";

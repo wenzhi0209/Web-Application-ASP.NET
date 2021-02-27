@@ -23,7 +23,6 @@
                     <nav id="topNav">
                         <a href="artistProfileInfo.aspx">Profile</a>
                         <a href="Customer_gallery_view.aspx">Gallery</a>
-                        <a href="LoginControl.aspx">Login Control</a>
 
                     </nav>
                 </div>

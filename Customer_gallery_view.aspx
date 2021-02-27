@@ -2,7 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Gallery View</title>
-    <link rel="stylesheet" href="StyleSheet/gallery_view.css" />
+    <link rel="stylesheet" href="../StyleSheet/gallery_view.css" />
     <style type="text/css">
         .arrowDown{
             display:block;

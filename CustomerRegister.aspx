@@ -84,4 +84,26 @@
                 </table>
             </p>
         </div>
+
+
+
+     <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" ContinueDestinationPageUrl="~/CustomerLogin.aspx">
+         <WizardSteps>
+             <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
+                 <CustomNavigationTemplate>
+                     <table border="0" cellspacing="5" style="width:100%;height:100%;">
+                         <tr align="right">
+                             <td align="right" colspan="0">
+                                 <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Create User" ValidationGroup="CreateUserWizard1" />
+                             </td>
+                         </tr>
+                     </table>
+                 </CustomNavigationTemplate>
+             </asp:CreateUserWizardStep>
+             <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server">
+             </asp:CompleteWizardStep>
+         </WizardSteps>
+     </asp:CreateUserWizard>
+
+
 </asp:Content>
