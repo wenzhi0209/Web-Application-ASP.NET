@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Anonymous.master.cs" Inherits="Assignment_Template.Master_Page.Anonymous" %>
-
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Author_Logged.master.cs" Inherits="Assignment_Template.Master_Page.Author_Logged" %>
 <!DOCTYPE html>
 
 <html>
@@ -16,16 +15,14 @@
         <div>
             <!-- Top Bar -->
             <div id="topBar">
-<<<<<<< HEAD
-                <a href="LoginControl.aspx">
-=======
                 <a href="Login.aspx">
->>>>>>> parent of 2a74818 (Submission update)
                 <img src="/Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
                 </a>
                 <div id='back' onclick="navM()">
                     <nav id="topNav">
-                        
+                        <a href="artistProfileInfo.aspx">Profile</a>
+                        <a href="Customer_gallery_view.aspx">Gallery</a>
+
                     </nav>
                 </div>
                 <div id='icon' onclick="navM()">
@@ -47,3 +44,4 @@
     </form>
 </body>
 </html>
+
