@@ -17,7 +17,11 @@
             <!-- Top Bar -->
             <div id="topBar">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <a href="LoginControl.aspx">
+=======
+                <a href="Login.aspx">
+>>>>>>> parent of 2a74818 (Submission update)
 =======
                 <a href="Login.aspx">
 >>>>>>> parent of 2a74818 (Submission update)
