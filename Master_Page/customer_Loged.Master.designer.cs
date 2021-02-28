@@ -35,7 +35,10 @@ namespace Assignment_Template
         /// <summary>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 2a74818 (Submission update)
 =======
 >>>>>>> parent of 2a74818 (Submission update)
         /// LoginStatus1 control.
