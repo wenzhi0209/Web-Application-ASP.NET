@@ -73,7 +73,7 @@
             </tr>
             <tr>
                 <td class="auto-style1">&nbsp;</td>
-                <td> Date: </td>
+                <td>Release Date:</td>
                 <td>
                     <asp:Calendar ID="cRealeaseDate" runat="server" OnSelectionChanged="cRealeaseDate_SelectionChanged">
                         <DayHeaderStyle BackColor="#59acf0" ForeColor="Black" Height="1px" />

@@ -13,5 +13,11 @@ namespace Assignment_Template
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            lblDeleteMsg.Text = "</br> [img from database] </br> Your art work has been successfully removed. </br> </br>";
+
+        }
     }
 }
