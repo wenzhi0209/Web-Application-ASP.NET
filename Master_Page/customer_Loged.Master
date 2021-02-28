@@ -16,9 +16,13 @@
         <div>
             <!-- Top Bar -->
             <div id="topBar">
-                <a href="LoginControl.aspx">
+<<<<<<< HEAD
+                <a href="Login.aspx">
+=======
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">
+>>>>>>> 2a74818397d7839ba5ce13e542c955668b92c4f4
                 <img src="/Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
-                </a>
+                </asp:HyperLink>
                 <div id='back' onclick="navM()">
                     <nav id="topNav">
                         <a href="../Customer_Logged/CustomerProfile.aspx">Profile</a>

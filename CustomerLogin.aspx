@@ -7,10 +7,7 @@
             text-align: center;
 
         }
-        .auto-style1 {
-            height: 28px;
-        }
-
+        
         #ContentBox{
             width:80%;
             margin:0 auto;
@@ -20,6 +17,9 @@
             width:80%;
             margin:0 auto;
         }
+        .auto-style1 {
+            text-align: center;
+        }
      </style>
 
 </asp:Content>
@@ -27,39 +27,63 @@
 
         <div id="ContentBox">
             <h1>Customer Login</h1>
-                <table style="width:100%;">
-                    <tr>
-                        <td>Email / Username :</td>
-                        <td>
-                            <asp:TextBox ID="EorU" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Password :</td>
-                        <td>
-                            <asp:TextBox ID="Password" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <asp:LinkButton ID="LinkButton1" runat="server">Forgot Password</asp:LinkButton>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1" colspan="2">
-                            <input id="Checkbox1" type="checkbox" />Remember Me</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <asp:Button ID="Login" runat="server" Text="Login" />
-                        </td>
-                    </tr>
-                </table>
+                &nbsp;<div>
+                <asp:Login ID="Login1" align="center" runat="server" DestinationPageUrl="~/Customer_gallery_view.aspx" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="194px" Width="319px">
+                    <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
+                    <LayoutTemplate>
+                        <table cellpadding="4" cellspacing="0" style="border-collapse:collapse;">
+                            <tr>
+                                <td>
+                                    <table cellpadding="0" style="height:194px;width:319px;">
+                                        <tr>
+                                            <td align="center" colspan="2" style="color:White;background-color:#507CD1;font-size:0.9em;font-weight:bold;">Log In</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="auto-style1">Username:</td>
+                                            <td class="auto-style1">
+                                                <asp:TextBox ID="UserName" runat="server" Font-Size="0.8em"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="auto-style1">
+                                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                                            </td>
+                                            <td class="auto-style1">
+                                                <asp:TextBox ID="Password" runat="server" Font-Size="0.8em" TextMode="Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="auto-style1" colspan="2">
+                                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Customer_gallery_view.aspx">Continue as a Anynomous</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="auto-style1" colspan="2">
+                                                <asp:CheckBox ID="RememberMe" runat="server" Text="Remember me next time." />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" colspan="2" style="color:Red;">
+                                                <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="auto-style1" colspan="2">
+                                                <asp:Button ID="LoginButton" runat="server" BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" CommandName="Login" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" Text="Log In" ValidationGroup="Login1" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </LayoutTemplate>
+                    <LoginButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />
+                    <TextBoxStyle Font-Size="0.8em" />
+                    <TitleTextStyle BackColor="#507CD1" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
+                </asp:Login>
+            </div>
          </div>
-    <div id="ContentBox2">
-        login 用这个比较好，要不然你需要作自定义登录处理
-        <asp:Login ID="Login1" runat="server" DestinationPageUrl="~/Customer_gallery_view.aspx"></asp:Login>
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Customer_gallery_view.aspx">Continue as a Anynomous</asp:HyperLink>
-    </div>
 
 </asp:Content>

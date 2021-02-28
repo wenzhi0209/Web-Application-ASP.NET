@@ -67,8 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AuthorProfile.aspx" />
-    <Content Include="AuthorResetPassword.aspx" />
+    <Content Include="AuthorLogin.aspx" />
     <Content Include="Author_Logged\addArtDetail.aspx" />
     <Content Include="App_Data\Assignment.mdf" />
     <Content Include="App_Data\Assignment_log.ldf">
@@ -76,10 +75,6 @@
     </Content>
     <Content Include="Author_Logged\artistProfileInfo.aspx" />
     <Content Include="Art_detail.aspx" />
-    <Content Include="Author_Logged\AuthorInfoReg.aspx" />
-    <Content Include="Author_Logged\AuthorLogin.aspx" />
-    <Content Include="Author_Logged\AuthorProfile.aspx" />
-    <Content Include="Author_Logged\AuthorResetPassword.aspx" />
     <Content Include="Author_Logged\ChangePasswordaspx.aspx" />
     <Content Include="Customer_Logged\Checkout.aspx" />
     <Content Include="CustomerLogin.aspx" />
@@ -94,34 +89,28 @@
     <Content Include="Img\Art\C-TEST.jpg" />
     <Content Include="Img\Art\D-TEST.jpg" />
     <Content Include="Img\Art\E-TEST.jpg" />
+    <Content Include="Img\Avatar.jfif" />
     <Content Include="Img\Icon\add_shopping_cart-24px.svg" />
     <Content Include="Img\Icon\arrow_down.svg" />
     <Content Include="Img\Icon\arrow_up.svg" />
     <Content Include="Img\Icon\favorite_border-24px.svg" />
     <Content Include="AuthorInfoReg.aspx" />
-    <Content Include="AuthorLogin.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Customer_Logged\orderDetails.aspx" />
     <Content Include="StyleSheet\gallery_view.css" />
     <Content Include="Customer_Logged\ShopingCart.aspx" />
     <Content Include="Master_Page\Layout.js" />
     <Content Include="Master_Page\logo-social.png" />
     <Content Include="Master_Page\Layout.css" />
-    <Content Include="StyleSheet\Login.css" />
-    <Content Include="StyleSheet\Profile1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthorProfile.aspx.cs">
-      <DependentUpon>AuthorProfile.aspx</DependentUpon>
+    <Compile Include="AuthorLogin.aspx.cs">
+      <DependentUpon>AuthorLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AuthorProfile.aspx.designer.cs">
-      <DependentUpon>AuthorProfile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AuthorResetPassword.aspx.cs">
-      <DependentUpon>AuthorResetPassword.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AuthorResetPassword.aspx.designer.cs">
-      <DependentUpon>AuthorResetPassword.aspx</DependentUpon>
+    <Compile Include="AuthorLogin.aspx.designer.cs">
+      <DependentUpon>AuthorLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Author_Logged\addArtDetail.aspx.cs">
       <DependentUpon>addArtDetail.aspx</DependentUpon>
@@ -132,6 +121,7 @@
     </Compile>
     <Compile Include="Author_Logged\artistProfileInfo.aspx.cs">
       <DependentUpon>artistProfileInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Author_Logged\artistProfileInfo.aspx.designer.cs">
       <DependentUpon>artistProfileInfo.aspx</DependentUpon>
@@ -143,16 +133,15 @@
     <Compile Include="Art_detail.aspx.designer.cs">
       <DependentUpon>Art_detail.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Author_Logged\AuthorInfoReg.aspx.cs">
       <DependentUpon>AuthorInfoReg.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Author_Logged\AuthorInfoReg.aspx.designer.cs">
       <DependentUpon>AuthorInfoReg.aspx</DependentUpon>
     </Compile>
     <Compile Include="Author_Logged\AuthorLogin.aspx.cs">
       <DependentUpon>AuthorLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Author_Logged\AuthorLogin.aspx.designer.cs">
       <DependentUpon>AuthorLogin.aspx</DependentUpon>
@@ -171,8 +160,11 @@
     <Compile Include="Author_Logged\AuthorResetPassword.aspx.designer.cs">
       <DependentUpon>AuthorResetPassword.aspx</DependentUpon>
     </Compile>
+=======
+>>>>>>> 2a74818397d7839ba5ce13e542c955668b92c4f4
     <Compile Include="Author_Logged\ChangePasswordaspx.aspx.cs">
       <DependentUpon>ChangePasswordaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Author_Logged\ChangePasswordaspx.aspx.designer.cs">
       <DependentUpon>ChangePasswordaspx.aspx</DependentUpon>
@@ -228,15 +220,22 @@
     </Compile>
     <Compile Include="AuthorInfoReg.aspx.cs">
       <DependentUpon>AuthorInfoReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AuthorInfoReg.aspx.designer.cs">
       <DependentUpon>AuthorInfoReg.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="AuthorLogin.aspx.cs">
       <DependentUpon>AuthorLogin.aspx</DependentUpon>
+=======
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+>>>>>>> 2a74818397d7839ba5ce13e542c955668b92c4f4
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AuthorLogin.aspx.designer.cs">
-      <DependentUpon>AuthorLogin.aspx</DependentUpon>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master_Page\Anonymous.Master.cs">
       <DependentUpon>Anonymous.Master</DependentUpon>
@@ -245,19 +244,19 @@
     <Compile Include="Master_Page\Anonymous.Master.designer.cs">
       <DependentUpon>Anonymous.Master</DependentUpon>
     </Compile>
-    <Compile Include="Master_Page\author_Loged.Master.cs">
-      <DependentUpon>author_Loged.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Master_Page\author_Loged.Master.designer.cs">
-      <DependentUpon>author_Loged.Master</DependentUpon>
-    </Compile>
     <Compile Include="Customer_Logged\orderDetails.aspx.cs">
       <DependentUpon>orderDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Customer_Logged\orderDetails.aspx.designer.cs">
       <DependentUpon>orderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Page\Author_Logged.Master.cs">
+      <DependentUpon>Author_Logged.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Page\Author_Logged.Master.designer.cs">
+      <DependentUpon>Author_Logged.Master</DependentUpon>
     </Compile>
     <Compile Include="Master_Page\Customer_Loged.Master.cs">
       <DependentUpon>Customer_Loged.Master</DependentUpon>
@@ -276,10 +275,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Master_Page\author_Loged.Master" />
     <Content Include="Master_Page\Customer_Loged.Master" />
     <Content Include="Master_Page\Anonymous.Master" />
     <Content Include="Customer_Logged\Web.config" />
+    <Content Include="Master_Page\Author_Logged.Master" />
+    <Content Include="Author_Logged\Web.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -287,7 +287,6 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

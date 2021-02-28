@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assignment_Template
+namespace Assignment_Template.Master_Page
 {
 
 
-    public partial class Site1
+    public partial class Customer_Loged
     {
 
         /// <summary>
@@ -31,6 +31,27 @@ namespace Assignment_Template
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+<<<<<<< HEAD
+=======
+        /// HyperLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+
+        /// <summary>
+>>>>>>> 2a74818397d7839ba5ce13e542c955668b92c4f4
+        /// LoginStatus1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
 
         /// <summary>
         /// ContentPlaceHolder1 control.
