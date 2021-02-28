@@ -19,10 +19,8 @@ namespace Assignment_Template
         public static int CurrentPage = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             if(!IsPostBack)
             {
-                CurrentPage = 1;
                 SqlConnection connDb;
                 string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
                 connDb = new SqlConnection(strConn);

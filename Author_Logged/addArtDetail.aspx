@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/Author_Logged.Master" AutoEventWireup="true" CodeBehind="addArtDetail.aspx.cs" Inherits="Assignment_Template.addArtDetail" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/author_Loged.Master" AutoEventWireup="true" CodeBehind="addArtDetail.aspx.cs" Inherits="Assignment_Template.addArtDetail" %>
 
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
@@ -73,7 +73,7 @@
             </tr>
             <tr>
                 <td class="auto-style1">&nbsp;</td>
-                <td>Release Date:</td>
+                <td> Date: </td>
                 <td>
                     <asp:Calendar ID="cRealeaseDate" runat="server" OnSelectionChanged="cRealeaseDate_SelectionChanged">
                         <DayHeaderStyle BackColor="#59acf0" ForeColor="Black" Height="1px" />
