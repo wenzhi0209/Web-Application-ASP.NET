@@ -5,21 +5,23 @@
     <style>
         h1 {text-align: center;}
         .auto-style1 {
-            width: 77px;
-            height: 64px;
+            width: 125px;
+            height: 103px;
+        }
+        .auto-style2 {
+            text-align: center;
         }
         </style>
     </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="开连接进行传值，具体可以参考shoping cart 先获取userId 然后找到custId 再开数据库连接就可以输出数据了"></asp:Label>
             <h1>
             Customer Profile</h1>
             <p>
                 <table style="width:100%;">
                     <tr>
-                        <td colspan="2">
-                            <img alt="" class="auto-style1" src="" /></td>
+                        <td colspan="2" class="auto-style2">
+                            <img alt="" class="auto-style1" src="../Img/Avatar.jfif" /></td>
                     </tr>
                     <tr>
                         <td>Name : </td>
