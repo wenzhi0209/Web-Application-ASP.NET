@@ -1,4 +1,4 @@
-﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="customer_Loged.Master.cs" Inherits="Assignment_Template.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="customer_Loged.Master.cs" Inherits="Assignment_Template.Site1" %>
 
 <!DOCTYPE html>
 
@@ -16,14 +16,12 @@
         <div>
             <!-- Top Bar -->
             <div id="topBar">
-                <a href="LoginControl.aspx">
                 <img src="/Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
-                </a>
                 <div id='back' onclick="navM()">
                     <nav id="topNav">
-                        <a href="artistProfileInfo.aspx">Profile</a>
+                        <a>Profile</a>
                         <a href="Customer_gallery_view.aspx">Gallery</a>
-
+                        <a>Update Art</a>
                     </nav>
                 </div>
                 <div id='icon' onclick="navM()">

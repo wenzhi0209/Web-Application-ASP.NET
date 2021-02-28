@@ -15,9 +15,9 @@
         <div>
             <!-- Top Bar -->
             <div id="topBar">
-                <a href="Login.aspx">
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx">
                 <img src="/Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
-                </a>
+                </asp:HyperLink>
                 <div id='back' onclick="navM()">
                     <nav id="topNav">
                         <a href="artistProfileInfo.aspx">Profile</a>
