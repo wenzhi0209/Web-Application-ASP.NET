@@ -88,10 +88,10 @@ namespace Assignment_Template
                "<div class=\"ctrlBtn\"><img src = \"Img/Icon/add_shopping_cart-24px.svg\" /></div>" +
                "</div>" +
              */
-
+            string imgurl = ResolveClientUrl(imgPath);
             string testdiv =
                "<a href=\"Art_detail.aspx?para=" + id + "\">" +
-               "<img src=\"..\\" + imgPath + "\"/></a>" +
+               "<img src=\"" + imgurl +"\"/></a>" +
                "<p class=\"artTitle\">" + artTitle + "</p>" +
                "<p class=\"artist\">" + author + "</p>" +
                "<p class=\"price\">" + price + "</p>";

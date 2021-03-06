@@ -93,7 +93,7 @@
                             <tr>
                                 <td class="art_con">
                                     <asp:Label ID="art_Title" runat="server" Text='<%#Eval("art_Title")%>'></asp:Label>
-                                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# "~/"+Eval("art_Img").ToString() %>' Width="100px"></asp:Image>
+                                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("art_Img").ToString() %>' Width="100px"></asp:Image>
                                 </td>
                                 <td class="price_con">
                                     <%#Eval("art_Price")%>

@@ -1,0 +1,113 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer_Account.Master.cs" Inherits="Assignment_Template.Master_Page.Customer_Profile" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="Layout.css" />
+    <script src="/Master_Page/Layout.js"></script>
+
+    <style type="text/css">
+        #TableContainer
+        {
+            width:80%;
+            margin:0 auto;
+        }
+        #LinkColummn{
+            width:25%;
+        }
+        #ContentColumn{
+            width:75%;
+        }
+        #HyperUL
+        {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+        }
+        .LinkTag{
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+        .LinkTag:hover{
+            color: rgb(43, 174, 226);
+            text-shadow: 1px 1px 0px gray;
+        }
+
+        .activeLink{
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            box-sizing:border-box;
+            border-left:solid 5px rgb(43, 174, 226);
+
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <!-- Top Bar -->
+            <div id="topBar">
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Customer_gallery_view.aspx">
+                <img src="/Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
+                </asp:HyperLink>
+                <div id='back' onclick="navM()">
+                    <nav id="topNav">
+                        <a href="../Customer_Logged/CustomerProfile.aspx">My Account</a>
+                        <a href="../Customer_gallery_view.aspx">Gallery</a>
+                        <a href="../Customer_Logged/ShopingCart.aspx">Shoping Cart</a>
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Login.aspx" />
+                    </nav>
+                </div>
+                <div id='icon' onclick="navM()">
+                    <div id='line1'></div>
+                    <div id='line2'></div>
+                    <div id='line3'></div>
+                </div>
+            </div>
+            
+            <!--Contain-->
+            <table id="TableContainer">
+                <tr>
+                    <td id="LinkColummn">
+                        <ul id="HyperUL">
+                            <li>
+                                <asp:HyperLink ID="CustProfileLink" runat="server" NavigateUrl="~/Customer_Logged/CustomerProfile.aspx" CssClass="LinkTag">Profile</asp:HyperLink>
+                            </li>
+                            <li>
+                                <asp:HyperLink ID="CustOrderLink" runat="server" NavigateUrl="~/Customer_Logged/Customer_Order.aspx" CssClass="LinkTag">My Orders</asp:HyperLink>
+                            </li>
+                             <li>
+                                <asp:HyperLink ID="FavoArtLink" runat="server" NavigateUrl="~/Customer_Logged/Favo_Art.aspx" CssClass="LinkTag">My Favourite</asp:HyperLink>
+                            </li>
+                        </ul>
+                            
+                    </td>
+                    <td id="ContentColumn">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                        </asp:ContentPlaceHolder>
+                    </td>  
+                </tr>
+            </table>
+            
+       
+
+            <!-- Bottom Bar-->
+            <div id="bottomBar">
+                <p id="copy">Copyright © 2019. Something PTE. LTD. (201834583-Z). All Rights Reserved.</p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+

@@ -24,148 +24,116 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!-- Contain -->
-
-    
         <div>
-            <div id="sample">
-                <table class="artistBox">
-                    <tr>
-                        <td class="auto-style2">Username:</td>
-                        <td class="auto-style3">
-                            <asp:TextBox ID="pUser" runat="server" ReadOnly="True"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">Password:</td>
-                        <td class="auto-style3">
-                            <asp:TextBox ID="pPass" runat="server" TextMode="Password"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">Name:</td>
-                        <td class="auto-style3">
-                            <asp:TextBox ID="pName" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">Date of birth</td>
-                        <td class="auto-style3">
-                            <asp:TextBox ID="pDOB" runat="server" TextMode="Date" CssClass="pHover"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">Type Of Art:</td>
-                      <td class="auto-style6">
-                        <asp:DropDownList ID="pType" runat="server" CssClass="pHover">
-                            <asp:ListItem>Modern Art</asp:ListItem>
-                            <asp:ListItem>19th Century</asp:ListItem>
-                            <asp:ListItem>Renaissance Art</asp:ListItem>
-                            <asp:ListItem>Abstract Art</asp:ListItem>
-                            <asp:ListItem>Pop Art</asp:ListItem>
-                            <asp:ListItem>Cubism</asp:ListItem>
-                            <asp:ListItem>Art Deco</asp:ListItem>
-                            <asp:ListItem>Art Nouveau</asp:ListItem>
-                            <asp:ListItem>Surrealism</asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">Phone Number:</td>
-                        <td class="auto-style3">
-                            <asp:TextBox ID="pPhone" runat="server" TextMode="Phone"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">Address:</td>
-                        <td class="auto-style3">
-                            <asp:TextBox ID="pAddress" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">City:</td>
-                        <td class="auto-style3">
-                            <asp:TextBox ID="pCity" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4">Postal Code:</td>
-                        <td class="auto-style5">
-                            <asp:TextBox ID="pPostal" runat="server" TextMode="Number"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">State:</td>
-                     <td class="auto-style3">
-                        <asp:DropDownList ID="pState" runat="server" CssClass="pHover">
-                            <asp:ListItem>                  </asp:ListItem>
-                            <asp:ListItem>Johor</asp:ListItem>
-                            <asp:ListItem>Kedah</asp:ListItem>
-                            <asp:ListItem>Kelantan</asp:ListItem>
-                            <asp:ListItem>Melaka</asp:ListItem>
-                            <asp:ListItem>Negeri Sembilan</asp:ListItem>
-                            <asp:ListItem>Pahang</asp:ListItem>
-                            <asp:ListItem>Penang</asp:ListItem>
-                            <asp:ListItem>Perak</asp:ListItem>
-                            <asp:ListItem>Perlis</asp:ListItem>
-                            <asp:ListItem>Selangor</asp:ListItem>
-                            <asp:ListItem>Terengganu</asp:ListItem>
-                            <asp:ListItem>Sabah</asp:ListItem>
-                            <asp:ListItem>Sarawak</asp:ListItem>
-                            <asp:ListItem>Kuala Lumpur</asp:ListItem>
-                            <asp:ListItem>Labuan</asp:ListItem>
-                            <asp:ListItem>Putrajaya</asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style3">
-                            <asp:Button ID="RegBtn" runat="server" Text="Register" CssClass="pBtn" PostBackUrl="~/artistProfileInfo.aspx" />
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            <h1>Author Register</h1>
+        
+
+             <asp:CreateUserWizard ID="CreateUserWizard1" align="center" runat="server" ContinueDestinationPageUrl="~/AuthorLogin.aspx" OnCreatedUser="CreateUserWizard1_CreatedUser" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" Height="366px" Width="377px">
+                 <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
+                 <CreateUserButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
+                 <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                 <WizardSteps>
+                     <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
+                         <ContentTemplate>
+                             <table style="font-family:Verdana;font-size:100%;height:366px;width:377px;">
+                                 <tr>
+                                     <td colspan="2" style="color:White;background-color:#5D7B9D;font-weight:bold;">Sign Up for Your New Account</td>
+                                 </tr>
+                                 <tr>
+                                     <td>Author name:</td>
+                                     <td>
+                                         <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td >Phone No.:</td>
+                                     <td>
+                                         <asp:TextBox ID="PhoneNo" runat="server"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="PhoneNoRequired" runat="server" ControlToValidate="PhoneNo" ErrorMessage="Phone No is required." ToolTip="Phone No is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         Date of Birth:</td>
+                                     <td>
+                                         <asp:TextBox ID="DOB" runat="server" TextMode="Date"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="DOBRequired" runat="server" ControlToValidate="DOB" ErrorMessage="Date of Birth is required." ToolTip="Date of Birth is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                                     </td>
+                                     <td>
+                                         <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">Confirm Password:</asp:Label>
+                                     </td>
+                                     <td>
+                                         <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                     </td>
+                                 </tr>
+                                 <tr>
+                                     <td>
+                                         <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
+                                     </td>
+                                     <td>
+                                         <asp:TextBox ID="Email" runat="server"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                     </td>
+                                 </tr>
+
+                                 <tr>
+                                     <td>Address:</td>
+                                     <td>
+                                         <asp:TextBox ID="Address" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="AddressRequired" runat="server" ControlToValidate="Address" ErrorMessage="Address is required." ToolTip="Address is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                     </td>
+                                 </tr>
+
+                                 <tr>
+                                     <td>Gender:</td>
+                                     <td>
+                                         <asp:RadioButtonList ID="Gender" runat="server" Height="20px" RepeatDirection="Horizontal" RepeatLayout="Flow" Width="136px">
+                                             <asp:ListItem Value="M">Male</asp:ListItem>
+                                             <asp:ListItem Value="F">Female</asp:ListItem>
+                                         </asp:RadioButtonList>
+                                         <asp:RequiredFieldValidator ID="GenderRequired" runat="server" ControlToValidate="Gender" ErrorMessage="Please Select your gender." ToolTip="Please Select your gender." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                     </td>
+                                 </tr>
+                         
+                                 <tr>
+                                     <td colspan="2" style="color:Red;">
+                                         <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
+                                     </td>
+                                 </tr>
+                             </table>
+                         </ContentTemplate>
+                         <CustomNavigationTemplate>
+                             <table border="0" style="width:100%;height:100%;">                   
+                                 <tr>
+                                     <td>
+                                         <asp:Button ID="StepNextButton" runat="server" CommandName="MoveNext" Text="Create User" ValidationGroup="CreateUserWizard1" />
+                                     </td>
+                                 </tr>
+                             </table>
+                         </CustomNavigationTemplate>
+                     </asp:CreateUserWizardStep>
+                     <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server">
+                     </asp:CompleteWizardStep>
+                 </WizardSteps>
+                 <HeaderStyle BackColor="#5D7B9D" BorderStyle="Solid" Font-Bold="True" Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
+                 <NavigationButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
+                 <SideBarButtonStyle BorderWidth="0px" Font-Names="Verdana" ForeColor="White" />
+                 <SideBarStyle BackColor="#5D7B9D" BorderWidth="0px" Font-Size="0.9em" VerticalAlign="Top" />
+                 <StepStyle BorderWidth="0px" />
+             </asp:CreateUserWizard>
         </div>
 
     <!-- Contain -->

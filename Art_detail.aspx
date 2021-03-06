@@ -56,7 +56,7 @@
             
             <div id="flexbox"> 
                     <asp:ImageButton ID="Add_to_SC" runat="server" ImageUrl="~/Img/Icon/add_shopping_cart-24px.svg" CssClass="icon" OnClick="Add_to_SC_Click"/>
-                    <asp:ImageButton ID="Add_to_FL" runat="server" ImageUrl="~/Img/Icon/favorite_border-24px.svg" CssClass="icon"/>
+                    <asp:ImageButton ID="Add_to_FL" runat="server" ImageUrl="~/Img/Icon/favorite_border-24px.svg" CssClass="icon" OnClick="Add_to_FL_Click"/>
             </div>
         </div>
        

@@ -96,7 +96,7 @@
                             <asp:CheckBox ID="selectCheckBox" runat="server" Checked='<%#Convert.ToBoolean(Eval("check_Sta"))%>' OnCheckedChanged="CheckBox2_CheckedChanged" AutoPostBack="True" /></td>
                         <td class="art_con">
                             <asp:Label ID="art_Title" runat="server" Text='<%#Eval("art_Title")%>' CssClass="art_con_Label"></asp:Label>
-                            <asp:Image ID="art_Img" runat="server" ImageUrl='<%# "~/"+Eval("art_Img").ToString() %>' CssClass="art_con_Img"></asp:Image>
+                            <asp:Image ID="art_Img" runat="server" ImageUrl='<%# Eval("art_Img").ToString() %>' CssClass="art_con_Img"></asp:Image>
                         </td>
                         <td class="price_con">
                             <%#Eval("art_Price")%>
@@ -124,8 +124,7 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
         SelectCommand="DELETE Cart_Item FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id WHERE Art.available_Qty=0 
-
-SELECT Cart_Item.cItem_Id, Cart_Item.art_Id, Cart_Item.qty, Cart_Item.cust_Id, Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS subtotal, Cart_Item.check_Sta, Art.available_Qty FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id where Cart_Item.cust_Id=@cust_Id" 
+        SELECT Cart_Item.cItem_Id, Cart_Item.art_Id, Cart_Item.qty, Cart_Item.cust_Id, Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS subtotal, Cart_Item.check_Sta, Art.available_Qty FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id where Cart_Item.cust_Id=@cust_Id" 
         UpdateCommand="UPDATE Cart_Item SET check_Sta = @check_Sta where cItem_Id=@cItem_Id"
         DeleteCommand="DELETE FROM Cart_Item where cItem_Id=@cItem_Id">
 

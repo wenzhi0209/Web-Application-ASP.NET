@@ -28,15 +28,15 @@
         <div id="ContentBox">
             <h1>Customer Login</h1>
                 &nbsp;<div>
-                <asp:Login ID="Login1" align="center" runat="server" DestinationPageUrl="~/Customer_gallery_view.aspx" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="194px" Width="319px">
+                <asp:Login ID="Login1" align="center" runat="server" DestinationPageUrl="~/Customer_gallery_view.aspx" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="194px" Width="319px">
                     <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                     <LayoutTemplate>
-                        <table cellpadding="4" cellspacing="0" style="border-collapse:collapse;">
+                        <table style="border-collapse:collapse;">
                             <tr>
                                 <td>
-                                    <table cellpadding="0" style="height:194px;width:319px;">
+                                    <table style="height:194px;width:319px;">
                                         <tr>
-                                            <td align="center" colspan="2" style="color:White;background-color:#507CD1;font-size:0.9em;font-weight:bold;">Log In</td>
+                                            <td colspan="2" style="color:White;background-color:#507CD1;font-size:0.9em;font-weight:bold;">Log In</td>
                                         </tr>
                                         <tr>
                                             <td class="auto-style1">Username:</td>
@@ -65,7 +65,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="center" colspan="2" style="color:Red;">
+                                            <td colspan="2" style="color:Red;">
                                                 <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                             </td>
                                         </tr>
@@ -79,9 +79,9 @@
                             </tr>
                         </table>
                     </LayoutTemplate>
-                    <LoginButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />
+                    <LoginButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284775" />
                     <TextBoxStyle Font-Size="0.8em" />
-                    <TitleTextStyle BackColor="#507CD1" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
+                    <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
                 </asp:Login>
             </div>
          </div>

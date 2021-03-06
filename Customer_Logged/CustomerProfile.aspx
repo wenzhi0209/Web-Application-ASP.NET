@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile ="~/Master_Page/Customer_Loged.Master" AutoEventWireup="true" CodeBehind="CustomerProfile.aspx.cs" Inherits="Assignment_Template.CustomerProfile" %>
+﻿<%@ Page Language="C#" MasterPageFile ="~/Master_Page/Customer_Account.Master" AutoEventWireup="true" CodeBehind="CustomerProfile.aspx.cs" Inherits="Assignment_Template.CustomerProfile" %>
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title></title>
@@ -8,41 +8,42 @@
             width: 125px;
             height: 103px;
         }
-        .auto-style2 {
-            text-align: center;
+        #ConTable{
+            width:80%;
+            margin:0 auto;
         }
+        
         </style>
     </asp:Content>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
         <div>
-            <h1>
-            Customer Profile</h1>
-            <p>
-                <table style="width:100%;">
+            <h1>Customer Profile</h1>
+                <table id="ConTable">
                     <tr>
-                        <td colspan="2" class="auto-style2">
+                        <td colspan="2">
                             <img alt="" class="auto-style1" src="../Img/Avatar.jfif" /></td>
                     </tr>
                     <tr>
-                        <td>Name : </td>
-                        <td>Ms. Tan Yee Ruu</td>
+                        <td>UserName : </td>
+                        <td><asp:TextBox ID="UserNameBox" runat="server" ReadOnly="True"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>Date of Birth :</td>
-                        <td>1/1/2000</td>
+                        <td><asp:TextBox ID="DobBox" runat="server" TextMode="Date" ReadOnly="True"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>Phone No. :</td>
-                        <td>012-3456789</td>
+                        <td><asp:TextBox ID="PhoneNoBox" runat="server"  ReadOnly="True"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>Email :</td>
-                        <td>yr123@gmail.com</td>
+                        <td><asp:TextBox ID="EmailBox" runat="server"  ReadOnly="True"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>Address :</td>
-                        <td>123, jalan abc<br />
-                            11600 Penang.</td>
+                        <td><asp:TextBox ID="AddressBox" runat="server" ReadOnly="True"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -50,5 +51,5 @@
                         </td>
                     </tr>
                 </table>
-            </p></div>
-  </asp:Content>
+        </div>
+</asp:Content>

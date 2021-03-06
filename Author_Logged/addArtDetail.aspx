@@ -123,5 +123,7 @@
         </table>
     </div>
 
-
+    <asp:HiddenField ID="HDauthorID" runat="server" />
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+    <br />
 </asp:Content>
