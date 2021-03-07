@@ -11,6 +11,16 @@
         .auto-style2 {
             text-align: center;
         }
+
+        .ImgContainer{
+            width: 400px;
+            height:400px;
+        }
+        .FavoImg{
+            height:100%;
+            width:auto;
+            margin: 0 auto;
+        }
         
         </style>
     </asp:Content>
@@ -22,21 +32,17 @@
 
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                 <HeaderTemplate>
-                    <table>
-                        <tr>
-                            <th>Art Id</th>
-                        </tr>
+                    <div class="ImgContainer">
                 </HeaderTemplate>
 
                 <ItemTemplate>
-                    <tr>
-                        <td><%# Eval("art_Id").ToString()%></td>
-                        <td><asp:HyperLink ID="OdetailLink" runat="server" NavigateUrl='<%# "~/Art_detail.aspx?para="+Eval("art_Id").ToString()%>'>View This Art</asp:HyperLink></td>
-                    </tr>
+                    <asp:HyperLink ID="OdetailLink" runat="server" NavigateUrl='<%# "~/Art_detail.aspx?para="+Eval("art_Id").ToString()%>'>
+                        <asp:Image ID="Art_Img" ImageUrl='<%#Eval("art_Img").ToString()%>' runat="server" CssClass="FavoImg" />
+                    </asp:HyperLink>
                 </ItemTemplate>
                 
                 <FooterTemplate>
-                    </table>
+                    </div>
                 </FooterTemplate>
             </asp:Repeater>
             
@@ -44,7 +50,7 @@
         </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-        SelectCommand="SELECT [art_Id] FROM [Favo_Art] WHERE ([cust_Id] = @cust_Id)"
+        SelectCommand="SELECT Art.art_Img, Art.art_Title, Art.art_Id FROM Favo_Art INNER JOIN Art ON Favo_Art.art_Id = Art.art_Id WHERE (Favo_Art.cust_Id = @cust_Id)"
         >
         <SelectParameters>
             <asp:Parameter Name="cust_Id" Type="Int32" />
