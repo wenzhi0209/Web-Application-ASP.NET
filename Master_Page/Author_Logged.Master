@@ -15,7 +15,7 @@
         <div>
             <!-- Top Bar -->
             <div id="topBar">
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Author_Logged/artistProfileInfo.aspx.aspx">
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Customer_gallery_view.aspx">
                 <img src="/Master_Page/logo-social.png" id="logo_Img" onclick="clear()" />
                 </asp:HyperLink>
                 <div id='back' onclick="navM()">

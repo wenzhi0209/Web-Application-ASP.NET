@@ -33,6 +33,15 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.Label Image_Title;
 
         /// <summary>
+        /// AuthorName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AuthorName;
+
+        /// <summary>
         /// Image_Desc control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace Assignment_Template
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Image_Price;
+
+        /// <summary>
+        /// Qty_Available control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Qty_Available;
 
         /// <summary>
         /// Add_to_SC control.

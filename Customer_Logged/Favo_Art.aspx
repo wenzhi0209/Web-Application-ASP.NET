@@ -4,21 +4,28 @@
     <title></title>
     <style>
         h1 {text-align: center;}
-        .auto-style1 {
-            width: 125px;
-            height: 103px;
-        }
-        .auto-style2 {
-            text-align: center;
+       
+        .ImgContainer{
+            width: 90%;
+            margin:0 auto;
+            display: flex;
+	        flex-direction: row;
+	        flex-wrap: wrap;
+	        justify-content: space-around;
+	        align-items: center;
+	        align-content: space-around;
         }
 
-        .ImgContainer{
-            width: 400px;
-            height:400px;
+        .ImgBox{
+            width: 200px;
+            height:200px;
+            margin:25px 25px;
+            overflow:hidden;
         }
         .FavoImg{
-            height:100%;
+            display:block;
             width:auto;
+            height:100%;
             margin: 0 auto;
         }
         
@@ -36,16 +43,17 @@
                 </HeaderTemplate>
 
                 <ItemTemplate>
+                    <div class="ImgBox">
                     <asp:HyperLink ID="OdetailLink" runat="server" NavigateUrl='<%# "~/Art_detail.aspx?para="+Eval("art_Id").ToString()%>'>
                         <asp:Image ID="Art_Img" ImageUrl='<%#Eval("art_Img").ToString()%>' runat="server" CssClass="FavoImg" />
                     </asp:HyperLink>
+                    </div>
                 </ItemTemplate>
                 
                 <FooterTemplate>
                     </div>
                 </FooterTemplate>
             </asp:Repeater>
-            
            
         </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 

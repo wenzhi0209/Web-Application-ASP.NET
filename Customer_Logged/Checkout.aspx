@@ -3,134 +3,223 @@
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Checkout</title>
     <style type="text/css">
-        #ContentCon
-        {
-            width:80%;
+        #ContentCon {
+            width: 80%;
             margin: 50px auto;
         }
-        .table_style
-        {
-            width:70%;
-            border-collapse:collapse;
-            border:solid 1px black;
-            margin:50px auto;
-            text-align:center;
+
+        .table_style {
+            width: 80%;
+            border-collapse: collapse;
+            border: solid 1px black;
+            margin: 50px auto;
+            text-align: center;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(43, 174, 226, 0.19);
         }
-        .table_style tr{
-             border:solid 1px black;
+
+            .table_style tr {
+                border: solid 1px black;
+            }
+
+        .art_con {
+            width: 55%;
+            min-width: 200px;
         }
-     
-        .art_con
-        {
+
+        .price_con {
+            width: 15%;
+            min-width: 90px;
+        }
+
+        .qty_con {
+            width: 15%;
+            min-width: 90px;
+        }
+
+        .total_con {
+            width: 15%;
+            min-width: 90px;
+        }
+
+        .repeatRow > .art_con {
             display: flex;
-	        flex-direction: row;
-	        flex-wrap: nowrap;
-	        justify-content: space-between;
-	        align-items: center;
-	        align-content: center;
-        }
-        .price_con
-        {
-            width:18%;
-        }
-        .qty_con
-        {
-            width:18%;
-        }
-        .total_con
-        {
-            width:18%;
-        }
-        
-        .art_con_Label{
-            display:block;
-            height:200px;
-            width:100px;
-            line-height:200px;
-        }
-        .art_con_Img{
-           display:block;
-           height:200px;
-           margin:25px auto;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+            padding: 0 25px;
         }
 
+        .ImgBox {
+            width: 45%;
+            height: 120px;
+            line-height: 120px;
+            margin: 25px auto;
+            overflow: hidden;
+        }
 
+        .art_con_Img {
+            max-width: 100%;
+            max-height: 120px;
+            vertical-align: middle;
+        }
+
+        .art_con_Label {
+            display: block;
+            height: 150px;
+            width: 50%;
+            line-height: 150px;
+            text-align: center;
+        }
+
+        #shipDetails {
+            width: 80%;
+            margin: 0 auto;
+            min-width: 200px;
+        }
+
+        .inputContainer {
+            font-size: 16px;
+            width: 90%;
+            max-width: 500px;
+            margin: 5px auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            align-content: center;
+        }
+
+            .inputContainer label {
+                display: block;
+                width: 35%;
+                padding: 8px 15px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+        .SDtextbox_style {
+            font-size: 16px;
+            display: block;
+            padding: 8px 15px;
+            width: 50%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            overflow: hidden;
+        }
+
+        .AutoFBtn {
+            display: block;
+            margin: 15px auto;
+        }
     </style>
-
 </asp:Content>
 
-
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:HiddenField ID="HDcustId" runat="server" />
-
-           <div id="ContentCon">
-
-               <table>
-                   <tr>
-                       <td><asp:Label ID="addLabel" runat="server" Text="Address"></asp:Label></td>
-                       <td><asp:TextBox ID="addBox" runat="server" Rows="3" TextMode="MultiLine" Text="sri pelangi condo jalan genting kelang 5330"></asp:TextBox></td>
-                   </tr>
-
-                   <tr>
-                       <td><asp:Label ID="phoneNoLabel" runat="server" Text="Phone No"></asp:Label></td>
-                       <td><asp:TextBox ID="phoneBox" runat="server"></asp:TextBox></td>
-                   </tr>
-               </table>
-                    
-            
-                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" OnItemCreated="Repeater1_ItemCreated">
-                    <HeaderTemplate>
-                            <table class="table_style">
-                            <tr>
-                                <th class="art_con"><p>Art</p></th>
-                                <th class="price_con"><p>Unit Price</p></th>
-                                <th class="qty_con"><p>Quantity</p></th>
-                                <th class="total_con"><p>Sub-Total</p></th>
-                            </tr>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <tr>
-                                <td class="art_con">
-                                    <asp:Label ID="art_Title" runat="server" Text='<%#Eval("art_Title")%>'></asp:Label>
-                                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("art_Img").ToString() %>' Width="100px"></asp:Image>
-                                </td>
-                                <td class="price_con">
-                                    <%#Eval("art_Price")%>
-                                </td>
-
-                                <td class="qty_con">
-                                    <asp:Label ID="qtyLbl" runat="server" Text='<%#Eval("qty") %>'></asp:Label>
-                                </td>
-                                <td class="total_con">
-                                    <asp:Label ID="subTotalLabel" runat="server" Text='<%#Eval("sub_total")%>'></asp:Label>
-                            
-                                </td>
-                            </tr>
-                            <asp:HiddenField ID="art_ID" Value='<%#Eval("art_Id")%>' runat="server" />
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </table>
-                        </FooterTemplate>
-                   
-                </asp:Repeater>
-                 Total:<asp:Label ID="totalLbl" runat="server" Text=""></asp:Label>
-                 <br />
-                 <asp:Button ID="PayBtn" runat="server" Text="Pay" OnClientClick="javascript:alert('Order Placed Succesfully')" OnClick="PayBtn_Click" />
-            </div> 
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     
 
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-                SelectCommand="SELECT Cart_Item.art_Id, Cart_Item.cItem_Id, Cart_Item.qty, Cart_Item.cust_Id,Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS sub_total 
-                FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id 
+    <div id="ContentCon">
+
+        <h1>CheckOut</h1>
+
+        <div id="shipDetails">
+            <p>Shipping Details</p>
+            <div class="inputContainer">
+                <label>Name</label>
+                <asp:TextBox ID="nameBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
+            </div>
+            <div class="inputContainer">
+                <label>Phone</label>
+                <asp:TextBox ID="phoneBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
+            </div>
+
+            <div class="inputContainer">
+                <label>Address</label>
+                <asp:TextBox ID="addBox" runat="server" CssClass="SDtextbox_style" Rows="2" TextMode="MultiLine"></asp:TextBox>
+            </div>
+
+            <div class="inputContainer">
+                <label>Country</label>
+                <asp:TextBox ID="countryBox" runat="server" CssClass="SDtextbox_style" Text="Malaysia" ReadOnly="True"></asp:TextBox>
+            </div>
+            <div class="inputContainer">
+                <label>State</label>
+                <asp:TextBox ID="stateBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
+            </div>
+            <div class="inputContainer">
+                <label>PostCode</label>
+                <asp:TextBox ID="pcodeBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
+            </div>
+
+            <asp:Button ID="autoFillBtn" runat="server" Text="Auto Fill In" CssClass="AutoFBtn" />
+        </div>
+
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="Repeater1_ItemDataBound" >
+            <HeaderTemplate>
+                <table class="table_style">
+                    <tr>
+                        <th class="art_con">
+                            <p>Art</p>
+                        </th>
+                        <th class="price_con">
+                            <p>Unit Price</p>
+                        </th>
+                        <th class="qty_con">
+                            <p>Quantity</p>
+                        </th>
+                        <th class="total_con">
+                            <p>Sub-Total</p>
+                        </th>
+                    </tr>
+            </HeaderTemplate>
+            <ItemTemplate>
+                <tr class="repeatRow">
+                    <td class="art_con">
+                        <div class="ImgBox">
+                            <asp:Image ID="art_Img" runat="server" ImageUrl='<%# Eval("art_Img").ToString() %>' CssClass="art_con_Img"></asp:Image>
+                        </div>
+                        <asp:Label ID="art_Title" runat="server" Text='<%#Eval("art_Title")%>' CssClass="art_con_Label"></asp:Label>
+                    </td>
+                    <td class="price_con">
+                        <asp:Label ID="unitPLbl" runat="server" Text='<%#Eval("art_Price")%>'></asp:Label>
+                    </td>
+
+                    <td class="qty_con">
+                        <asp:Label ID="qtyLbl" runat="server" Text='<%#Eval("qty")%>'></asp:Label>
+                    </td>
+                    <td class="total_con">
+                        <asp:Label ID="subTotalLabel" runat="server" Text='<%#Eval("sub_total")%>'></asp:Label>
+                    </td>
+                </tr>
+
+                <asp:HiddenField ID="art_Id" Value='<%#Eval("art_Id")%>' runat="server" />
+            </ItemTemplate>
+            <FooterTemplate>
+                <tr>
+                    <td colspan="4">
+                        <asp:Label ID="totalAmtLbl" runat="server" Text=""></asp:Label>
+                    </td>
+                </tr>
+                </table>
+            </FooterTemplate>
+        </asp:Repeater>
+
+        <asp:Button ID="PayBtn" runat="server" Text="Pay" OnClientClick="javascript:alert('Order Placed Succesfully')" OnClick="PayBtn_Click" />
+    </div>
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+        ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+        SelectCommand="SELECT Cart_Item.art_Id, Cart_Item.cItem_Id, Cart_Item.qty, Cart_Item.cust_Id,Art.art_Title, Art.art_Img, Art.art_Price, Cart_Item.qty * Art.art_Price AS sub_total
+                FROM Cart_Item INNER JOIN Art ON Cart_Item.art_Id = Art.art_Id
                 where Cart_Item.check_Sta like 'true' AND Cart_Item.cust_Id=@cust_Id">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="HDcustId" Name="cust_Id" PropertyName="Value" />
-                </SelectParameters>
+        <SelectParameters>
+            <asp:SessionParameter Name="cust_Id" SessionField="CustId" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 
-            </asp:SqlDataSource>
-
-           <br />
-
+    <br />
 </asp:Content>

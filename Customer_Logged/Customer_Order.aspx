@@ -4,14 +4,29 @@
     <title></title>
     <style>
         h1 {text-align: center;}
-        .auto-style1 {
-            width: 125px;
-            height: 103px;
+        #OrderTable{
+            width:90%;
+            border-collapse:collapse;
+            border:2px black solid;
+            margin:0 auto;
+            text-align:center;
+            min-width:540px;
         }
-        .auto-style2 {
-            text-align: center;
+        #HeaderRow{
+            border:2px black solid;
         }
-        
+        .No_row{
+            width:20%;
+        }
+        .DateTime_row{
+            width:30%;
+        }
+        .Status_row{
+            width:20%;
+        }
+        .Operate_row{
+            width:30%;
+        }
         </style>
     </asp:Content>
 
@@ -22,20 +37,21 @@
 
             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                 <HeaderTemplate>
-                    <table>
-                        <tr>
-                            <th>Order No</th>
-                            <th>OrderDateTime</th>
-                            <th>Order Status</th>
+                    <table id="OrderTable">
+                        <tr id="HeaderRow">
+                            <th class="No_row">Order No</th>
+                            <th class="DateTime_row">OrderDateTime</th>
+                            <th class="Status_row">Order Status</th>
+                            <th class="Operate_row">Operation</th>
                         </tr>
                 </HeaderTemplate>
 
                 <ItemTemplate>
                     <tr>
-                        <td><%# Eval("art_Order_Id").ToString()%></td>
-                        <td><%# Eval("order_DateTime").ToString()%></td>
-                        <td><%# Eval("order_status").ToString()%></td>
-                        <td><asp:HyperLink ID="OdetailLink" runat="server" NavigateUrl='<%# "~/Customer_Logged/orderDetails.aspx?para="+Eval("art_Order_Id").ToString()%>'>View This Order</asp:HyperLink></td>
+                        <td class="No_row"><%# Eval("art_Order_Id").ToString()%></td>
+                        <td class="DateTime_row"><%# Eval("order_DateTime").ToString()%></td>
+                        <td class="Status_row"><%# Eval("order_status").ToString()%></td>
+                        <td class="Operate_row"><asp:HyperLink ID="OdetailLink" runat="server" NavigateUrl='<%# "~/Customer_Logged/orderDetails.aspx?para="+Eval("art_Order_Id").ToString()%>'>View This Order</asp:HyperLink></td>
                     </tr>
                 </ItemTemplate>
                 
@@ -43,7 +59,7 @@
                     </table>
                 </FooterTemplate>
             </asp:Repeater>
-            
+            <asp:Button ID="Button1" runat="server" Text="Button" />
            
         </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
@@ -51,7 +67,7 @@
         SelectCommand="SELECT [art_Order_Id], [cust_Id], [order_DateTime], [order_status] FROM [Art_Order] WHERE ([cust_Id] = @cust_Id)"
         >
         <SelectParameters>
-            <asp:Parameter Name="cust_Id" Type="Int32" />
+            <asp:SessionParameter Name="cust_Id" SessionField="CustId" Type="Int32" />
         </SelectParameters>
         </asp:SqlDataSource>
 </asp:Content>

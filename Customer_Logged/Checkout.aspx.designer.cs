@@ -15,40 +15,13 @@ namespace Assignment_Template
     {
 
         /// <summary>
-        /// HDcustId control.
+        /// nameBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HDcustId;
-
-        /// <summary>
-        /// addLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label addLabel;
-
-        /// <summary>
-        /// addBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox addBox;
-
-        /// <summary>
-        /// phoneNoLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label phoneNoLabel;
+        protected global::System.Web.UI.WebControls.TextBox nameBox;
 
         /// <summary>
         /// phoneBox control.
@@ -60,6 +33,51 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox phoneBox;
 
         /// <summary>
+        /// addBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox addBox;
+
+        /// <summary>
+        /// countryBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox countryBox;
+
+        /// <summary>
+        /// stateBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox stateBox;
+
+        /// <summary>
+        /// pcodeBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox pcodeBox;
+
+        /// <summary>
+        /// autoFillBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button autoFillBtn;
+
+        /// <summary>
         /// Repeater1 control.
         /// </summary>
         /// <remarks>
@@ -67,15 +85,6 @@ namespace Assignment_Template
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater Repeater1;
-
-        /// <summary>
-        /// totalLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label totalLbl;
 
         /// <summary>
         /// PayBtn control.

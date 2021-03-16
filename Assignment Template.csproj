@@ -97,7 +97,7 @@
     <Content Include="Img\Icon\favorite_border-24px.svg" />
     <Content Include="AuthorInfoReg.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Customer_Logged\orderDetails.aspx" />
+    <Content Include="Customer_Logged\OrderDetails.aspx" />
     <Content Include="StyleSheet\gallery_view.css" />
     <Content Include="Customer_Logged\ShopingCart.aspx" />
     <Content Include="Master_Page\Layout.js" />
@@ -225,12 +225,12 @@
     <Compile Include="Master_Page\Anonymous.Master.designer.cs">
       <DependentUpon>Anonymous.Master</DependentUpon>
     </Compile>
-    <Compile Include="Customer_Logged\orderDetails.aspx.cs">
-      <DependentUpon>orderDetails.aspx</DependentUpon>
+    <Compile Include="Customer_Logged\OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer_Logged\orderDetails.aspx.designer.cs">
-      <DependentUpon>orderDetails.aspx</DependentUpon>
+    <Compile Include="Customer_Logged\OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master_Page\Author_Logged.Master.cs">
       <DependentUpon>Author_Logged.Master</DependentUpon>

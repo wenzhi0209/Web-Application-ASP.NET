@@ -1,116 +1,249 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Net.Mail;
+using System.Net.Mime;
+using System.Web.UI.WebControls;
 
 namespace Assignment_Template
 {
     public partial class Checkout : System.Web.UI.Page
     {
-        static string userName = "";
-        static string userId = "";
-        static string custId = "";
+        private static string userName = "";
+        private static double totalprice = 0;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //Get Customer ID can consider store at seesion
-                //For easier understanding do it simple
-                userName = User.Identity.Name.ToString();
+                if (Session["UserId"] == null)
+                {
+                    userName = User.Identity.Name.ToString();
+                    SqlConnection connDb;
+                    string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
+                    connDb = new SqlConnection(strConn);
+                    connDb.Open();
+
+                    string getUserId = "SELECT [UserId] FROM [vw_aspnet_Users] WHERE ([UserName] = @UserName)";
+                    SqlCommand cmd = new SqlCommand(getUserId, connDb);
+                    cmd.Parameters.AddWithValue("@UserName", userName);
+                    Session["UserId"] = cmd.ExecuteScalar().ToString();
+
+                    string getCustId = "SELECT [cust_Id],[cust_Address],[cust_PhoneNo] FROM [Customer] WHERE ([UserId] = @UserId)";
+                    cmd = new SqlCommand(getCustId, connDb);
+                    cmd.Parameters.AddWithValue("@UserId", Session["UserId"].ToString());
+                    Session["CustId"] = cmd.ExecuteScalar().ToString();
+                    SqlDataReader custDetails = cmd.ExecuteReader();
+                    if (custDetails.HasRows)
+                    {
+                        while (custDetails.Read())
+                        {
+                            //addBox.Text = custDetails["cust_Address"].ToString();
+                            //phoneBox.Text = custDetails["cust_PhoneNo"].ToString();
+                        }
+                    }
+                    connDb.Close();
+                }
+            }
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if(e.Item.ItemType==ListItemType.Header)
+            {
+                totalprice = 0;
+            }
+            double subprice = 0;
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label subTotalLabel = e.Item.FindControl("subTotalLabel") as Label;
+                if (subTotalLabel.Text != "")
+                {
+                    subprice = double.Parse(subTotalLabel.Text.ToString());
+                }
+                totalprice = totalprice + subprice;
+            }
+
+            if (e.Item.ItemType == ListItemType.Footer)
+            {
+                Label totalAmtLbl = e.Item.FindControl("totalAmtLbl") as Label;
+                totalAmtLbl.Text = "Total amount need to paid : RM " + totalprice;
+            }
+        }
+
+        protected void PayBtn_Click(object sender, EventArgs e)
+        {
+            //if got product then allow pay
+            if (Repeater1.Items.Count > 0)
+            {
                 SqlConnection connDb;
                 string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
                 connDb = new SqlConnection(strConn);
 
                 connDb.Open();
 
-                string getUserId = "SELECT [UserId] FROM [vw_aspnet_Users] WHERE ([UserName] = @UserName)";
-                SqlCommand cmd = new SqlCommand(getUserId, connDb);
-                cmd.Parameters.AddWithValue("@UserName", userName);
-                userId = cmd.ExecuteScalar().ToString();
+                //create order
+                string sqlInArtOrder = "INSERT INTO Art_Order(order_status,cust_Id,address,phoneNo,total_Amt,country,state,postcode,receiver_Name) " +
+                    "VALUES ('Paid'," + Session["CustId"].ToString() + ",'" + addBox.Text.ToString() + "','" + phoneBox.Text.ToString() + "'," + totalprice + ",'" + countryBox.Text.ToString() + "','" + stateBox.Text.ToString() + "'," + pcodeBox.Text.ToString() + ",'" + nameBox.Text.ToString() + "') SELECT IDENT_CURRENT('Art_Order')";
+                SqlCommand cmdSql = new SqlCommand(sqlInArtOrder, connDb);
+                int recordIn = int.Parse(cmdSql.ExecuteScalar().ToString());
+                Session["OrderID"] = recordIn;
 
-                string getCustId = "SELECT [cust_Id],[cust_Address],[cust_PhoneNo] FROM [Customer] WHERE ([UserId] = @UserId)";
-                cmd = new SqlCommand(getCustId, connDb);
-                cmd.Parameters.AddWithValue("@UserId", userId);
-                SqlDataReader custDetails = cmd.ExecuteReader();
-                if (custDetails.HasRows)
+                //crete order details
+                //check if order create successfully insert order details
+                if (recordIn > 0)
                 {
-                    while (custDetails.Read())
+                    for (int i = 0; i < Repeater1.Items.Count; i++)
                     {
-                        custId = custDetails["cust_Id"].ToString();
-                        addBox.Text = custDetails["cust_Address"].ToString();
-                        phoneBox.Text = custDetails["cust_PhoneNo"].ToString();
+                        string artIdValue = "";
+                        string qtyValue = "";
+                        string unitPValue = "";
+                        Label qtyLbl = Repeater1.Items[i].FindControl("qtyLbl") as Label;
+                        Label unitPLbl = Repeater1.Items[i].FindControl("unitPLbl") as Label;
+                        HiddenField art_Id = Repeater1.Items[i].FindControl("art_ID") as HiddenField;
+
+                        if (qtyLbl.Text != "")
+                        {
+                            qtyValue = qtyLbl.Text.ToString();
+                        }
+                        if (unitPLbl.Text != "")
+                        {
+                            unitPValue = unitPLbl.Text.ToString();
+                        }
+                        if (art_Id.Value != "")
+                        {
+                            artIdValue = art_Id.Value.ToString();
+                        }
+                        string sqlInOrderD = "INSERT INTO Order_Details(art_Order_Id, art_Id, order_Qty,price_each ) VALUES (" + recordIn + "," + artIdValue + "," + qtyValue + "," + unitPValue + ")";
+                        cmdSql = new SqlCommand(sqlInOrderD, connDb);
+                        cmdSql.ExecuteNonQuery();
+                        string sqlUpdateArtQty = "UPDATE Art SET available_Qty =(available_Qty -1) where art_Id=@art_Id";
+                        cmdSql = new SqlCommand(sqlUpdateArtQty, connDb);
+                        cmdSql.Parameters.AddWithValue("art_Id", artIdValue);
+                        cmdSql.ExecuteNonQuery();
                     }
                 }
                 connDb.Close();
-                HDcustId.Value = custId;
 
+                //send email
+                SendEmail();
+                //redirect to details page
+                Response.Redirect("~/Customer_Logged/OrderDetails.aspx?para=" + recordIn);
             }
-
         }
 
-        protected void Repeater1_ItemCreated(object sender, RepeaterItemEventArgs e)
+        //Email sending function
+        public void SendEmail()
         {
-            totalLbl.Text = Repeater1.Items.Count.ToString();
-            double totalprice = 0;
-            double subprice = 0;
+            string orderDetails = "<table style=\" border: 1px solid black;border-collapse: collapse; \"><tr style=\"border: 1px solid black\">" +
+                "<td style=\"border: 1px solid black\">Art</td>" +
+                "<td style=\"border: 1px solid black\">Qty</td>" +
+                "<td style=\"border: 1px solid black\">Unit Price</td>" +
+                "<td style=\"border: 1px solid black\">Sub Total</td>" +
+                "</tr>";
+            //generate order details
             for (int i = 0; i < Repeater1.Items.Count; i++)
             {
-                Label lblText = Repeater1.Items[i].FindControl("subTotalLabel") as Label;
-                if (lblText.Text != "")
-                {
-                    subprice = double.Parse(lblText.Text.ToString());
-                }
-                totalprice = totalprice + subprice ;
-            }
-            totalLbl.Text = totalprice.ToString();
-        }
+                string artName = "";
+                string qtyValue = "";
+                string unitPValue = "";
+                string subTotalValue = "";
+                Label qtyLbl = Repeater1.Items[i].FindControl("qtyLbl") as Label;
+                Label unitPLbl = Repeater1.Items[i].FindControl("unitPLbl") as Label;
+                Label art_Title = Repeater1.Items[i].FindControl("art_Title") as Label;
+                Label subTotalLabel = Repeater1.Items[i].FindControl("subTotalLabel") as Label;
 
-        protected void PayBtn_Click(object sender, EventArgs e)
-        {
+                if (qtyLbl.Text != "")
+                {
+                    qtyValue = qtyLbl.Text.ToString();
+                }
+                if (unitPLbl.Text != "")
+                {
+                    unitPValue = unitPLbl.Text.ToString();
+                }
+                if (art_Title.Text != "")
+                {
+                    artName = art_Title.Text.ToString();
+                }
+                if (subTotalLabel.Text != "")
+                {
+                    subTotalValue = subTotalLabel.Text.ToString();
+                }
+                orderDetails = orderDetails + "<tr style=\"border: 1px solid black\">" +
+                    "<td style=\"border: 1px solid black\">" + artName + "</td>" +
+                    "<td style=\"border: 1px solid black\">" + qtyValue + "</td>" +
+                    "<td style=\"border: 1px solid black\">" + unitPValue + "</td>" +
+                    "<td style=\"border: 1px solid black\">" + subTotalValue + "</td>" +
+                    "</tr>";
+            }
+            orderDetails = orderDetails + "</table>";
+
+            //content
+            string fromEmail = "hellologomy@gmail.com";
+            string emailSMTPHost = "smtp.gmail.com";  //smtp server
+            string emailSubject = "Your payment is successful with Logo Art Gallery - Order" + Session["OrderID"]; //subject
+            string emailBody = "<div>" +
+                "<Img src=\"cid:MyImage\" style=\"width:250px; \"/>" + "<h1>Logo</h1>" +
+                "<h2>" + "HI, " + nameBox.Text.ToString() + "Thank you for your payment. We've received your payment for your order " +
+                "Your order "+ Session["OrderID"] +" has placed successfully." +
+                "</h2>" +
+                "<br />" +
+                "<br />" +
+                orderDetails+
+                "<br />" +
+                "<br />" +
+                "Payment Date:" + DateTime.Now.ToString("yyyy-MM-dd") +
+                "<br />" +
+                "Payment Amount: RM " + totalprice +
+                "<br />" +
+                "<br />" +
+                "<h3>Thank You !</h3>"+
+                "</div>"; 
+
+            //get customer email
             SqlConnection connDb;
             string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
             connDb = new SqlConnection(strConn);
-           
             connDb.Open();
-
-            //Temporaly put the order status =paid if future posible allow customer create their and pay it within 3 days
-            //but is no hope already
-            string sqlInArtOrder = "INSERT INTO Art_Order(order_status, cust_Id, address, phoneNo) VALUES ('Paid',"+custId+",'"+addBox.Text.ToString()+ "','"+phoneBox.Text.ToString()+"') SELECT IDENT_CURRENT('Art_Order')";
-            SqlCommand cmdSql = new SqlCommand(sqlInArtOrder, connDb);
-            int recordIn = int.Parse(cmdSql.ExecuteScalar().ToString());
-            if(recordIn>0)
-            {
-                for (int i = 0; i < Repeater1.Items.Count; i++)
-                {
-                    string artIdValue="";
-                    string qtyValue="";
-                    Label lblText = Repeater1.Items[i].FindControl("qtyLbl") as Label;
-                    HiddenField art_Id= Repeater1.Items[i].FindControl("art_ID") as HiddenField;
-                    if (lblText.Text != "")
-                    {
-                        qtyValue = lblText.Text.ToString();
-                    }
-                    if(art_Id.Value != "")
-                    {
-                        artIdValue = art_Id.Value.ToString();
-                    }
-                    string sqlInOrderD = "INSERT INTO Order_Details(art_Order_Id, art_Id, order_Qty) VALUES (" + recordIn + "," + artIdValue +","+ qtyValue+")";
-                    cmdSql = new SqlCommand(sqlInOrderD, connDb);
-                    cmdSql.ExecuteNonQuery();
-                    string sqlUpdateArtQty = "UPDATE Art SET available_Qty =(available_Qty -1) where art_Id=@art_Id";
-                    cmdSql = new SqlCommand(sqlUpdateArtQty, connDb);
-                    cmdSql.Parameters.AddWithValue("art_Id", artIdValue);
-                    cmdSql.ExecuteNonQuery();
-                }
-                
-            }
+            string sqlGetEmail = "SELECT [Email] FROM [vw_aspnet_MembershipUsers] where UserId=@UserId";
+            SqlCommand cmdSql = new SqlCommand(sqlGetEmail, connDb);
+            cmdSql.Parameters.AddWithValue("UserId", Session["UserId"]);
+            string toEmail = cmdSql.ExecuteScalar().ToString();
             connDb.Close();
+            
 
-            Response.Redirect("~/Customer_Logged/orderDetails.aspx?para="+recordIn);
+            string emailName = fromEmail; //sender name
+            string emailPwd = "kaixuan0627"; //sender password
+
+            string attachmentPath = Server.MapPath(@"../Master_Page/logo-social.png");
+            Attachment inline = new Attachment(attachmentPath);
+            inline.ContentDisposition.Inline = true;
+            inline.ContentDisposition.DispositionType = DispositionTypeNames.Inline;
+            inline.ContentId = "MyImage";
+            inline.ContentType.MediaType = "image/png";
+
+            try
+            {
+                using (MailMessage msg = new MailMessage(fromEmail, toEmail, emailSubject, emailBody))
+                {
+                    msg.IsBodyHtml = true;  //allow html
+                    //msg.To.Add("xxx.xxx@hotmail.com");    //multiple receiver
+                    msg.Priority = MailPriority.High;
+
+                    msg.Attachments.Add(inline);
+
+                    SmtpClient mailClient = new SmtpClient(emailSMTPHost);
+                    mailClient.UseDefaultCredentials = false;
+                    mailClient.Credentials = new System.Net.NetworkCredential(emailName, emailPwd);
+                    mailClient.EnableSsl = true;
+
+                    mailClient.Send(msg);
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
         }
     }
 }
