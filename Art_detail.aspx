@@ -4,9 +4,11 @@
     <style type="text/css">
         .Image_Disp{
             display:block;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             width:50%;
+            max-width:650px;
             height:auto;
-            margin: 20px auto;
+            margin: 30px auto;
         }
         .Image_Title{
             display:block;

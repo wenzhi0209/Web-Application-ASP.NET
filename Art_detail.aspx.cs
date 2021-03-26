@@ -103,37 +103,43 @@ namespace Assignment_Template
                     Response.Write("<script type=\"text/javascript\">alert(\"This art no longer available\");</script>");
                 }
 
-
                 connDb.Close();
+            }
+            else
+            {
+
             }
             
         }
 
         protected void Add_to_FL_Click(object sender, ImageClickEventArgs e)
         {
-            SqlConnection connDb;
-            string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
-            connDb = new SqlConnection(strConn);
-            connDb.Open();
-            string id = Request.QueryString["para"].ToString();
-
-            string checkFavo = "select art_id from Favo_Art where art_id=@id AND cust_Id=@cust_Id";
-            SqlCommand cmd = new SqlCommand(checkFavo, connDb);
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@cust_Id", Session["CustId"]);
-
-            if (cmd.ExecuteScalar() != null)
+            if (User.Identity.IsAuthenticated)
             {
-                Response.Write("<script type=\"text/javascript\">alert(\"This art already in your Favorite Art\");</script>");
-            }
-            else
-            {
-                string inSql = "INSERT INTO Favo_Art(art_Id, cust_Id) VALUES (@id,@custId)";
-                cmd = new SqlCommand(inSql, connDb);
+                SqlConnection connDb;
+                string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
+                connDb = new SqlConnection(strConn);
+                connDb.Open();
+                string id = Request.QueryString["para"].ToString();
+
+                string checkFavo = "select art_id from Favo_Art where art_id=@id AND cust_Id=@cust_Id";
+                SqlCommand cmd = new SqlCommand(checkFavo, connDb);
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@custId", Session["CustId"]);
-                cmd.ExecuteNonQuery();
-                Response.Write("<script type=\"text/javascript\">alert(\"This art added to your Favorite Art\");</script>");
+                cmd.Parameters.AddWithValue("@cust_Id", Session["CustId"]);
+
+                if (cmd.ExecuteScalar() != null)
+                {
+                    Response.Write("<script type=\"text/javascript\">alert(\"This art already in your Favorite Art\");</script>");
+                }
+                else
+                {
+                    string inSql = "INSERT INTO Favo_Art(art_Id, cust_Id) VALUES (@id,@custId)";
+                    cmd = new SqlCommand(inSql, connDb);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@custId", Session["CustId"]);
+                    cmd.ExecuteNonQuery();
+                    Response.Write("<script type=\"text/javascript\">alert(\"This art added to your Favorite Art\");</script>");
+                }
             }
         }
     }

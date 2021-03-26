@@ -213,7 +213,7 @@ namespace Assignment_Template
             
 
             string emailName = fromEmail; //sender name
-            string emailPwd = "kaixuan0627"; //sender password
+            string emailPwd = "hellologo0627"; //sender password
 
             string attachmentPath = Server.MapPath(@"../Master_Page/logo-social.png");
             Attachment inline = new Attachment(attachmentPath);

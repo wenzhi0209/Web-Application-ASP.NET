@@ -51,9 +51,11 @@ namespace Assignment_Template
                 int id = int.Parse(e.CommandArgument.ToString().Split(',')[0]);
                 int itemIndex = int.Parse(e.CommandArgument.ToString().Split(',')[1]);
                 CheckBox staBox = Repeater1.Items[itemIndex].FindControl("selectCheckBox") as CheckBox;
+                TextBox art_Quantity= Repeater1.Items[itemIndex].FindControl("art_Quantity") as TextBox;
                 string status = staBox.Checked.ToString();
                 SqlDataSource1.UpdateParameters["check_Sta"].DefaultValue = status;
                 SqlDataSource1.UpdateParameters["cItem_Id"].DefaultValue =id.ToString();
+                SqlDataSource1.UpdateParameters["qty"].DefaultValue = art_Quantity.Text;
                 SqlDataSource1.Update();
             }
 
@@ -87,34 +89,70 @@ namespace Assignment_Template
 
         protected void PlaceOBtn_Click(object sender, EventArgs e)
         {
-
+            bool checkArt=false;
+           
+            for (int i = 0; i < Repeater1.Items.Count; i++)
+            {
+                CheckBox selectCheckBox = Repeater1.Items[i].FindControl("selectCheckBox") as CheckBox;
+                if (selectCheckBox.Checked==true)
+                {
+                    checkArt = true;
+                }
+            }
+            if(checkArt==true)
+            {
+                Response.Redirect("~/Customer_Logged/Checkout.aspx");
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
+            }
         }
 
-        /*
-         * Real time quantity update to database
-         * If want to use need to change the update sql command and paramenter
-         * 
-        protected void qtyBox_TextChanged(object sender, EventArgs e)
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            string cmdarg="";
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label art_Title = e.Item.FindControl("art_Title") as Label;
+                HiddenField HDavailable = e.Item.FindControl("HDavailable") as HiddenField;
+                CheckBox selectCheckBox= e.Item.FindControl("selectCheckBox") as CheckBox;
+                HiddenField cart_Id = e.Item.FindControl("cart_Id") as HiddenField;
+
+                if (int.Parse(HDavailable.Value)<1)
+                {
+                    art_Title.Text = art_Title.Text.ToString() + "</br><p style=\"color: red; font-size:10px \">Sorry This Art Not Available Now</p>";
+                    selectCheckBox.Checked = false;
+                    selectCheckBox.Visible = false;
+
+                    SqlDataSource1.UpdateParameters["check_Sta"].DefaultValue = "false";
+                    SqlDataSource1.UpdateParameters["cItem_Id"].DefaultValue = cart_Id.Value.ToString();
+                    SqlDataSource1.Update();
+                }
+
+            }
+        }
+
+        protected void art_Quantity_TextChanged(object sender, EventArgs e)
+        {
+            string cmdarg = "";
             TextBox textBox = sender as TextBox;
             if (textBox != null)
             {
                 var item = (RepeaterItem)textBox.NamingContainer;
                 if (item != null)
                 {
-                    Button Button = (Button)item.FindControl("Button1");
+                    Button Button = (Button)item.FindControl("removeBtn");
                     if (Button != null)
                     {
-                        cmdarg = Button.CommandArgument.ToString() ;
+                        cmdarg = Button.CommandArgument.ToString();
                     }
                 }
             }
             RepeaterCommandEventArgs e1 = new RepeaterCommandEventArgs(((TextBox)sender).NamingContainer as RepeaterItem, sender, new CommandEventArgs("update", cmdarg));
             Repeater1_ItemCommand(Repeater1, e1);
-
         }
-        */
+
+       
 
     }
     }

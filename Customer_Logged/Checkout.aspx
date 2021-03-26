@@ -116,6 +116,12 @@
             display: block;
             margin: 15px auto;
         }
+
+        .PayBtn
+        {
+            display:block;
+            margin:0 auto;
+        }
     </style>
 </asp:Content>
 
@@ -131,31 +137,52 @@
             <div class="inputContainer">
                 <label>Name</label>
                 <asp:TextBox ID="nameBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Please enter the Name" ControlToValidate="nameBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
             </div>
             <div class="inputContainer">
                 <label>Phone</label>
                 <asp:TextBox ID="phoneBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="ReqPhone" runat="server" ErrorMessage="Please enter the Phone Number" ControlToValidate="phoneBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
             </div>
 
             <div class="inputContainer">
                 <label>Address</label>
                 <asp:TextBox ID="addBox" runat="server" CssClass="SDtextbox_style" Rows="2" TextMode="MultiLine"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="ReqAddress" runat="server" ErrorMessage="Please enter the Address" ControlToValidate="addBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
             </div>
 
             <div class="inputContainer">
                 <label>Country</label>
                 <asp:TextBox ID="countryBox" runat="server" CssClass="SDtextbox_style" Text="Malaysia" ReadOnly="True"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="ReqCountry" runat="server" ErrorMessage="Please enter the Country" ControlToValidate="countryBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
             </div>
             <div class="inputContainer">
                 <label>State</label>
-                <asp:TextBox ID="stateBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
+                <asp:DropDownList ID="stateBox" runat="server"  CssClass="SDtextbox_style">
+                    <asp:ListItem Value="none">--Please Select The State--</asp:ListItem>
+                    <asp:ListItem>Johor</asp:ListItem>
+                    <asp:ListItem>Kuala Lumpur</asp:ListItem>
+                    <asp:ListItem>Kedah</asp:ListItem>
+                    <asp:ListItem>Kelantan</asp:ListItem>
+                    <asp:ListItem>Malacca</asp:ListItem>
+                    <asp:ListItem>Negeri Sembilan</asp:ListItem>
+                    <asp:ListItem>Pahang</asp:ListItem>
+                    <asp:ListItem>Penang</asp:ListItem>
+                    <asp:ListItem>Perak</asp:ListItem>
+                    <asp:ListItem>Perlis</asp:ListItem>
+                    <asp:ListItem>Putrajaya</asp:ListItem>
+                    <asp:ListItem>Sabah</asp:ListItem>
+                    <asp:ListItem>Sarawak</asp:ListItem>
+                    <asp:ListItem>Selangor</asp:ListItem>
+                    <asp:ListItem>Terengganu</asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="ReqState" runat="server" ErrorMessage="Please select the state" ControlToValidate="stateBox" ForeColor="Red" SetFocusOnError="True" InitialValue="none">*</asp:RequiredFieldValidator>
             </div>
             <div class="inputContainer">
                 <label>PostCode</label>
                 <asp:TextBox ID="pcodeBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="ReqPcode" runat="server" ErrorMessage="Please enter the Postcode" ControlToValidate="pcodeBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
             </div>
-
-            <asp:Button ID="autoFillBtn" runat="server" Text="Auto Fill In" CssClass="AutoFBtn" />
         </div>
 
         <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="Repeater1_ItemDataBound" >
@@ -208,7 +235,8 @@
             </FooterTemplate>
         </asp:Repeater>
 
-        <asp:Button ID="PayBtn" runat="server" Text="Pay" OnClientClick="javascript:alert('Order Placed Succesfully')" OnClick="PayBtn_Click" />
+        <!--OnClick="PayBtn_Click"-->
+        <asp:Button ID="PayBtn" runat="server" Text="Pay" CssClass="PayBtn"/>
     </div>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"

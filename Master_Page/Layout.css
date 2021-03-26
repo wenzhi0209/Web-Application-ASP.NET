@@ -63,15 +63,13 @@
 }
 
 #bottomBar {
+    display:block;
     height: 70px;
     width: 100%;
+    margin:30px auto;
     overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    text-align:center;
+
 }
 
 #icon {

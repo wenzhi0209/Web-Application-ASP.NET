@@ -24,6 +24,15 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox nameBox;
 
         /// <summary>
+        /// ReqName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqName;
+
+        /// <summary>
         /// phoneBox control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Assignment_Template
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox phoneBox;
+
+        /// <summary>
+        /// ReqPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPhone;
 
         /// <summary>
         /// addBox control.
@@ -42,6 +60,15 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox addBox;
 
         /// <summary>
+        /// ReqAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqAddress;
+
+        /// <summary>
         /// countryBox control.
         /// </summary>
         /// <remarks>
@@ -51,13 +78,31 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox countryBox;
 
         /// <summary>
+        /// ReqCountry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCountry;
+
+        /// <summary>
         /// stateBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox stateBox;
+        protected global::System.Web.UI.WebControls.DropDownList stateBox;
+
+        /// <summary>
+        /// ReqState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqState;
 
         /// <summary>
         /// pcodeBox control.
@@ -69,13 +114,13 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox pcodeBox;
 
         /// <summary>
-        /// autoFillBtn control.
+        /// ReqPcode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button autoFillBtn;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPcode;
 
         /// <summary>
         /// Repeater1 control.
