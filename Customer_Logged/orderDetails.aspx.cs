@@ -10,10 +10,9 @@ namespace Assignment_Template
 {
     public partial class orderDetails : System.Web.UI.Page
     {
-        static double totalprice = 0;
+        double totalprice = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-
 
 
         }
@@ -35,7 +34,7 @@ namespace Assignment_Template
             if (e.Item.ItemType == ListItemType.Footer)
             {
                 Label totalAmtLbl = e.Item.FindControl("totalAmtLbl") as Label;
-                totalAmtLbl.Text = "Total amount need to paid : RM " + totalprice;
+                totalAmtLbl.Text = "Total amount paid : RM " + totalprice;
             }
         }
     }

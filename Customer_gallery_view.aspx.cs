@@ -33,6 +33,17 @@ namespace Assignment_Template
                     PageCount = PageCount + 1;
                 }
                 getData();
+
+                if(User.Identity.IsAuthenticated)
+                {
+                    string userName = User.Identity.Name.ToString();
+                    Session["Username"] = userName;
+                    welMsg.Visible = true;
+                }
+                else
+                {
+                    welMsg.Visible = false;
+                }
             }
            
 

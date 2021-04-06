@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Control\quotes.txt" />
     <Content Include="AuthorLogin.aspx" />
     <Content Include="Author_Logged\addArtDetail.aspx" />
     <Content Include="App_Data\Assignment.mdf" />
@@ -85,6 +86,7 @@
     <Content Include="Customer_gallery_view.aspx" />
     <Content Include="Customer_Logged\Customer_Order.aspx" />
     <Content Include="Customer_Logged\Favo_Art.aspx" />
+    <Content Include="Email_Template\Checkout.html" />
     <Content Include="Img\androidparty.png" />
     <Content Include="Img\Art\A-TEST.jpg" />
     <Content Include="Img\Art\B-TEST.jpg" />
@@ -94,6 +96,7 @@
     <Content Include="Img\Icon\add_shopping_cart-24px.svg" />
     <Content Include="Img\Icon\arrow_down.svg" />
     <Content Include="Img\Icon\arrow_up.svg" />
+    <Content Include="Img\Icon\favorited.svg" />
     <Content Include="Img\Icon\favorite_border-24px.svg" />
     <Content Include="AuthorInfoReg.aspx" />
     <Content Include="Login.aspx" />
@@ -104,6 +107,7 @@
     <Content Include="Master_Page\logo-social.png" />
     <Content Include="Master_Page\Layout.css" />
     <Content Include="Web.config" />
+    <Content Include="Control\welMsg.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthorLogin.aspx.cs">
@@ -260,6 +264,13 @@
     </Compile>
     <Compile Include="Customer_Logged\ShopingCart.aspx.designer.cs">
       <DependentUpon>ShopingCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\welMsg.ascx.cs">
+      <DependentUpon>welMsg.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\welMsg.ascx.designer.cs">
+      <DependentUpon>welMsg.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

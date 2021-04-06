@@ -83,6 +83,25 @@
             display:block;
             text-align:center;
             margin:35px auto;
+            width:250px;
+            font-size:14px;
+            box-sizing:border-box;
+            border:1px solid black;
+            line-height:40px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+            font-weight:bold;
+        }
+        .HomeBtn:hover
+        {
+            background-color:rgb(43, 174, 226);
+            transition:linear 0.3s;
+            color:white;
+        }
+        .lblAmtTotal
+        {
+            display:block;
+            padding:8px 0px;
+            font-weight:bold;
         }
     </style>
     
@@ -127,8 +146,8 @@
                 </ItemTemplate>
                 <FooterTemplate>
                     <tr>
-                        <td colspan="4">
-                           <asp:Label ID="totalAmtLbl" runat="server" Text=""></asp:Label>
+                        <td colspan="4" id="TotalPrice">
+                           <asp:Label ID="totalAmtLbl" runat="server" Text="" CssClass="lblAmtTotal"></asp:Label>
                         </td>
                     </tr>
                     </table>

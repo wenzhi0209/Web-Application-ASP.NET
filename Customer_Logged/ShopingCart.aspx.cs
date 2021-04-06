@@ -17,11 +17,13 @@ namespace Assignment_Template
         static string userName="";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            Page.MaintainScrollPositionOnPostBack = true;
+            if (!IsPostBack)
             {
                 if (Session["UserId"] == null)
                 {
                     userName = User.Identity.Name.ToString();
+                    Session["Username"] = userName;
                     SqlConnection connDb;
                     string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
                     connDb = new SqlConnection(strConn);
@@ -87,28 +89,7 @@ namespace Assignment_Template
             }
         }
 
-        protected void PlaceOBtn_Click(object sender, EventArgs e)
-        {
-            bool checkArt=false;
-           
-            for (int i = 0; i < Repeater1.Items.Count; i++)
-            {
-                CheckBox selectCheckBox = Repeater1.Items[i].FindControl("selectCheckBox") as CheckBox;
-                if (selectCheckBox.Checked==true)
-                {
-                    checkArt = true;
-                }
-            }
-            if(checkArt==true)
-            {
-                Response.Redirect("~/Customer_Logged/Checkout.aspx");
-            }
-            else
-            {
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Record Inserted Successfully')", true);
-            }
-        }
-
+       
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -117,15 +98,17 @@ namespace Assignment_Template
                 HiddenField HDavailable = e.Item.FindControl("HDavailable") as HiddenField;
                 CheckBox selectCheckBox= e.Item.FindControl("selectCheckBox") as CheckBox;
                 HiddenField cart_Id = e.Item.FindControl("cart_Id") as HiddenField;
+                TextBox art_Quantity = e.Item.FindControl("art_Quantity") as TextBox;
 
                 if (int.Parse(HDavailable.Value)<1)
                 {
                     art_Title.Text = art_Title.Text.ToString() + "</br><p style=\"color: red; font-size:10px \">Sorry This Art Not Available Now</p>";
                     selectCheckBox.Checked = false;
                     selectCheckBox.Visible = false;
-
+                    art_Quantity.ReadOnly = true;
                     SqlDataSource1.UpdateParameters["check_Sta"].DefaultValue = "false";
                     SqlDataSource1.UpdateParameters["cItem_Id"].DefaultValue = cart_Id.Value.ToString();
+                    SqlDataSource1.UpdateParameters["qty"].DefaultValue = art_Quantity.Text;
                     SqlDataSource1.Update();
                 }
 
@@ -151,9 +134,31 @@ namespace Assignment_Template
             RepeaterCommandEventArgs e1 = new RepeaterCommandEventArgs(((TextBox)sender).NamingContainer as RepeaterItem, sender, new CommandEventArgs("update", cmdarg));
             Repeater1_ItemCommand(Repeater1, e1);
         }
+        protected void PlaceOBtn_Click(object sender, EventArgs e)
+        {
+            bool checkArt = false;
 
-       
+            for (int i = 0; i < Repeater1.Items.Count; i++)
+            {
+                CheckBox selectCheckBox = Repeater1.Items[i].FindControl("selectCheckBox") as CheckBox;
+                if (selectCheckBox.Checked == true)
+                {
+                    checkArt = true;
+                }
+            }
+
+            if (checkArt == true)
+            {
+                Response.Redirect("~/Customer_Logged/Checkout.aspx");
+            }
+            else
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You must select at least 1 item for checkout operation')", true);
+            }
+        }
+
+
 
     }
-    }
+}
 

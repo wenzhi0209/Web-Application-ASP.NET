@@ -17,10 +17,15 @@
             margin:0 auto;
         }
         #LinkColummn{
+            margin-top:100px;
             width:25%;
+            float:left;
         }
         #ContentColumn{
+            float:right;
+            display:block;
             width:75%;
+            min-height:600px;
         }
         #HyperUL
         {
@@ -34,6 +39,7 @@
             color: #000;
             padding: 8px 16px;
             text-decoration: none;
+            font-size:20px;
         }
         .LinkTag:hover{
             color: rgb(43, 174, 226);
@@ -47,6 +53,7 @@
             text-decoration: none;
             box-sizing:border-box;
             border-left:solid 5px rgb(43, 174, 226);
+            font-size:22px;
 
         }
     </style>
@@ -76,9 +83,8 @@
             </div>
             
             <!--Contain-->
-            <table id="TableContainer">
-                <tr>
-                    <td id="LinkColummn">
+            <div id="TableContainer">
+                    <div id="LinkColummn">
                         <ul id="HyperUL">
                             <li>
                                 <asp:HyperLink ID="CustProfileLink" runat="server" NavigateUrl="~/Customer_Logged/CustomerProfile.aspx" CssClass="LinkTag">Profile</asp:HyperLink>
@@ -91,14 +97,13 @@
                             </li>
                         </ul>
                             
-                    </td>
-                    <td id="ContentColumn">
+                    </div>
+                    <div id="ContentColumn">
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
                         </asp:ContentPlaceHolder>
-                    </td>  
-                </tr>
-            </table>
+                    </div> 
+            </div>
             
        
 

@@ -86,6 +86,7 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="ContentCon">
         <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
             <HeaderTemplate>
@@ -127,11 +128,18 @@
                     </td>
 
                     <td class="qty_con">
-                        <asp:TextBox ID="art_Quantity" runat="server" Text='<%#Eval("qty")%>' TextMode="Number" min=0 max='<%#Eval("available_Qty")%>' AutoPostBack="True" OnTextChanged="art_Quantity_TextChanged"></asp:TextBox>
+                        <asp:TextBox ID="art_Quantity" runat="server" Text='<%#Eval("qty")%>' TextMode="Number" min=1 max='<%#Eval("available_Qty")%>' AutoPostBack="True" OnTextChanged="art_Quantity_TextChanged"></asp:TextBox>
                         <asp:HiddenField ID="HDavailable" value='<%#Eval("available_Qty")%>' runat="server" />
                     </td>
                     <td class="total_con">
+                        <asp:UpdatePanel ID="UpTotalPrice" runat="server">
+                        <ContentTemplate>
                         <asp:Label ID="Label1" runat="server" Text='<%#Eval("subtotal")%>'></asp:Label>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="art_Quantity"/>
+                        </Triggers>
+                        </asp:UpdatePanel>
                     </td>
                     <td class="opr_con">
                         <asp:Button ID="removeBtn" runat="server" Text="Remove" CommandName="delete" CommandArgument='<%#Eval("cItem_Id")+","+(Container as RepeaterItem).ItemIndex%>' /></td>
@@ -145,6 +153,8 @@
             </FooterTemplate>
         </asp:Repeater>
 
+
+                
         <asp:Button ID="PlaceOBtn" runat="server" Text="CheckOut" OnClick="PlaceOBtn_Click"  />
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"

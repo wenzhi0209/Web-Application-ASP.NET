@@ -17,6 +17,7 @@
             width:80%;
             height:auto;
             margin: 20px auto;
+            font-size:24px;
         }
         .Image_Desc{
             display:block;
@@ -45,6 +46,7 @@
             width:80%;
             height:auto;
             margin: 20px auto;
+            font-size:20px;
         }
         #flexbox{
             display: flex;
