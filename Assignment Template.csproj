@@ -93,6 +93,12 @@
     <Content Include="Img\Art\C-TEST.jpg" />
     <Content Include="Img\Art\D-TEST.jpg" />
     <Content Include="Img\Art\E-TEST.jpg" />
+    <Content Include="Img\Art\NewArtA.jpg" />
+    <Content Include="Img\Art\NewArtB.jpg" />
+    <Content Include="Img\Art\NewArtC.jpg" />
+    <Content Include="Img\Art\NewArtD.jpg" />
+    <Content Include="Img\Art\NewArtE.jpg" />
+    <Content Include="Img\Art\TestUp.jpg" />
     <Content Include="Img\Icon\add_shopping_cart-24px.svg" />
     <Content Include="Img\Icon\arrow_down.svg" />
     <Content Include="Img\Icon\arrow_up.svg" />

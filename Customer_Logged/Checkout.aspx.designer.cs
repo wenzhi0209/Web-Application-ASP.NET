@@ -60,6 +60,15 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPhone;
 
         /// <summary>
+        /// ExpPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ExpPhone;
+
+        /// <summary>
         /// addBox control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace Assignment_Template
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPcode;
+
+        /// <summary>
+        /// ExpPcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ExpPcode;
 
         /// <summary>
         /// PayMethodBox control.

@@ -11,6 +11,7 @@
             margin:0 auto;
             text-align:center;
             min-width:540px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(43, 174, 226, 0.19);
         }
         .No_row{
             width:20%;

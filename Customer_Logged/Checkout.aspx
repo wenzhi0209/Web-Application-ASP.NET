@@ -123,12 +123,6 @@
             margin: 15px auto;
         }
 
-        .PayBtn
-        {
-            display:block;
-            margin:0 auto;
-        }
-
         #cardInfoSec
         {
             margin:20px auto;
@@ -208,7 +202,32 @@
         {
             float:left;
         }
+        .totalAmtStyle
+        {
+            display:block;
+            padding:8px 0px;
+            font-weight:bold;
+        }
 
+        .PayBtn{
+             display:block;
+            text-align:center;
+            margin:35px auto;
+            width:250px;
+            font-size:16px;
+            box-sizing:border-box;
+            border:1px solid black;
+            line-height:40px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+            font-weight:bold;
+        }
+
+        .PayBtn:hover
+        {
+            background-color:rgb(43, 174, 226);
+            transition:linear 0.3s;
+            color:white;
+        }
 
 
     </style>
@@ -227,23 +246,27 @@
                 <label>Name</label>
                 <asp:TextBox ID="nameBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Please enter the Name" ControlToValidate="nameBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <span></span>
             </div>
             <div class="inputContainer">
                 <label>Phone</label>
                 <asp:TextBox ID="phoneBox" runat="server" CssClass="SDtextbox_style" TextMode="Number"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqPhone" runat="server" ErrorMessage="Please enter the Phone Number" ControlToValidate="phoneBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="ExpPhone" runat="server" ErrorMessage="Please enter valid Phone Number" ControlToValidate="phoneBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[0-9]{10,11}$">*</asp:RegularExpressionValidator>
             </div>
 
             <div class="inputContainer">
                 <label>Address</label>
                 <asp:TextBox ID="addBox" runat="server" CssClass="SDtextbox_style" Rows="2" TextMode="MultiLine"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqAddress" runat="server" ErrorMessage="Please enter the Address" ControlToValidate="addBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <span></span>
             </div>
 
             <div class="inputContainer">
                 <label>Country</label>
                 <asp:TextBox ID="countryBox" runat="server" CssClass="SDtextbox_style" Text="Malaysia" ReadOnly="True"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqCountry" runat="server" ErrorMessage="Please enter the Country" ControlToValidate="countryBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <span></span>
             </div>
             <div class="inputContainer">
                 <label>State</label>
@@ -266,11 +289,13 @@
                     <asp:ListItem>Terengganu</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="ReqState" runat="server" ErrorMessage="Please select the state" ControlToValidate="stateBox" ForeColor="Red" SetFocusOnError="True" InitialValue="none">*</asp:RequiredFieldValidator>
+                <span></span>
             </div>
             <div class="inputContainer">
                 <label>PostCode</label>
                 <asp:TextBox ID="pcodeBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqPcode" runat="server" ErrorMessage="Please enter the Postcode" ControlToValidate="pcodeBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="ExpPcode" runat="server" ErrorMessage="Invalid Postcode" ControlToValidate="pcodeBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[0-9]{4}$">*</asp:RegularExpressionValidator>
             </div>
             <div class="inputContainer">
                 <label>Payment Method</label>
@@ -281,6 +306,7 @@
                     <asp:ListItem Value="cash">Cash on Delivery</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="ReqPayMethod" runat="server" ErrorMessage="Please select payment method" ControlToValidate="PayMethodBox" ForeColor="Red" SetFocusOnError="True" InitialValue="none">*</asp:RequiredFieldValidator>
+                <span></span>
             </div>
 
            <!--Card Info only visible when choose credit/debit card payment-->
@@ -362,7 +388,7 @@
             <FooterTemplate>
                 <tr>
                     <td colspan="4">
-                        <asp:Label ID="totalAmtLbl" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="totalAmtLbl" runat="server" Text="" CssClass="totalAmtStyle"></asp:Label>
                     </td>
                 </tr>
                 </table>
@@ -370,7 +396,7 @@
         </asp:Repeater>
 
         <!--OnClick="PayBtn_Click"-->
-        <asp:Button ID="PayBtn" runat="server" Text="Pay" CssClass="PayBtn" OnClick="PayBtn_Click"/>
+        <asp:Button ID="PayBtn" runat="server" Text="Pay" CssClass="PayBtn" OnClick="PayBtn_Click" />
     </div>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"

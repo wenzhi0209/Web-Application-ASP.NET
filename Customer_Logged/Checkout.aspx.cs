@@ -215,6 +215,7 @@ namespace Assignment_Template
             MailContent = MailContent.Replace("[Price]", totalprice.ToString());
             MailContent = MailContent.Replace("[ImageSrc]","cid:MyImage");
             MailContent = MailContent.Replace("[DetailTable]", orderDetails);
+            MailContent = MailContent.Replace("[TotalAmt]", totalprice.ToString());
             MailContent = MailContent.Replace("[Type]", PayMethodBox.SelectedValue.ToString());
 
             HtmlStr.Close();

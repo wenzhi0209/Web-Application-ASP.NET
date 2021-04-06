@@ -82,6 +82,25 @@
             text-align: left;
             justify-content:left;
         }
+
+        .CheckOutBtn{
+            display:block;
+            text-align:center;
+            margin:35px auto;
+            width:250px;
+            font-size:16px;
+            box-sizing:border-box;
+            border:1px solid black;
+            line-height:40px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+            font-weight:bold;
+        }
+        .CheckOutBtn:hover
+        {
+            background-color:rgb(43, 174, 226);
+            transition:linear 0.3s;
+            color:white;
+        }
     </style>
 </asp:Content>
 
@@ -138,6 +157,7 @@
                         </ContentTemplate>
                         <Triggers>
                             <asp:AsyncPostBackTrigger ControlID="art_Quantity"/>
+                            <asp:AsyncPostBackTrigger ControlID="selectCheckBox" />
                         </Triggers>
                         </asp:UpdatePanel>
                     </td>
@@ -155,7 +175,7 @@
 
 
                 
-        <asp:Button ID="PlaceOBtn" runat="server" Text="CheckOut" OnClick="PlaceOBtn_Click"  />
+        <asp:Button ID="PlaceOBtn" runat="server" Text="CheckOut" OnClick="PlaceOBtn_Click" CssClass="CheckOutBtn" />
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>"

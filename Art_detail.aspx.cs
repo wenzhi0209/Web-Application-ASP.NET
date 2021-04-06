@@ -65,19 +65,23 @@ namespace Assignment_Template
                 }
 
             }
+            
             //set favorite button style
-           
-            connDb.Open();
-            string id = Request.QueryString["para"].ToString();
-            string checkFavo = "select art_id from Favo_Art where art_id=@id AND cust_Id=@cust_Id";
-            SqlCommand cmdFavorite = new SqlCommand(checkFavo, connDb);
-            cmdFavorite.Parameters.AddWithValue("@id", id);
-            cmdFavorite.Parameters.AddWithValue("@cust_Id", Session["CustId"]);
-            if (cmdFavorite.ExecuteScalar() != null)
+            if(User.Identity.IsAuthenticated)
             {
-                Add_to_FL.ImageUrl = "~/Img/Icon/favorited.svg";
+                connDb.Open();
+                string id = Request.QueryString["para"].ToString();
+                string checkFavo = "select art_id from Favo_Art where art_id=@id AND cust_Id=@cust_Id";
+                SqlCommand cmdFavorite = new SqlCommand(checkFavo, connDb);
+                cmdFavorite.Parameters.AddWithValue("@id", id);
+                cmdFavorite.Parameters.AddWithValue("@cust_Id", Session["CustId"]);
+                if (cmdFavorite.ExecuteScalar() != null)
+                {
+                    Add_to_FL.ImageUrl = "~/Img/Icon/favorited.svg";
+                }
+                connDb.Close();
             }
-            connDb.Close();
+           
 
         }
 
@@ -99,9 +103,10 @@ namespace Assignment_Template
 
                 if (avaiQty > 0)
                 {
-                    string checkCart = "select art_id from Cart_Item where art_id=@id";
+                    string checkCart = "select art_id from Cart_Item where art_id=@id and cust_Id=@custId";
                     cmd = new SqlCommand(checkCart, connDb);
                     cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@custId", Session["CustId"]);
                     if (cmd.ExecuteScalar() != null)
                     {
                         Response.Write("<script type=\"text/javascript\">alert(\"This art already in your shoping cart\");</script>");

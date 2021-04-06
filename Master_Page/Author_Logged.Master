@@ -21,7 +21,7 @@
                 <div id='back' onclick="navM()">
                     <nav id="topNav">
                         <a href="~/Author_Logged/artistProfileInfo.aspx">Profile</a>
-                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Login.aspx" />
+                        <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Login.aspx" OnLoggedOut="LoginStatus1_LoggedOut"/>
                     </nav>
                 </div>
                 <div id='icon' onclick="navM()">

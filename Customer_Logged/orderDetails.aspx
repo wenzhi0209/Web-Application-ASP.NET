@@ -84,7 +84,7 @@
             text-align:center;
             margin:35px auto;
             width:250px;
-            font-size:14px;
+            font-size:16px;
             box-sizing:border-box;
             border:1px solid black;
             line-height:40px;
