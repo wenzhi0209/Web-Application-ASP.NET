@@ -84,7 +84,6 @@ namespace Assignment_Template
            
 
         }
-
         protected void Add_to_SC_Click(object sender, ImageClickEventArgs e)
         {
             //check status
@@ -130,13 +129,19 @@ namespace Assignment_Template
             }
             else
             {
-
+                string HTMLPath = "/Login.aspx";
+                ShowConfirmAlert("You havent logged in... Press OK redirect to the Login page",HTMLPath);
             }
             
         }
-
-        //ADD TO FAVOURITE;
-        protected void Add_to_FL_Click(object sender, ImageClickEventArgs e)
+        public static void ShowConfirmAlert(string message, string confirmurl)
+        {
+            if (message == null)
+                message = "";
+            System.Web.HttpContext.Current.Response.Write("<script Language=Javascript>if( confirm('" + message + "') ) {document.location.href='" + confirmurl + "'; } else { }</script>");
+        }
+    //ADD TO FAVOURITE;
+    protected void Add_to_FL_Click(object sender, ImageClickEventArgs e)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -172,6 +177,11 @@ namespace Assignment_Template
                     Response.Write("<script type=\"text/javascript\">alert(\"This art added to your Favorite Art\");</script>");
                     Add_to_FL.ImageUrl = "~/Img/Icon/favorited.svg";
                 }
+            }
+            else
+            {
+                string HTMLPath = "/Login.aspx";
+                ShowConfirmAlert("You havent logged in... Press OK redirect to the Login page", HTMLPath);
             }
         }
     }

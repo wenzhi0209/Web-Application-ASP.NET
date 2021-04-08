@@ -210,7 +210,7 @@
         }
 
         .PayBtn{
-             display:block;
+            display:block;
             text-align:center;
             margin:35px auto;
             width:250px;
@@ -223,6 +223,32 @@
         }
 
         .PayBtn:hover
+        {
+            background-color:rgb(43, 174, 226);
+            transition:linear 0.3s;
+            color:white;
+        }
+        .summaryBox{
+            width: 80%;
+            margin:25px auto;
+            border: 1px solid gray;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+            padding:20px 30px;
+        }
+        .Clear_Btn
+        {
+            display:block;
+            text-align:center;
+            margin:35px auto;
+            width:150px;
+            font-size:16px;
+            box-sizing:border-box;
+            border:1px solid black;
+            line-height:40px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+            font-weight:bold;
+        }
+        .Clear_Btn:hover
         {
             background-color:rgb(43, 174, 226);
             transition:linear 0.3s;
@@ -295,7 +321,7 @@
                 <label>PostCode</label>
                 <asp:TextBox ID="pcodeBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqPcode" runat="server" ErrorMessage="Please enter the Postcode" ControlToValidate="pcodeBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="ExpPcode" runat="server" ErrorMessage="Invalid Postcode" ControlToValidate="pcodeBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[0-9]{4}$">*</asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="ExpPcode" runat="server" ErrorMessage="Invalid Postcode" ControlToValidate="pcodeBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[0-9]{5}$">*</asp:RegularExpressionValidator>
             </div>
             <div class="inputContainer">
                 <label>Payment Method</label>
@@ -344,6 +370,10 @@
             </ContentTemplate>
             </asp:UpdatePanel>
         </div>
+
+        <asp:Button ID="clearBtn" runat="server" Text="Clear" CssClass="Clear_Btn" CausesValidation="False" OnClick="clearBtn_Click"/>
+        <asp:ValidationSummary ID="ValidationSum" runat="server" HeaderText="Summary of Errors" CssClass="summaryBox" />
+
 
         <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="Repeater1_ItemDataBound" >
             <HeaderTemplate>
@@ -395,7 +425,6 @@
             </FooterTemplate>
         </asp:Repeater>
 
-        <!--OnClick="PayBtn_Click"-->
         <asp:Button ID="PayBtn" runat="server" Text="Pay" CssClass="PayBtn" OnClick="PayBtn_Click" />
     </div>
 

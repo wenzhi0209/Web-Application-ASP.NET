@@ -15,6 +15,10 @@ namespace Assignment_Template
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.MaintainScrollPositionOnPostBack = true;
+            if(Request.UrlReferrer == null)
+            {
+                Response.Redirect("~/Customer_Logged/ShopingCart.aspx");
+            }
             if (!IsPostBack)
             {
                 //get cust_id
@@ -158,6 +162,7 @@ namespace Assignment_Template
                 //send email
                 SendEmail();
                 //redirect to details page
+                //Response.Write();
                 Response.Redirect("~/Customer_Logged/OrderDetails.aspx?para=" + recordIn);
             }
         }
@@ -265,6 +270,21 @@ namespace Assignment_Template
             {
                 return;
             }
+        }
+
+        protected void clearBtn_Click(object sender, EventArgs e)
+        {
+            addBox.Text = "";
+            CardNoBox.Text = "";
+            nameBox.Text = "";
+            pcodeBox.Text = "";
+            phoneBox.Text = "";
+            stateBox.SelectedIndex=0;
+            PayMethodBox.SelectedIndex = 0;
+            CVVBox.Text = "";
+            MonthBox.Text = "";
+            YearBox.Text = "";
+
         }
     }
 }

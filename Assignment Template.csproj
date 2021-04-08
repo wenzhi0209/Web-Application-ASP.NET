@@ -87,6 +87,8 @@
     <Content Include="Customer_Logged\Customer_Order.aspx" />
     <Content Include="Customer_Logged\Favo_Art.aspx" />
     <Content Include="Email_Template\Checkout.html" />
+    <Content Include="Error.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Img\androidparty.png" />
     <Content Include="Img\Art\A-TEST.jpg" />
     <Content Include="Img\Art\B-TEST.jpg" />
@@ -220,6 +222,16 @@
     </Compile>
     <Compile Include="Customer_Logged\Favo_Art.aspx.designer.cs">
       <DependentUpon>Favo_Art.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

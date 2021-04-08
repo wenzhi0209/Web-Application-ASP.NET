@@ -13,7 +13,6 @@ namespace Assignment_Template.Customer_Logged
     public partial class Customer_Order : System.Web.UI.Page
     {
         static string userName = "";
-        static string custId = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
