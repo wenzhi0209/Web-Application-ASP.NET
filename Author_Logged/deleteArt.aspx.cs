@@ -58,7 +58,7 @@ namespace Assignment_Template
 
 
 
-            lblDeleteMsg.Text = "</br> [img from database] </br> Your art work has been successfully removed. </br> </br>";
+            //lblDeleteMsg.Text = "</br> [img from database] </br> Your art work has been successfully removed. </br> </br>";
 
         }
     }
