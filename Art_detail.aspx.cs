@@ -13,8 +13,15 @@ namespace Assignment_Template
     public partial class Art_detail : System.Web.UI.Page
     {
         static string userName = "";
-        protected void Page_Load(object sender, EventArgs e)
+        
+    protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Request.UrlReferrer == null)
+            {
+                Response.Redirect("~/Customer_gallery_view.aspx");
+            }
+
             SqlConnection connDb;
             string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
             connDb = new SqlConnection(strConn);
