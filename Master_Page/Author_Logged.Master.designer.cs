@@ -51,31 +51,40 @@ namespace Assignment_Template.Master_Page
         protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
 
         /// <summary>
-        /// CustProfileLink control.
+        /// ArtProfileLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CustProfileLink;
+        protected global::System.Web.UI.WebControls.HyperLink ArtProfileLink;
 
         /// <summary>
-        /// CustOrderLink control.
+        /// AddArtLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CustOrderLink;
+        protected global::System.Web.UI.WebControls.HyperLink AddArtLink;
 
         /// <summary>
-        /// FavoArtLink control.
+        /// DeleteArtLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink FavoArtLink;
+        protected global::System.Web.UI.WebControls.HyperLink DeleteArtLink;
+
+        /// <summary>
+        /// EditArtLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink EditArtLink;
 
         /// <summary>
         /// ContentPlaceHolder1 control.

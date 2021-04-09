@@ -59,7 +59,6 @@
                 </asp:HyperLink>
                 <div id='back' onclick="navM()">
                     <nav id="topNav">
-                        <a href="~/Author_Logged/artistProfileInfo.aspx">Profile</a>
                         <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Login.aspx" OnLoggedOut="LoginStatus1_LoggedOut"/>
                     </nav>
                 </div>
@@ -76,13 +75,16 @@
                     <td id="LinkColummn">
                         <ul id="HyperUL">
                             <li>
-                                <asp:HyperLink ID="CustProfileLink" runat="server" NavigateUrl="~/Customer_Logged/CustomerProfile.aspx" CssClass="LinkTag">Profile</asp:HyperLink>
+                                <asp:HyperLink ID="ArtProfileLink" runat="server" NavigateUrl="~/Author_Logged/artistProfileInfo.aspx" CssClass="LinkTag">Artist Profile</asp:HyperLink>
                             </li>
                             <li>
-                                <asp:HyperLink ID="CustOrderLink" runat="server" NavigateUrl="~/Customer_Logged/Customer_Order.aspx" CssClass="LinkTag">My Orders</asp:HyperLink>
+                                <asp:HyperLink ID="AddArtLink" runat="server" NavigateUrl="~/Author_Logged/addArtDetail.aspx" CssClass="LinkTag">Add Art</asp:HyperLink>
                             </li>
                              <li>
-                                <asp:HyperLink ID="FavoArtLink" runat="server" NavigateUrl="~/Customer_Logged/Favo_Art.aspx" CssClass="LinkTag">My Favourite</asp:HyperLink>
+                                <asp:HyperLink ID="DeleteArtLink" runat="server" NavigateUrl="~/Author_Logged/deleteArt.aspx" CssClass="LinkTag">Delete Art</asp:HyperLink>
+                            </li>
+                            <li>
+                                <asp:HyperLink ID="EditArtLink" runat="server" NavigateUrl="~/Author_Logged/editArt.aspx" CssClass="LinkTag">Edit Art</asp:HyperLink>
                             </li>
                         </ul>
                             

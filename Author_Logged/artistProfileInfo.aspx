@@ -105,7 +105,7 @@
                     <tr>
                         <td class="auto-style2">Phone Number</td>
                         <td class="auto-style1">
-                            <asp:TextBox ID="pPhone" runat="server" TextMode="Phone" OnTextChanged="pPhone_TextChanged"></asp:TextBox>
+                            <asp:TextBox ID="pPhone" runat="server" TextMode="Phone"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -145,7 +145,7 @@
                     <tr>
                         <td class="auto-style2">State</td>
                      <td class="auto-style1">
-                         <asp:TextBox ID="ApState" runat="server" OnTextChanged="ApState_TextChanged"></asp:TextBox>
+                         <asp:TextBox ID="ApState" runat="server" ></asp:TextBox>
                     </td>
                         <td>&nbsp;</td>
                     </tr>
