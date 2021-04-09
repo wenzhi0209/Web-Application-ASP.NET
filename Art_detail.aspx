@@ -17,6 +17,7 @@
             width:80%;
             height:auto;
             margin: 20px auto;
+            font-size:24px;
         }
         .Image_Desc{
             display:block;
@@ -45,6 +46,7 @@
             width:80%;
             height:auto;
             margin: 20px auto;
+            font-size:20px;
         }
         #flexbox{
             display: flex;
@@ -72,8 +74,8 @@
             <asp:Label ID="Image_Price" runat="server" Text="" CssClass="Image_Price"></asp:Label>
             <asp:Label ID="Qty_Available" runat="server" Text="" CssClass="Qty_Available"></asp:Label>
             <div id="flexbox"> 
-                    <asp:ImageButton ID="Add_to_SC" runat="server" ImageUrl="~/Img/Icon/add_shopping_cart-24px.svg" CssClass="icon" OnClick="Add_to_SC_Click"/>
-                    <asp:ImageButton ID="Add_to_FL" runat="server" ImageUrl="~/Img/Icon/favorite_border-24px.svg" CssClass="icon" OnClick="Add_to_FL_Click"/>
+                 <asp:ImageButton ID="Add_to_SC" runat="server" ImageUrl="~/Img/Icon/add_shopping_cart-24px.svg" CssClass="icon" OnClick="Add_to_SC_Click"/>
+                 <asp:ImageButton ID="Add_to_FL" runat="server" ImageUrl="~/Img/Icon/favorite_border-24px.svg" CssClass="icon" OnClick="Add_to_FL_Click"/>
             </div>
         </div>
        

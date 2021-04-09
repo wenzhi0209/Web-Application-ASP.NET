@@ -13,5 +13,10 @@ namespace Assignment_Template.Master_Page
         {
 
         }
+
+        protected void LoginStatus1_LoggedOut(object sender, EventArgs e)
+        {
+            Session.Abandon();
+        }
     }
 }

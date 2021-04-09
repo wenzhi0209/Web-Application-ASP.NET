@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Web.UI.WebControls;
-
+using System.IO;
 namespace Assignment_Template
 {
     public partial class Checkout : System.Web.UI.Page
@@ -14,8 +14,14 @@ namespace Assignment_Template
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.MaintainScrollPositionOnPostBack = true;
+            if(Request.UrlReferrer == null)
+            {
+                Response.Redirect("~/Customer_Logged/ShopingCart.aspx");
+            }
             if (!IsPostBack)
             {
+                //get cust_id
                 if (Session["UserId"] == null)
                 {
                     userName = User.Identity.Name.ToString();
@@ -29,21 +35,49 @@ namespace Assignment_Template
                     cmd.Parameters.AddWithValue("@UserName", userName);
                     Session["UserId"] = cmd.ExecuteScalar().ToString();
 
-                    string getCustId = "SELECT [cust_Id],[cust_Address],[cust_PhoneNo] FROM [Customer] WHERE ([UserId] = @UserId)";
+                    string getCustId = "SELECT [cust_Id] FROM [Customer] WHERE ([UserId] = @UserId)";
                     cmd = new SqlCommand(getCustId, connDb);
                     cmd.Parameters.AddWithValue("@UserId", Session["UserId"].ToString());
                     Session["CustId"] = cmd.ExecuteScalar().ToString();
+                    connDb.Close();
+                }
+
+                //get cust_info
+                if(Session["cust_Name"] == null)
+                {
+                    SqlConnection connDb;
+                    string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
+                    connDb = new SqlConnection(strConn);
+                    connDb.Open();
+
+                    string getCustId = "SELECT [cust_Name],[cust_Address],[cust_PhoneNo] FROM [Customer] WHERE ([Cust_ID] = @Cust_ID)";
+                    SqlCommand cmd = new SqlCommand(getCustId, connDb);
+                    cmd.Parameters.AddWithValue("@Cust_ID", Session["CustId"].ToString());
                     SqlDataReader custDetails = cmd.ExecuteReader();
                     if (custDetails.HasRows)
                     {
                         while (custDetails.Read())
                         {
-                            //addBox.Text = custDetails["cust_Address"].ToString();
-                            //phoneBox.Text = custDetails["cust_PhoneNo"].ToString();
+                            Session["cust_Name"] = custDetails["cust_Name"].ToString();
+                            Session["cust_Address"] = custDetails["cust_Address"].ToString();
+                            Session["cust_PhoneNo"] = custDetails["cust_PhoneNo"].ToString();
                         }
                     }
                     connDb.Close();
                 }
+
+                nameBox.Text = Session["cust_Name"].ToString();
+                addBox.Text = Session["cust_Address"].ToString();
+                phoneBox.Text = Session["cust_PhoneNo"].ToString();
+            }
+
+            if(PayMethodBox.SelectedValue=="card")
+            {
+                CardInfo.Visible = true;
+            }
+            else
+            {
+                CardInfo.Visible = false;
             }
         }
 
@@ -73,6 +107,7 @@ namespace Assignment_Template
 
         protected void PayBtn_Click(object sender, EventArgs e)
         {
+            PayBtn.Enabled = false;
             //if got product then allow pay
             if (Repeater1.Items.Count > 0)
             {
@@ -83,8 +118,8 @@ namespace Assignment_Template
                 connDb.Open();
 
                 //create order
-                string sqlInArtOrder = "INSERT INTO Art_Order(order_status,cust_Id,address,phoneNo,total_Amt,country,state,postcode,receiver_Name) " +
-                    "VALUES ('Paid'," + Session["CustId"].ToString() + ",'" + addBox.Text.ToString() + "','" + phoneBox.Text.ToString() + "'," + totalprice + ",'" + countryBox.Text.ToString() + "','" + stateBox.Text.ToString() + "'," + pcodeBox.Text.ToString() + ",'" + nameBox.Text.ToString() + "') SELECT IDENT_CURRENT('Art_Order')";
+                string sqlInArtOrder = "INSERT INTO Art_Order(order_status,cust_Id,address,phoneNo,total_Amt,country,state,postcode,receiver_Name,paid_By) " +
+                    "VALUES ('Paid'," + Session["CustId"].ToString() + ",'" + addBox.Text.ToString() + "','" + phoneBox.Text.ToString() + "'," + totalprice + ",'" + countryBox.Text.ToString() + "','" + stateBox.Text.ToString() + "'," + pcodeBox.Text.ToString() + ",'" + nameBox.Text.ToString() + "','" + PayMethodBox.SelectedValue.ToString() + "') SELECT IDENT_CURRENT('Art_Order')";
                 SqlCommand cmdSql = new SqlCommand(sqlInArtOrder, connDb);
                 int recordIn = int.Parse(cmdSql.ExecuteScalar().ToString());
                 Session["OrderID"] = recordIn;
@@ -128,19 +163,15 @@ namespace Assignment_Template
                 //send email
                 SendEmail();
                 //redirect to details page
+                //Response.Write();
                 Response.Redirect("~/Customer_Logged/OrderDetails.aspx?para=" + recordIn);
             }
         }
-
+        
         //Email sending function
         public void SendEmail()
         {
-            string orderDetails = "<table style=\" border: 1px solid black;border-collapse: collapse; \"><tr style=\"border: 1px solid black\">" +
-                "<td style=\"border: 1px solid black\">Art</td>" +
-                "<td style=\"border: 1px solid black\">Qty</td>" +
-                "<td style=\"border: 1px solid black\">Unit Price</td>" +
-                "<td style=\"border: 1px solid black\">Sub Total</td>" +
-                "</tr>";
+            string orderDetails = "";
             //generate order details
             for (int i = 0; i < Repeater1.Items.Count; i++)
             {
@@ -169,36 +200,32 @@ namespace Assignment_Template
                 {
                     subTotalValue = subTotalLabel.Text.ToString();
                 }
-                orderDetails = orderDetails + "<tr style=\"border: 1px solid black\">" +
-                    "<td style=\"border: 1px solid black\">" + artName + "</td>" +
-                    "<td style=\"border: 1px solid black\">" + qtyValue + "</td>" +
-                    "<td style=\"border: 1px solid black\">" + unitPValue + "</td>" +
-                    "<td style=\"border: 1px solid black\">" + subTotalValue + "</td>" +
+                orderDetails = orderDetails + "<tr id=\"itemRow\">" +
+                    "<td class=\"Art_col\">" + artName + "</td>" +
+                    "<td class=\"Qty_col\">" + qtyValue + "</td>" +
+                    "<td class=\"Up_col\">" + unitPValue + "</td>" +
+                    "<td class=\"Total_col\">" + subTotalValue + "</td>" +
                     "</tr>";
             }
-            orderDetails = orderDetails + "</table>";
 
             //content
             string fromEmail = "hellologomy@gmail.com";
             string emailSMTPHost = "smtp.gmail.com";  //smtp server
             string emailSubject = "Your payment is successful with Logo Art Gallery - Order" + Session["OrderID"]; //subject
-            string emailBody = "<div>" +
-                "<Img src=\"cid:MyImage\" style=\"width:250px; \"/>" + "<h1>Logo</h1>" +
-                "<h2>" + "HI, " + nameBox.Text.ToString() + "Thank you for your payment. We've received your payment for your order " +
-                "Your order "+ Session["OrderID"] +" has placed successfully." +
-                "</h2>" +
-                "<br />" +
-                "<br />" +
-                orderDetails+
-                "<br />" +
-                "<br />" +
-                "Payment Date:" + DateTime.Now.ToString("yyyy-MM-dd") +
-                "<br />" +
-                "Payment Amount: RM " + totalprice +
-                "<br />" +
-                "<br />" +
-                "<h3>Thank You !</h3>"+
-                "</div>"; 
+            string HTMLPath = Server.MapPath(@"../Email_Template/Checkout.html");
+            StreamReader HtmlStr = new StreamReader(HTMLPath);
+            string MailContent = HtmlStr.ReadToEnd();
+            MailContent = MailContent.Replace("[ReceiverName]", nameBox.Text.ToString());
+            MailContent = MailContent.Replace("[orderNo]", Session["OrderID"].ToString());
+            MailContent = MailContent.Replace("[Date]", DateTime.Now.ToString("yyyy-MM-dd"));
+            MailContent = MailContent.Replace("[Price]", totalprice.ToString());
+            MailContent = MailContent.Replace("[ImageSrc]","cid:MyImage");
+            MailContent = MailContent.Replace("[DetailTable]", orderDetails);
+            MailContent = MailContent.Replace("[TotalAmt]", totalprice.ToString());
+            MailContent = MailContent.Replace("[Type]", PayMethodBox.SelectedValue.ToString());
+
+            HtmlStr.Close();
+            string emailBody = MailContent;
 
             //get customer email
             SqlConnection connDb;
@@ -244,6 +271,21 @@ namespace Assignment_Template
             {
                 return;
             }
+        }
+
+        protected void clearBtn_Click(object sender, EventArgs e)
+        {
+            addBox.Text = "";
+            CardNoBox.Text = "";
+            nameBox.Text = "";
+            pcodeBox.Text = "";
+            phoneBox.Text = "";
+            stateBox.SelectedIndex=0;
+            PayMethodBox.SelectedIndex = 0;
+            CVVBox.Text = "";
+            MonthBox.Text = "";
+            YearBox.Text = "";
+
         }
     }
 }

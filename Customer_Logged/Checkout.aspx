@@ -17,9 +17,9 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(43, 174, 226, 0.19);
         }
 
-            .table_style tr {
-                border: solid 1px black;
-            }
+        .table_style tr {
+            border: solid 1px black;
+        }
 
         .art_con {
             width: 55%;
@@ -92,13 +92,13 @@
             align-content: center;
         }
 
-            .inputContainer label {
-                display: block;
-                width: 35%;
-                padding: 8px 15px;
-                font-size: 16px;
-                font-weight: bold;
-            }
+        .inputContainer label {
+            display: block;
+            width: 35%;
+            padding: 8px 15px;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
         .SDtextbox_style {
             font-size: 16px;
@@ -112,49 +112,187 @@
             overflow: hidden;
         }
 
+        input::-webkit-outer-spin-button,input::-webkit-inner-spin-button
+        {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
         .AutoFBtn {
             display: block;
             margin: 15px auto;
         }
 
-        .PayBtn
+        #cardInfoSec
+        {
+            margin:20px auto;
+        }
+
+        .cInfoContainer{
+            font-size: 16px;
+            width: 90%;
+            max-width: 500px;
+            height:40px;
+            margin: 2px auto;
+            display:block;
+        }
+
+        #slash
+        {
+            display: block;
+            width: 20px;
+            text-align:center;
+            padding: 4px 15px;
+            font-size: 20px;
+            font-weight: bold;
+            float:left;
+        }
+
+        .cInfoContainer label
+        {
+            display: block;
+            width: 35%;
+            padding: 8px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            float:left;
+        }
+        .cNo_style
+        {
+            font-size: 16px;
+            display: block;
+            padding: 8px 15px;
+            width: 50%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            overflow: hidden;
+            float:left;
+        }
+        .M_Y_style
+        {
+            font-size: 16px;
+            display: block;
+            padding: 8px 15px;
+            width: 10%;
+            min-width:40px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            overflow: hidden;
+            float:left;
+        }
+        .cvv_style
+        {
+            font-size: 16px;
+            display: block;
+            padding: 8px 15px;
+            width: 20%;
+            min-width:80px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: none;
+            overflow: hidden;
+            float:left;
+        }
+        .star
+        {
+            float:left;
+        }
+        .totalAmtStyle
         {
             display:block;
-            margin:0 auto;
+            padding:8px 0px;
+            font-weight:bold;
         }
+
+        .PayBtn{
+            display:block;
+            text-align:center;
+            margin:35px auto;
+            width:250px;
+            font-size:16px;
+            box-sizing:border-box;
+            border:1px solid black;
+            line-height:40px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+            font-weight:bold;
+        }
+
+        .PayBtn:hover
+        {
+            background-color:rgb(43, 174, 226);
+            transition:linear 0.3s;
+            color:white;
+        }
+        .summaryBox{
+            width: 80%;
+            margin:25px auto;
+            border: 1px solid gray;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+            padding:20px 30px;
+        }
+        .Clear_Btn
+        {
+            display:block;
+            text-align:center;
+            margin:35px auto;
+            width:150px;
+            font-size:16px;
+            box-sizing:border-box;
+            border:1px solid black;
+            line-height:40px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+            font-weight:bold;
+        }
+        .Clear_Btn:hover
+        {
+            background-color:rgb(43, 174, 226);
+            transition:linear 0.3s;
+            color:white;
+        }
+
+
     </style>
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div id="ContentCon">
 
         <h1>CheckOut</h1>
 
         <div id="shipDetails">
-            <p>Shipping Details</p>
+            <h3>Shipping Details</h3>
             <div class="inputContainer">
                 <label>Name</label>
                 <asp:TextBox ID="nameBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqName" runat="server" ErrorMessage="Please enter the Name" ControlToValidate="nameBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <span></span>
             </div>
             <div class="inputContainer">
                 <label>Phone</label>
-                <asp:TextBox ID="phoneBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
+                <asp:TextBox ID="phoneBox" runat="server" CssClass="SDtextbox_style" TextMode="Number"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqPhone" runat="server" ErrorMessage="Please enter the Phone Number" ControlToValidate="phoneBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="ExpPhone" runat="server" ErrorMessage="Please enter valid Phone Number" ControlToValidate="phoneBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[0-9]{10,11}$">*</asp:RegularExpressionValidator>
             </div>
 
             <div class="inputContainer">
                 <label>Address</label>
                 <asp:TextBox ID="addBox" runat="server" CssClass="SDtextbox_style" Rows="2" TextMode="MultiLine"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqAddress" runat="server" ErrorMessage="Please enter the Address" ControlToValidate="addBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <span></span>
             </div>
 
             <div class="inputContainer">
                 <label>Country</label>
                 <asp:TextBox ID="countryBox" runat="server" CssClass="SDtextbox_style" Text="Malaysia" ReadOnly="True"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqCountry" runat="server" ErrorMessage="Please enter the Country" ControlToValidate="countryBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <span></span>
             </div>
             <div class="inputContainer">
                 <label>State</label>
@@ -177,13 +315,65 @@
                     <asp:ListItem>Terengganu</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="ReqState" runat="server" ErrorMessage="Please select the state" ControlToValidate="stateBox" ForeColor="Red" SetFocusOnError="True" InitialValue="none">*</asp:RequiredFieldValidator>
+                <span></span>
             </div>
             <div class="inputContainer">
                 <label>PostCode</label>
                 <asp:TextBox ID="pcodeBox" runat="server" CssClass="SDtextbox_style"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ReqPcode" runat="server" ErrorMessage="Please enter the Postcode" ControlToValidate="pcodeBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="ExpPcode" runat="server" ErrorMessage="Invalid Postcode" ControlToValidate="pcodeBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^[0-9]{5}$">*</asp:RegularExpressionValidator>
             </div>
+            <div class="inputContainer">
+                <label>Payment Method</label>
+                <asp:DropDownList ID="PayMethodBox" runat="server" CssClass="SDtextbox_style" AutoPostBack="True">
+                    <asp:ListItem Value="none">--Please select Payment Method</asp:ListItem>
+                    <asp:ListItem Value="card">Credit/Debit Card</asp:ListItem>
+                    <asp:ListItem Value="online">Online Banking</asp:ListItem>
+                    <asp:ListItem Value="cash">Cash on Delivery</asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="ReqPayMethod" runat="server" ErrorMessage="Please select payment method" ControlToValidate="PayMethodBox" ForeColor="Red" SetFocusOnError="True" InitialValue="none">*</asp:RequiredFieldValidator>
+                <span></span>
+            </div>
+
+           <!--Card Info only visible when choose credit/debit card payment-->
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="PayMethodBox" />
+                </Triggers>
+            <ContentTemplate>
+            <asp:PlaceHolder ID="CardInfo" runat="server" Visible="false">
+                <div id="cardInfoSec">
+                <h3>Enter Card Info</h3>
+                <div class="cInfoContainer">
+                    <label>Card No</label>
+                    <asp:TextBox ID="CardNoBox" runat="server" CssClass="cNo_style"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ReqCardNo" runat="server" ErrorMessage="Please enter the Card No" ControlToValidate="CardNoBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="ExpCardNo" runat="server" ControlToValidate="CardNoBox" ForeColor="Red" SetFocusOnError="True" ValidationExpression="^\d{16}$" >*</asp:RegularExpressionValidator>
+                </div>
+                <div class="cInfoContainer">
+                    <label>Month/Year</label>
+                    <asp:TextBox ID="MonthBox" runat="server" CssClass="M_Y_style" MaxLength="2" TextMode="SingleLine"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ReqMonth" runat="server" ErrorMessage="Please enter the Month" ControlToValidate="MonthBox" ForeColor="Red" SetFocusOnError="True" CssClass="star">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="ExpMonth" runat="server" ErrorMessage="Invalid Month" ValidationExpression="^([1-9]|1[012])$" ForeColor="Red" SetFocusOnError="True" CssClass="star" ControlToValidate="MonthBox">*</asp:RegularExpressionValidator>
+                    <div id="slash">/</div>
+                    <asp:TextBox ID="YearBox" runat="server" CssClass="M_Y_style" MaxLength="2" TextMode="SingleLine"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ReqYear" runat="server" ErrorMessage="Please enter the Year" ControlToValidate="YearBox" ForeColor="Red" SetFocusOnError="True" CssClass="star">*</asp:RequiredFieldValidator>
+                </div>
+                <div class="cInfoContainer">
+                    <label>CVV/CVV2</label>
+                    <asp:TextBox ID="CVVBox" runat="server" CssClass="cvv_style" MaxLength="4" ReadOnly="False" TextMode="SingleLine"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="ReqCVV" runat="server" ErrorMessage="Please enter the CVV/CVV2" ControlToValidate="CVVBox" ForeColor="Red" SetFocusOnError="True">*</asp:RequiredFieldValidator>
+                </div>
+                </div>
+                
+            </asp:PlaceHolder>
+            </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
+
+        <asp:Button ID="clearBtn" runat="server" Text="Clear" CssClass="Clear_Btn" CausesValidation="False" OnClick="clearBtn_Click"/>
+        <asp:ValidationSummary ID="ValidationSum" runat="server" HeaderText="Summary of Errors" CssClass="summaryBox" />
+
 
         <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="Repeater1_ItemDataBound" >
             <HeaderTemplate>
@@ -228,15 +418,14 @@
             <FooterTemplate>
                 <tr>
                     <td colspan="4">
-                        <asp:Label ID="totalAmtLbl" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="totalAmtLbl" runat="server" Text="" CssClass="totalAmtStyle"></asp:Label>
                     </td>
                 </tr>
                 </table>
             </FooterTemplate>
         </asp:Repeater>
 
-        <!--OnClick="PayBtn_Click"-->
-        <asp:Button ID="PayBtn" runat="server" Text="Pay" CssClass="PayBtn"/>
+        <asp:Button ID="PayBtn" runat="server" Text="Pay" CssClass="PayBtn" OnClick="PayBtn_Click" />
     </div>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server"

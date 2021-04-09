@@ -1,8 +1,7 @@
 ﻿#gallery_Container {
     display: block;
     width: 90%;
-    margin: 0 auto;
-    margin-top: 100px;
+    margin: 40px auto;
 }
 
 #art_Gallery {
@@ -17,37 +16,17 @@
     align-content: flex-start;
 }
 
-.artBox{
-    position:relative;
-    margin:40px 20px;
+.artBox {
+    margin: 40px 20px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .artBox img {
     display:block;
     width:auto;
     height:300px;
-}
-
-.buttonCon {
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.ctrlBtn {
-    height: 32px;
-    width: 32px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    background-color: lightgray;
-    box-sizing: border-box;
-}
-.ctrlBtn img{
-    width:80%;
-    height:80%;
-    
 }
 
 .artTitle {
@@ -69,3 +48,52 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+.arrowDown {
+    display: block;
+    margin: 10px auto;
+    width: 250px;
+    height: 30px;
+}
+
+.arrowUp {
+    display: block;
+    margin: 10px auto;
+    width: 250px;
+    height: 30px;
+}
+
+.arrowDown:hover {
+    transform-style: preserve-3d;
+    transform: scale(1.1);
+    transition: all ease 0.3s;
+}
+
+.arrowUp:hover {
+    transform-style: preserve-3d;
+    transform: scale(1.1);
+    transition: all ease 0.3s;
+}
+
+.artBox:hover {
+    outline: 3px solid rgb(43, 174, 226);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(43, 174, 226, 0.19);
+    background-color: #ddd;
+    transform-style: preserve-3d;
+    transform: scale(1.1);
+    transition: all ease 0.3s;
+    z-index: 100;
+}
+
+@media only screen and (max-width: 700px){
+
+    .artBox:hover {
+        transform:none;
+    }
+
+    .artBox img {
+        display: block;
+        width: 300px;
+        height: auto;
+    }
+
+}

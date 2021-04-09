@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Control\quotes.txt" />
     <Content Include="AuthorLogin.aspx" />
     <Content Include="Author_Logged\addArtDetail.aspx" />
     <Content Include="App_Data\Assignment.mdf" />
@@ -85,16 +86,25 @@
     <Content Include="Customer_gallery_view.aspx" />
     <Content Include="Customer_Logged\Customer_Order.aspx" />
     <Content Include="Customer_Logged\Favo_Art.aspx" />
-    <Content Include="Img\1.jpg" />
+    <Content Include="Email_Template\Checkout.html" />
+    <Content Include="Error.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Img\androidparty.png" />
     <Content Include="Img\Art\A-TEST.jpg" />
     <Content Include="Img\Art\B-TEST.jpg" />
     <Content Include="Img\Art\C-TEST.jpg" />
     <Content Include="Img\Art\D-TEST.jpg" />
     <Content Include="Img\Art\E-TEST.jpg" />
+    <Content Include="Img\Art\NewArtA.jpg" />
+    <Content Include="Img\Art\NewArtB.jpg" />
+    <Content Include="Img\Art\NewArtC.jpg" />
+    <Content Include="Img\Art\NewArtD.jpg" />
+    <Content Include="Img\Art\NewArtE.jpg" />
+    <Content Include="Img\Art\TestUp.jpg" />
     <Content Include="Img\Icon\add_shopping_cart-24px.svg" />
     <Content Include="Img\Icon\arrow_down.svg" />
     <Content Include="Img\Icon\arrow_up.svg" />
+    <Content Include="Img\Icon\favorited.svg" />
     <Content Include="Img\Icon\favorite_border-24px.svg" />
     <Content Include="AuthorInfoReg.aspx" />
     <Content Include="Login.aspx" />
@@ -104,8 +114,8 @@
     <Content Include="Master_Page\Layout.js" />
     <Content Include="Master_Page\logo-social.png" />
     <Content Include="Master_Page\Layout.css" />
-    <Content Include="StyleSheet\Profile1.css" />
     <Content Include="Web.config" />
+    <Content Include="Control\welMsg.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthorLogin.aspx.cs">
@@ -213,6 +223,16 @@
     <Compile Include="Customer_Logged\Favo_Art.aspx.designer.cs">
       <DependentUpon>Favo_Art.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,6 +282,13 @@
     </Compile>
     <Compile Include="Customer_Logged\ShopingCart.aspx.designer.cs">
       <DependentUpon>ShopingCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Control\welMsg.ascx.cs">
+      <DependentUpon>welMsg.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Control\welMsg.ascx.designer.cs">
+      <DependentUpon>welMsg.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

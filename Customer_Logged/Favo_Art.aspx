@@ -21,7 +21,14 @@
             height:200px;
             margin:25px 25px;
             overflow:hidden;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(43, 174, 226, 0.19);
         }
+
+        .ImgBox:hover{
+            transform:scale(1.05)
+
+        }
+
         .FavoImg{
             display:block;
             width:auto;

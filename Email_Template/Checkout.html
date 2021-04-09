@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #container
+        {
+            width:80%;
+            margin:0 auto;
+        }
+        #logo
+        {
+            display:block;
+            width:300px;
+            height:auto;
+            margin:0 auto;
+        }
+        #OdetailTable {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 600px;
+            font-size: 12px;
+        }
+        #headerRow {
+            border: 1px solid black;
+        }
+        #itemRow {
+            border: 1px solid black;
+        }
+        .Art_col {
+            border: 1px solid black;
+            width: 40%
+        }
+        .Qty_col {
+            border: 1px solid black;
+            width: 20%;
+        }
+        .Up_col {
+            border: 1px solid black;
+            width: 20%;
+        }
+        .Total_col {
+            border: 1px solid black;
+            width: 20%;
+        }
+        #totalRow
+        {
+            text-align:center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <Img id="logo" src="[ImageSrc]" />
+        <h1>Logo</h1>
+        <h2>
+            HI, [ReceiverName]. Thank you for your payment. We've received your payment for your order [orderNo].
+            Your order has placed successfully.
+        </h2>
+
+        <table id="OdetailTable">
+            <tr id="headerRow">
+                <td class="Art_col">Art</td>
+                <td class="Qty_col">Qty</td>
+                <td class="Up_col">Unit Price</td>
+                <td class="Total_col"> Sub Total</td>
+            </tr>
+            [DetailTable]
+            <tr>
+                <td colspan="4" id="totalRow">Total Amount Paid: RM[TotalAmt]</td>
+            </tr>
+        </table>
+           
+
+            <p>Payment Date: [Date] -[Type]</p>
+            <p>Total Payment Amount: RM [Price]</p>
+
+            <h3>Thank You !</h3>
+</div>
+</body>
+</html>
+
+

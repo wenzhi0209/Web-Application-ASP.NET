@@ -33,10 +33,22 @@ namespace Assignment_Template
                     PageCount = PageCount + 1;
                 }
                 getData();
+
+                if(User.Identity.IsAuthenticated)
+                {
+                    string userName = User.Identity.Name.ToString();
+                    Session["Username"] = userName;
+                    welMsg.Visible = true;
+                }
+                else
+                {
+                    welMsg.Visible = false;
+                }
             }
            
 
         }
+
 
 
         protected void getData()
@@ -81,13 +93,7 @@ namespace Assignment_Template
 
         protected void generateContainer(string id,string imgPath, string artTitle, string price,string author)
         {
-            //removed
-            /*
-             * "<div class=\"buttonCon\">" +
-               "<div class=\"ctrlBtn\"><img src = \"Img/Icon/favorite_border-24px.svg\"/></div>" +
-               "<div class=\"ctrlBtn\"><img src = \"Img/Icon/add_shopping_cart-24px.svg\" /></div>" +
-               "</div>" +
-             */
+          
             string imgurl = ResolveClientUrl(imgPath);
             string testdiv =
                "<a href=\"Art_detail.aspx?para=" + id + "\">" +

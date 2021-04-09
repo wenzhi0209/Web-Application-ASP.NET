@@ -4,28 +4,30 @@
     <title></title>
     <style>
         h1 {text-align: center;}
-        #OrderTable{
+        .OrderTable{
             width:90%;
             border-collapse:collapse;
             border:2px black solid;
             margin:0 auto;
             text-align:center;
             min-width:540px;
-        }
-        #HeaderRow{
-            border:2px black solid;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(43, 174, 226, 0.19);
         }
         .No_row{
             width:20%;
+            padding: 5px 0px;
         }
         .DateTime_row{
             width:30%;
+            padding: 5px 0px;
         }
         .Status_row{
             width:20%;
+            padding: 5px 0px;
         }
         .Operate_row{
             width:30%;
+            padding: 5px 0px;
         }
         </style>
     </asp:Content>
@@ -35,36 +37,19 @@
         <div>
             <h1>Your Orders</h1>
 
-            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
-                <HeaderTemplate>
-                    <table id="OrderTable">
-                        <tr id="HeaderRow">
-                            <th class="No_row">Order No</th>
-                            <th class="DateTime_row">OrderDateTime</th>
-                            <th class="Status_row">Order Status</th>
-                            <th class="Operate_row">Operation</th>
-                        </tr>
-                </HeaderTemplate>
-
-                <ItemTemplate>
-                    <tr>
-                        <td class="No_row"><%# Eval("art_Order_Id").ToString()%></td>
-                        <td class="DateTime_row"><%# Eval("order_DateTime").ToString()%></td>
-                        <td class="Status_row"><%# Eval("order_status").ToString()%></td>
-                        <td class="Operate_row"><asp:HyperLink ID="OdetailLink" runat="server" NavigateUrl='<%# "~/Customer_Logged/orderDetails.aspx?para="+Eval("art_Order_Id").ToString()%>'>View This Order</asp:HyperLink></td>
-                    </tr>
-                </ItemTemplate>
-                
-                <FooterTemplate>
-                    </table>
-                </FooterTemplate>
-            </asp:Repeater>
-            <asp:Button ID="Button1" runat="server" Text="Button" />
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="art_Order_Id" DataSourceID="SqlDataSource1" CssClass="OrderTable">
+                <Columns>
+                    <asp:BoundField DataField="art_Order_Id" HeaderText="Order ID" InsertVisible="False" ReadOnly="True" SortExpression="art_Order_Id" ItemStyle-CssClass="No_row" HeaderStyle-CssClass="No_row" />
+                    <asp:BoundField DataField="order_DateTime" HeaderText="Order DateTime" SortExpression="order_DateTime" ItemStyle-CssClass="DateTime_row" HeaderStyle-CssClass="DateTime_row"/>
+                    <asp:BoundField DataField="order_status" HeaderText="Order status" SortExpression="order_status" ItemStyle-CssClass="Status_row" HeaderStyle-CssClass="Status_row"/>
+                    <asp:HyperLinkField DataNavigateUrlFields="art_Order_Id" DataNavigateUrlFormatString="~/Customer_Logged/orderDetails.aspx?para={0}" HeaderText="Operation" Text="View this order" ItemStyle-CssClass="Operate_row" HeaderStyle-CssClass="Operate_row" />
+                </Columns>
+            </asp:GridView>
            
         </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-        SelectCommand="SELECT [art_Order_Id], [cust_Id], [order_DateTime], [order_status] FROM [Art_Order] WHERE ([cust_Id] = @cust_Id)"
+        SelectCommand="SELECT [art_Order_Id], [cust_Id], [order_DateTime], [order_status] FROM [Art_Order] WHERE ([cust_Id] = @cust_Id) ORDER BY [art_Order_Id] DESC"
         >
         <SelectParameters>
             <asp:SessionParameter Name="cust_Id" SessionField="CustId" Type="Int32" />
