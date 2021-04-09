@@ -18,6 +18,9 @@
             width:80%;
             margin:0 auto;
         }
+    .auto-style1 {
+        height: 33px;
+    }
     </style>
 
 
@@ -31,9 +34,10 @@
             <div id="sample">
                 <table class="loginBox">
                     <tr>
-                        <td class="auto-style3">Current password</td>
-                        <td>
+                        <td class="auto-style1">Current password</td>
+                        <td class="auto-style1">
                             <asp:TextBox ID="Oldpass" runat="server" TextMode="Password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="Oldpass">*</asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -44,6 +48,7 @@
                         <td class="auto-style4">New password</td>
                         <td class="auto-style1">
                             <asp:TextBox ID="NewPass" runat="server" TextMode="Password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="NewPass">*</asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -54,6 +59,8 @@
                         <td class="auto-style4">Confirm New Password</td>
                         <td class="auto-style1">
                             <asp:TextBox ID="TextBox3" runat="server" TextMode="Password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox3">*</asp:RequiredFieldValidator>
+                            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="NewPass" ControlToValidate="TextBox3" ErrorMessage="CompareValidator">*</asp:CompareValidator>
                         </td>
                     </tr>
                     <tr>
@@ -62,7 +69,7 @@
                     </tr>
                     <tr>
                         <td class="auto-style4">
-                            <asp:Button ID="Button1" runat="server" PostBackUrl="~/artistProfileInfo.aspx" Text="Update" />
+                            <asp:Button ID="UpdateBtn" runat="server" PostBackUrl="~/Author_Logged/artistProfileInfo.aspx" Text="Update" OnClick="UpdateBtn_Click" />
                         </td>
                         <td class="auto-style1">&nbsp;</td>
                     </tr>

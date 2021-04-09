@@ -25,6 +25,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <!-- Contain -->
         <div>
+            
             <h1>Author Register</h1>
         
 

@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <td>Date of Birth :</td>
-                        <td><asp:TextBox ID="DobBox" runat="server" TextMode="Date" ReadOnly="True"></asp:TextBox></td>
+                        <td><asp:TextBox ID="DobBox" runat="server" TextMode="Date" ReadOnly="True">09/02/1000</asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>Phone No. :</td>
@@ -39,7 +39,7 @@
                     </tr>
                     <tr>
                         <td>Email :</td>
-                        <td><asp:TextBox ID="EmailBox" runat="server"  ReadOnly="True"></asp:TextBox></td>
+                        <td><asp:TextBox ID="EmailBox" runat="server"  ReadOnly="True">wenzhi5168@gmail.com</asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>Address :</td>
@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="Edit" runat="server" Text="Edit" />
+                            <asp:Button ID="Edit" runat="server" Text="Save" />
                         </td>
                     </tr>
                 </table>
