@@ -18,7 +18,7 @@ namespace Assignment_Template.Customer_Logged
             if (!IsPostBack)
             {
 
-                if (Session["UserId"] == null)
+                if (Session["UserId"] == null || Session["CustId"]== null)
                 {
                     userName = User.Identity.Name.ToString();
                     Session["Username"] = userName;
@@ -43,6 +43,7 @@ namespace Assignment_Template.Customer_Logged
                     connDb.Close();
                 }
 
+                //SqlDataSource1.SelectParameters["cust_Id"].DefaultValue = Session["CustId"].ToString();
             }
         }
     }
