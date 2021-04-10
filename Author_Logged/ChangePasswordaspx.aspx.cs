@@ -19,11 +19,11 @@ namespace Assignment_Template
         string strConn = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString + ";integrated security = true; MultipleActiveResultSets = true";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) 
+            if (!IsPostBack)
             {
                 userName = User.Identity.Name.ToString();
                 SqlConnection connDb;
-                
+
                 connDb = new SqlConnection(strConn);
 
                 connDb.Open();
@@ -58,21 +58,21 @@ namespace Assignment_Template
             {
                 currPass.ErrorMessage = "invalid old password";
             }
-            else 
+            else
             {
                 if (NewPass.Text == "")
                 {
                     reqNew.ErrorMessage = "new password required";
                 }
-                else 
+                else
                 {
-                    if (TextBox3.Text == "") 
+                    if (TextBox3.Text == "")
                     {
                         cmp.ErrorMessage = "comfirm password is required";
                     }
                 }
             }
-            if (check2 == -1) 
+            if (check2 == -1)
             {
                 reqSame.ErrorMessage = "password are not same";
             }

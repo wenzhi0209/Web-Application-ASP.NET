@@ -79,6 +79,7 @@ namespace Assignment_Template
             sqlcon.Open();
             com.ExecuteNonQuery();
             sqlcon.Close();
+
         }
 
 
