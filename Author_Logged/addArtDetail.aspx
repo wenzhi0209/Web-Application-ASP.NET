@@ -53,7 +53,9 @@
                 <td>
                     <asp:TextBox ID="txtArtName" runat="server" Width="250px" Height="25px"></asp:TextBox>
                 </td>
-                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtArtName" Display="Dynamic" ErrorMessage="required field" ForeColor="Red" Font-Size="10px"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style1">&nbsp;</td>
@@ -61,15 +63,20 @@
                 <td>
                     <asp:TextBox ID="txtAuthorID" runat="server" Width="250px" Height="25px"></asp:TextBox>
                 </td>
-                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtAuthorID" Display="Dynamic" ErrorMessage="required field" ForeColor="Red" Font-Size="10px"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
-                <td class="auto-style1">&nbsp;</td>
-                <td>Price(RM): </td>
-                <td>
+                <td class="auto-style2"></td>
+                <td class="auto-style3">Price(RM): </td>
+                <td class="auto-style3">
                     <asp:TextBox ID="txtPrice" runat="server" TextMode="Number" Width="100px" Height="25px"></asp:TextBox>
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="price is less than 0" ForeColor="Red" Font-Size="12px" MaximumValue="10000" MinimumValue="1"></asp:RangeValidator>
                 </td>
-                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style2">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="required field" ForeColor="Red" Font-Size="10px"></asp:RequiredFieldValidator>
+                    </td>
             </tr>
             <tr>
                 <td class="auto-style1">&nbsp;</td>
@@ -86,6 +93,7 @@
                         <WeekendDayStyle BackColor="#eadefa" />
                     </asp:Calendar>
                     <asp:TextBox ID="txtDate" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtDate" Display="Dynamic" ErrorMessage="required field" ForeColor="Red" Font-Size="10px"></asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style1">&nbsp;</td>
             </tr>
@@ -95,7 +103,9 @@
                 <td>
                     <asp:FileUpload ID="fuImg" runat="server" Width="250px" Height="25px"/>
                 </td>
-                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="fuImg" Display="Dynamic" ErrorMessage="required field" ForeColor="Red" Font-Size="10px"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style1">&nbsp;</td>
@@ -103,7 +113,9 @@
                 <td>
                     <asp:TextBox ID="txtDesc" runat="server" Width="250px" Height="50px"></asp:TextBox>
                 </td>
-                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style1">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtDesc" Display="Dynamic" ErrorMessage="required field" ForeColor="Red" Font-Size="10px"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style1">&nbsp;</td>
@@ -115,8 +127,7 @@
             <tr>
                 <td class="auto-style1">&nbsp;</td>
                 <td colspan="2">
-                    <asp:Label runat="server" ID="lblAddSuccess"></asp:Label>
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style1">&nbsp;</td>
             </tr>
 
