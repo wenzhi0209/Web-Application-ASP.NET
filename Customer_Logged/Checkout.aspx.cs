@@ -270,6 +270,8 @@ namespace Assignment_Template
             }
             catch (Exception ex)
             {
+                string errorMsg = ex.ToString();
+                Response.Write("<script type=\"text/javascript\">alert(\"The Email Send Failed\");</script>");
                 return;
             }
         }
