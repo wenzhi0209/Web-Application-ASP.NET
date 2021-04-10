@@ -1,8 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Master_Page/Author_Logged.Master" AutoEventWireup="true" CodeBehind="artistProfileInfo.aspx.cs" Inherits="Assignment_Template.artistProfileInfo" %>
 
-
-
-
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title>Gallery View</title>
     <link href="../StyleSheet/Profile1.css" rel="stylesheet" />
