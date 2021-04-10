@@ -107,8 +107,8 @@ namespace Assignment_Template
 
         protected void PayBtn_Click(object sender, EventArgs e)
         {
-            PayBtn.Enabled = false;
             PayBtn.Visible = false;
+            PayBtn.Enabled = false;
             //if got product then allow pay
             if (Repeater1.Items.Count > 0)
             {
