@@ -37,6 +37,7 @@ namespace Assignment_Template
                 cmd = new SqlCommand(getAutId, connDb);
                 cmd.Parameters.AddWithValue("@UserId", userId);
                 AutId = cmd.ExecuteScalar().ToString();
+                connDb.Close();
             }
         }
 

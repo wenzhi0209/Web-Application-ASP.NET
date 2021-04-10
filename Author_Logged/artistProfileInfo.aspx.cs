@@ -49,7 +49,7 @@ namespace Assignment_Template
             Addresss = cmd.ExecuteScalar().ToString();
             pAddress.Text = Addresss;
 
-
+            connDb.Close();
 
 
         }
