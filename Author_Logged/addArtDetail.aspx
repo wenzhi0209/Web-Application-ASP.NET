@@ -72,7 +72,7 @@
                 <td class="auto-style3">Price(RM): </td>
                 <td class="auto-style3">
                     <asp:TextBox ID="txtPrice" runat="server" TextMode="Number" Width="100px" Height="25px"></asp:TextBox>
-                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="price is less than 0" ForeColor="Red" Font-Size="12px" MaximumValue="10000" MinimumValue="1"></asp:RangeValidator>
+                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="price is less than 0" ForeColor="Red" Font-Size="12px" MaximumValue="10000" MinimumValue="0" SetFocusOnError="True" Type="Integer"></asp:RangeValidator>
                 </td>
                 <td class="auto-style2">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPrice" Display="Dynamic" ErrorMessage="required field" ForeColor="Red" Font-Size="10px"></asp:RequiredFieldValidator>
