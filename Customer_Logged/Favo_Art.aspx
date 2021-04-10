@@ -68,7 +68,7 @@
         SelectCommand="SELECT Art.art_Img, Art.art_Title, Art.art_Id FROM Favo_Art INNER JOIN Art ON Favo_Art.art_Id = Art.art_Id WHERE (Favo_Art.cust_Id = @cust_Id)"
         >
         <SelectParameters>
-            <asp:Parameter Name="cust_Id" Type="Int32" />
+            <asp:SessionParameter Name="cust_Id" SessionField="CustId" Type="Int32" />
         </SelectParameters>
         </asp:SqlDataSource>
 </asp:Content>

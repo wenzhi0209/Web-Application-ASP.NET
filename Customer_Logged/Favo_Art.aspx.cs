@@ -43,7 +43,7 @@ namespace Assignment_Template.Customer_Logged
                     connDb.Close();
                 }
 
-                SqlDataSource1.SelectParameters["cust_Id"].DefaultValue = Session["CustId"].ToString();
+                //SqlDataSource1.SelectParameters["cust_Id"].DefaultValue = Session["CustId"].ToString();
             }
         }
     }
