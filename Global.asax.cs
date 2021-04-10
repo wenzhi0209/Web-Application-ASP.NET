@@ -32,9 +32,9 @@ namespace Assignment_Template
 
         protected void Application_Error(object sender, EventArgs e)
         {
-            Exception ex = Server.GetLastError();
-            Server.ClearError();
-            Response.Redirect("~/Error.aspx");
+            //Exception ex = Server.GetLastError();
+            //Server.ClearError();
+            //Response.Redirect("~/Error.aspx");
 
         }
 
