@@ -24,13 +24,13 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox Oldpass;
 
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// currPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator currPass;
 
         /// <summary>
         /// NewPass control.
@@ -42,13 +42,13 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox NewPass;
 
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// reqNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqNew;
 
         /// <summary>
         /// TextBox3 control.
@@ -60,22 +60,31 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox TextBox3;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// reqSame control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqSame;
 
         /// <summary>
-        /// CompareValidator1 control.
+        /// cmp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        protected global::System.Web.UI.WebControls.CustomValidator cmp;
+
+        /// <summary>
+        /// passwordVad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary passwordVad;
 
         /// <summary>
         /// UpdateBtn control.

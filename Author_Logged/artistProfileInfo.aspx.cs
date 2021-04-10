@@ -60,12 +60,7 @@ namespace Assignment_Template
             PPupload.SaveAs(Server.MapPath("~/ProfilePicture/") + Path.GetFileName(PPupload.FileName));
             String link = "Img/" + Path.GetFileName(PPupload.FileName);
 
-            string ins = "update into [Author](author_name,date_of_birth,type_of_art,phone,address,city,postal,state) values('" + pName.Text + "','" + pName.Text + "'," +
-              "'" + pDOB.Text + "','" + pTOA.Text + "','" + pPhone.Text + "','" + pAddress.Text + "','" + pPostal.Text + "','" + ApState.Text + "',)";
-            SqlCommand com = new SqlCommand(ins, sqlcon);
-            sqlcon.Open();
-            com.ExecuteNonQuery();
-            sqlcon.Close();
+
 
         }
 
@@ -76,7 +71,14 @@ namespace Assignment_Template
 
         protected void updateBtn_Click(object sender, EventArgs e)
         {
-
+            //update
+            SqlConnection sqlcon = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Assignment.mdf;Integrated Security=True");
+            string ins = "update  [Author] set '" + pName.Text + "'," +
+            "'" + pDOB.Text + "','" + pPhone.Text + "','" + pAddress.Text + "' where author_Id= 3";
+            SqlCommand com = new SqlCommand(ins, sqlcon);
+            sqlcon.Open();
+            com.ExecuteNonQuery();
+            sqlcon.Close();
         }
 
 

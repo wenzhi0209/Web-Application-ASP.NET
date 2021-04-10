@@ -96,33 +96,6 @@ namespace Assignment_Template
         protected global::System.Web.UI.WebControls.TextBox pAddress;
 
         /// <summary>
-        /// pCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pCity;
-
-        /// <summary>
-        /// pPostal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox pPostal;
-
-        /// <summary>
-        /// ApState control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ApState;
-
-        /// <summary>
         /// updateBtn control.
         /// </summary>
         /// <remarks>

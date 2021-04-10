@@ -123,37 +123,6 @@
                         <td class="auto-style1">&nbsp;</td>
                     </tr>
                     <tr>
-                        <td class="auto-style2">City</td>
-                        <td class="auto-style3">
-                            <asp:TextBox ID="pCity" runat="server"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style1">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style4">Postal Code</td>
-                        <td class="auto-style1">
-                            <asp:TextBox ID="pPostal" runat="server" TextMode="Number"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style1">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">State</td>
-                     <td class="auto-style1">
-                         <asp:TextBox ID="ApState" runat="server" ></asp:TextBox>
-                    </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style1">&nbsp;</td>
-                    </tr>
-                    <tr>
                         <td class="auto-style2">&nbsp;</td>
                         <td class="auto-style1">
                             <asp:Button ID="updateBtn" runat="server" Text="Update" CssClass="pBtn" OnClick="updateBtn_Click" />
@@ -161,7 +130,7 @@
                     </tr>
                 </table>
             </div>
-        </div>
+     
     
 
     <!-- Contain -->

@@ -37,7 +37,7 @@
                         <td class="auto-style1">Current password</td>
                         <td class="auto-style1">
                             <asp:TextBox ID="Oldpass" runat="server" TextMode="Password"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="Oldpass">*</asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="currPass" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="Oldpass">*</asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -48,7 +48,7 @@
                         <td class="auto-style4">New password</td>
                         <td class="auto-style1">
                             <asp:TextBox ID="NewPass" runat="server" TextMode="Password"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="NewPass">*</asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator ID="reqNew" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="NewPass">*</asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
@@ -59,13 +59,15 @@
                         <td class="auto-style4">Confirm New Password</td>
                         <td class="auto-style1">
                             <asp:TextBox ID="TextBox3" runat="server" TextMode="Password"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox3">*</asp:RequiredFieldValidator>
-                            <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="NewPass" ControlToValidate="TextBox3" ErrorMessage="CompareValidator">*</asp:CompareValidator>
+                            <asp:RequiredFieldValidator ID="reqSame" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="TextBox3">*</asp:RequiredFieldValidator>
+                            <asp:CustomValidator ID="cmp" runat="server" ErrorMessage="CustomValidator">*</asp:CustomValidator>
                         </td>
                     </tr>
                     <tr>
                         <td class="auto-style4">&nbsp;</td>
-                        <td class="auto-style1">&nbsp;</td>
+                        <td class="auto-style1">
+                            <asp:ValidationSummary ID="passwordVad" runat="server" />
+                        </td>
                     </tr>
                     <tr>
                         <td class="auto-style4">
