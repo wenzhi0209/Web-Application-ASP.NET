@@ -38,7 +38,7 @@ namespace Assignment_Template
             //string loggedUsername = Session["UserName"] as string;
 
             string Phone = "Select [author_PhoneNo] from [Author] Where ([author_Id]= 3)";
-            cmd = new SqlCommand(Phone,connDb);
+            cmd = new SqlCommand(Phone, connDb);
             cmd.Parameters.AddWithValue("@phonenum", phoneNum);
             phoneNum = cmd.ExecuteScalar().ToString();
             pPhone.Text = phoneNum;
@@ -66,7 +66,7 @@ namespace Assignment_Template
 
         protected void pUser_TextChanged(object sender, EventArgs e)
         {
- 
+
         }
 
         protected void updateBtn_Click(object sender, EventArgs e)
@@ -79,7 +79,6 @@ namespace Assignment_Template
             sqlcon.Open();
             com.ExecuteNonQuery();
             sqlcon.Close();
-
         }
 
 
