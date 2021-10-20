@@ -14,7 +14,7 @@ namespace Assignment_Template
 {
     public partial class Customer_gallery_view : System.Web.UI.Page
     {
-        public static int page_size =5 ;
+        public static int page_size =6 ;
         public static int PageCount;
         public static int CurrentPage = 1;
         protected void Page_Load(object sender, EventArgs e)

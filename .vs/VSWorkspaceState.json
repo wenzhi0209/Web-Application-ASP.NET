@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Customer_Logged"
   ],
-  "SelectedNode": "\\Assignment Template.sln",
+  "SelectedNode": "\\Customer_Logged\\Checkout.aspx.cs",
   "PreviewInSolutionExplorer": false
 }
