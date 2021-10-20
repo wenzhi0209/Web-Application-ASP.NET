@@ -1,2 +1,2 @@
 # Assignment-Template
- Assignment template for WEB APPLICATION
+ Assignment for online art gallery system based on the ASP.NET.
